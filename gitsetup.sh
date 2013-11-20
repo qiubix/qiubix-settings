@@ -16,8 +16,9 @@ git config --global color.status auto
 git config --global color.branch auto
 git config --global color.ui true
 git config --global branch.autosetuprebase always
+git config --global merge.tool kdiff3
 
-ssh-keygen -t rsa -C "qiubix@gmail.com"
-cd ~/.ssh
-ssh-add id_rsa
-xclip -sel clip < ~/.ssh/id_rsa.pub
+#ssh-keygen -t rsa -C "qiubix@gmail.com"
+#cd ~/.ssh
+#ssh-add id_rsa
+#xclip -sel clip < ~/.ssh/id_rsa.pub

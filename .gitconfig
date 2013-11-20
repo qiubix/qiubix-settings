@@ -1,0 +1,16 @@
+[user]
+	name = qiubix
+	email = qiubix@gmail.com
+[merge]
+	tool = kdiff3
+[github]
+	user = qiubix
+[push]
+	default = matching
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[branch]
+	autosetuprebase = always
