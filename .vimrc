@@ -70,6 +70,7 @@ colorscheme solarized
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
 
 
 " Toggle Vexplore with Ctrl-E
@@ -99,3 +100,7 @@ let g:netrw_winsize = 20
 " " file with :vsplit to the right of the browser.
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
+
+" GitGutter config
+highlight clear SignColumn
+let g:gitgutter_highlight_lines = 1
