@@ -31,10 +31,14 @@ nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 
 " key mappings 
-set timeout timeoutlen=150
+set timeout timeoutlen=200
 
+" mapping ESC to more convinient location
 inoremap jk 	<Esc>
 inoremap jj		<Esc>A;<Esc>
+
+" moving around the file
+nnoremap <Space> <PageDown>
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
@@ -53,6 +57,12 @@ nnoremap <C-l> <C-w>l
 " new split placing
 set splitbelow
 set splitright
+
+"==== Swap v and CTRL-V ======
+nnoremap    v   <C-V>
+nnoremap <C-V>     v
+vnoremap    v   <C-V>
+vnoremap <C-V>     v
 
 
 execute pathogen#infect()
@@ -92,7 +102,10 @@ function! ToggleVExplorer()
 		let t:expl_buf_num = bufnr("%")
 	endif
 endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+
+" mapping Vexplore toggle with Ctrl-E. 
+" IMPORTANT: semicolon is needed to call function because of colon-semicolon remapping
+map <silent> <C-E> ;call ToggleVExplorer()<CR>
 
 let g:netrw_winsize = 20
 
@@ -104,3 +117,22 @@ let g:netrw_altv = 1
 " GitGutter config
 highlight clear SignColumn
 let g:gitgutter_highlight_lines = 1
+
+" ====== Enable dragging whole selection through text ======
+runtime plugin/dragvisuals.vim                             
+                                                           
+vmap  <expr>  <LEFT>   DVB_Drag('left')                    
+vmap  <expr>  <RIGHT>  DVB_Drag('right')                   
+vmap  <expr>  <DOWN>   DVB_Drag('down')                    
+vmap  <expr>  <UP>     DVB_Drag('up')                      
+vmap  <expr>  D        DVB_Duplicate()                     
+                                                           
+" Remove any introduced trailing whitespace after moving...
+let g:DVB_TrimWS = 1                                       
+
+
+
+"======== forget about SHIFT entering COMMAND mode ======== 
+nnoremap ; :
+nnoremap : ;
+
