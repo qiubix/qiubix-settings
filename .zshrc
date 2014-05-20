@@ -5,10 +5,10 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 #ZSH_THEME="bira"
 #ZSH_THEME="gnzh"
-#ZSH_THEME="qiubix"
+ZSH_THEME="qiubix"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -49,13 +49,17 @@ HISTCONTROL=ignoredubs:ignorespace
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
+plugins=(git vi-mode git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$HOME/Qt5.1.1:$HOME/Qt5.1.1/5.1.1/gcc_64/lib/cmake:$HOME/gmock1.7.0
+export GMOCK_ROOT=$HOME/gmock-1.7.0
+export GMOCK_HOME=$HOME/gmock-1.7.0
+export GTEST_ROOT=$GMOCK_ROOT/gtest
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -71,15 +75,21 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# DisCODe installation
 export DISCODE_DCL_DIR=/home/qiubix/DCL
 export PATH=$PATH:/home/qiubix/DisCODe/build/inst/bin
 
 # ==================================================
 # ALIASES
 # ==================================================
+alias ls='ls --color=auto'
 alias rm='rm -vI'
-alias mv='mv -vI'
+alias mv='mv -vi'
 alias mkdir='mkdir -v'
 alias list='ls -lhgop'
+alias grep='grep -rni'
 
+alias off='sudo shutdown -h now'
+alias reboot='sudo reboot'
 
+bindkey -M viins 'jk' vi-cmd-mode
