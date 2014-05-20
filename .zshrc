@@ -79,6 +79,11 @@ export GTEST_ROOT=$GMOCK_ROOT/gtest
 export DISCODE_DCL_DIR=/home/qiubix/DCL
 export PATH=$PATH:/home/qiubix/DisCODe/build/inst/bin
 
+# ns2 installation
+export PATH=$PATH:/home/qiubix/ns-allinone-2.35/bin:/home/qiubix/ns-allinone-2.35/tcl8.5.10/unix:/home/qiubix/ns-allinone-2.35/tk8.5.10/unix
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/qiubix/ns-allinone-2.35/otcl-1.14:/home/qiubix/ns-allinone-2.35/lib
+export TCL_LIBRARY=$TCL_LIBRARY:/home/qiubix/ns-allinone-2.35/tcl8.5.10/library
+
 # ==================================================
 # ALIASES
 # ==================================================
