@@ -23,8 +23,9 @@ set copyindent			"copy with existing indentation
 set smarttab				"insert tabs on the start of the line according to shiftwidth
 
 " searching
-set ignorecase			"ignore case while searching
-set smartcase				"don't ignore case when seach uses capitals
+set incsearch				" move cursor to next occurence while typing
+set ignorecase			" ignore case while searching
+set smartcase				" don't ignore case when seach uses capitals
 set nohlsearch			" turn off highlight searches, but:
 										" Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
