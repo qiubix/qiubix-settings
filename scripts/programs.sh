@@ -28,3 +28,10 @@ sudo apt-get install wireshark
 sudo apt-get install libxss1
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
+
+# install zsh shell and copy shell settings
+sudo apt-get install zsh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/qiubix-settings/.zshrc ~/.zshrc
+chsh -s /bin/zsh
+cp ~/qiubix-settings/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
