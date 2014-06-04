@@ -9,7 +9,7 @@ sudo add-apt-repository ppa:noobslab/apps
 sudo apt-get update
 
 #install faenza icons
-sudo apt-get install faenza-icon-theme
+sudo apt-get install faenza-icon-theme dconf-cli
 
 #install mac os lion theme and icons
 sudo apt-get install mac-os-lion-icons-v2
@@ -27,3 +27,9 @@ sudo apt-get install indicator-synapse
 
 # download solarized theme
 git clone git://github.com/altercation/solarized.git ~/solarized
+
+#install solarized for gnome-terminal
+cd ~
+git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+cd gnome-terminal-colors-solarized
+./install.sh
