@@ -24,3 +24,6 @@ git clone git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutte
 
 # ========== fugitive ==========
 git clone git://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+
+# ========== solarized color theme ==========
+git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
