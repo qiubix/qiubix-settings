@@ -24,3 +24,6 @@ sudo ./install-mac-cursors.sh
 
 #Mac spotlight-like search, synapse
 sudo apt-get install indicator-synapse
+
+# download solarized theme
+git clone git://github.com/altercation/solarized.git ~/solarized
