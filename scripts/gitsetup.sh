@@ -3,7 +3,7 @@
 #installing and setting up git
 
 sudo apt-get update
-sudo apt-get install git git-core xclip
+sudo apt-get install git git-core xclip gitk gitg
 
 git config --global user.name qiubix
 git config --global user.email qiubix@gmail.com
