@@ -3,9 +3,7 @@
 #installing and setting up git
 
 sudo apt-get update
-sudo apt-get install git
-sudo apt-get install git-core
-sudo apt-get install xclip
+sudo apt-get install git git-core xclip
 
 git config --global user.name qiubix
 git config --global user.email qiubix@gmail.com
@@ -17,8 +15,14 @@ git config --global color.branch auto
 git config --global color.ui true
 git config --global branch.autosetuprebase always
 git config --global merge.tool kdiff3
+git config --global core.editor vim
 
-#ssh-keygen -t rsa -C "qiubix@gmail.com"
-#cd ~/.ssh
-#ssh-add id_rsa
-#xclip -sel clip < ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -C "qiubix@gmail.com"
+cd ~/.ssh
+ssh-add id_rsa
+xclip -sel clip < ~/.ssh/id_rsa.pub
+
+
+echo '===============================================
+SSH Key generated and copied to clipboard.
+Add it in your account settings on github and bitbucket.'
