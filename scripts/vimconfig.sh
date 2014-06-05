@@ -3,7 +3,7 @@
 clear
 
 # ========== install vim ==========
-sudo apt-get install vim
+sudo apt-get install vim curl
 
 # ========== copy vim settings from settings repo ==========
 cp ~/qiubix-settings/.vimrc ~
