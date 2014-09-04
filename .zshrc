@@ -84,6 +84,12 @@ export PATH=$PATH:/home/qiubix/ns-allinone-2.35/bin:/home/qiubix/ns-allinone-2.3
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/qiubix/ns-allinone-2.35/otcl-1.14:/home/qiubix/ns-allinone-2.35/lib
 export TCL_LIBRARY=$TCL_LIBRARY:/home/qiubix/ns-allinone-2.35/tcl8.5.10/library
 
+# obsolete kernel removal commands
+# alias kernels = 'dpkg --list | grep linux-image'
+# sudo apt-get purge linux-image-x.x.x.x-generic
+# sudo update-grub2
+# reboot
+
 # ==================================================
 # ALIASES
 # ==================================================
