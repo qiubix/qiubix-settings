@@ -21,6 +21,7 @@ set shiftwidth=2		"indent size
 set autoindent			"automaticaly indent
 set copyindent			"copy with existing indentation
 set smarttab				"insert tabs on the start of the line according to shiftwidth
+set expandtab
 
 " searching
 set incsearch				" move cursor to next occurence while typing
@@ -43,8 +44,8 @@ nnoremap <Space> <PageDown>
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
 nnoremap tl :tablast<CR>
 nnoremap tt :tabedit<Space>
 nnoremap tn :tabnew<CR>
