@@ -7,8 +7,8 @@ clear
 #ubuntu tweak tool
 sudo add-apt-repository ppa:tualatrix/ppa
 
-sudo echo "deb http://repository.spotify.com stable non-free " >> /etc/apt/sources.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
+sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" 
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59 
 
 # ======== update repository list ==============
 sudo apt-get update
@@ -23,10 +23,14 @@ sudo apt-get install skype
 sudo apt-get install ubuntu-tweak
 sudo apt-get install wireshark
 
+# ======== installing useful tools ==================
+sudo apt-get install tree p7zip-full p7zip-rar 
+
 # install chrome
 sudo apt-get install libxss1
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome*.deb
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo dpkg -i google-chrome*.deb
+sudo apt-get install google-chrome-stable
 
 # install zsh shell and copy shell settings
 sudo apt-get install zsh
