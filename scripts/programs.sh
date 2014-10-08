@@ -24,7 +24,7 @@ sudo apt-get install ubuntu-tweak
 sudo apt-get install wireshark
 
 # ======== installing useful tools ==================
-sudo apt-get install tree p7zip-full p7zip-rar 
+sudo apt-get install tree p7zip-full p7zip-rar ncdu
 
 # install chrome
 sudo apt-get install libxss1
