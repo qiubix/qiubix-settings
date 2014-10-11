@@ -33,7 +33,7 @@ nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 
 " key mappings 
-set timeout timeoutlen=200
+set timeoutlen=200
 
 " mapping ESC to more convinient location
 inoremap jk 	<Esc>
