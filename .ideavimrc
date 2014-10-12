@@ -1,0 +1,74 @@
+" 256 colours
+set t_Co=256				
+
+" UTF-8 encoding
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+"disable compatibility with previous versions
+set nocompatible			
+
+set hidden					"hides buffers instead of closing them
+
+set number					"display line numbers
+set showmatch				"show matching parenthesis
+
+" wrapping and indentation
+set nowrap					"disable wrapping lines
+set tabstop=2				"tab size
+set shiftwidth=2		"indent size
+set autoindent			"automaticaly indent
+set copyindent			"copy with existing indentation
+set smarttab				"insert tabs on the start of the line according to shiftwidth
+set expandtab
+
+" searching
+set incsearch				" move cursor to next occurence while typing
+set ignorecase			" ignore case while searching
+set smartcase				" don't ignore case when seach uses capitals
+set nohlsearch			" turn off highlight searches, but:
+										" Turn hlsearch off/on with CTRL-N
+nnoremap <silent> <C-N> :se invhlsearch<CR>
+
+
+" key mappings 
+set timeout timeoutlen=200
+
+" mapping ESC to more convinient location
+inoremap jk 	<Esc>
+inoremap jj		<Esc>A;<Esc>
+
+" moving around the file
+nnoremap <Space> <PageDown>
+
+" moving arount tabs
+nnoremap th :tabfirst<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap tl :tablast<CR>
+nnoremap tt :tabedit<Space>
+nnoremap tn :tabnew<CR>
+
+" moving around splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" new split placing
+set splitbelow
+set splitright
+
+"==== Swap v and CTRL-V ======
+nnoremap    v   <C-V>
+nnoremap <C-V>     v
+vnoremap    v   <C-V>
+vnoremap <C-V>     v
+
+
+
+"======== forget about SHIFT entering COMMAND mode ======== 
+nnoremap ; :
+nnoremap : ;
+
