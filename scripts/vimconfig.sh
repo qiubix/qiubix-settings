@@ -1,20 +1,24 @@
 #!/bin/bash
 
 clear
+echo "Installing vim..."
 
 # ========== install vim ==========
 sudo apt-get install vim curl
 
 # ========== copy vim settings from settings repo ==========
+echo "Copying vim settings..."
 cp ~/qiubix-settings/.vimrc ~
 
 # ========== install pathogen ==========
+echo "Installing pathogen..."
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # ==========================================
 # ========== PLUGINS INSTALLATION ==========
 # ==========================================
+echo "Installing plugins..."
 
 # ========== airline ==========
 git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
