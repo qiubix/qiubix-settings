@@ -1,5 +1,5 @@
 " 256 colours
-set t_Co=256				
+set t_Co=256
 
 " UTF-8 encoding
 set enc=utf-8
@@ -7,7 +7,7 @@ set fenc=utf-8
 set termencoding=utf-8
 
 "disable compatibility with previous versions
-set nocompatible			
+set nocompatible
 
 set hidden					"hides buffers instead of closing them
 
@@ -32,7 +32,7 @@ set nohlsearch			" turn off highlight searches, but:
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 
-" key mappings 
+" key mappings
 set timeout timeoutlen=200
 
 " mapping ESC to more convinient location
@@ -105,7 +105,7 @@ function! ToggleVExplorer()
 	endif
 endfunction
 
-" mapping Vexplore toggle with Ctrl-E. 
+" mapping Vexplore toggle with Ctrl-E.
 " IMPORTANT: semicolon is needed to call function because of colon-semicolon remapping
 map <silent> <C-E> ;call ToggleVExplorer()<CR>
 
@@ -115,6 +115,8 @@ let g:netrw_winsize = 20
 " " file with :vsplit to the right of the browser.
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
+
+map <silent> <C-n> ;NERDTreeToggle<CR>
 
 " GitGutter config
 highlight clear SignColumn
@@ -132,11 +134,12 @@ let g:gitgutter_highlight_lines = 1
 " " Remove any introduced trailing whitespace after moving...
 " let g:DVB_TrimWS = 1
 
-"==== map switching between absolute and relative numbers ===== 
+"==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
+" nnoremap <F4> :NumbersOnOff<CR>
 
 
-"======== forget about SHIFT entering COMMAND mode ======== 
+"======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
 nnoremap : ;
 
