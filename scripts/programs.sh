@@ -13,15 +13,8 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
 # ======== update repository list ==============
 sudo apt-get update
 
-
 # ======== installing programs ==================
-
-sudo apt-get install vim
-sudo apt-get install terminator
-sudo apt-get install vlc
-sudo apt-get install skype
-sudo apt-get install ubuntu-tweak
-sudo apt-get install wireshark
+sudo apt-get install terminator vlc ubuntu-tweak wireshark
 
 # ======== installing useful tools ==================
 sudo apt-get install tree p7zip-full p7zip-rar ncdu
