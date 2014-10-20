@@ -26,7 +26,7 @@ if [ ! -d ~/.vim/bundle/vim-airline ]; then
 fi
 
 # ========== surround ==========
-if [ ! -d ~/.vim/bundle/vim-airline ]; then
+if [ ! -d ~/.vim/bundle/vim-surround ]; then
   git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
 fi
 
@@ -38,6 +38,16 @@ fi
 # ========== fugitive ==========
 if [ ! -d ~/.vim/bundle/vim-fugitive ]; then
   git clone git://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+fi
+
+# ========== CtrlP ==========
+if [ ! -d ~/.vim/bundle/ctrlp ]; then
+  git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp
+fi
+
+# ========== NERDTree ==========
+if [ ! -d ~/.vim/bundle/nerdtree ]; then
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 fi
 
 # ========== numbers ==========
