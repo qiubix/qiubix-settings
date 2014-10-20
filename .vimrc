@@ -60,6 +60,19 @@ nnoremap <C-l> <C-w>l
 set splitbelow
 set splitright
 
+augroup HelpInTabs
+  autocmd!
+  autocmd BufEnter *.txt call HelpInNewTab()
+augroup END
+
+"only apply to help files
+function! HelpInNewTab()
+  if &buftype == 'help'
+    " convert the help window to a tab
+    execute "normal \<C-W>T"
+  endif
+endfunction
+
 "==== Swap v and CTRL-V ======
 nnoremap    v   <C-V>
 nnoremap <C-V>     v
