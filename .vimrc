@@ -120,7 +120,7 @@ endfunction
 
 " mapping Vexplore toggle with Ctrl-E.
 " IMPORTANT: semicolon is needed to call function because of colon-semicolon remapping
-map <silent> <C-E> ;call ToggleVExplorer()<CR>
+" map <silent> <C-E> ;call ToggleVExplorer()<CR>
 
 let g:netrw_winsize = 20
 
@@ -129,7 +129,7 @@ let g:netrw_winsize = 20
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
-map <silent> <C-n> ;NERDTreeToggle<CR>
+map <silent> <C-E> ;NERDTreeToggle<CR>
 
 " GitGutter config
 highlight clear SignColumn
