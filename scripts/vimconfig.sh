@@ -8,7 +8,15 @@ sudo apt-get install vim curl
 
 # ========== copy vim settings from settings repo ==========
 echo "Copying vim settings..."
-cp ~/qiubix-settings/.vimrc ~
+if [ ! -f ~/.vimrc ]; then
+  ln -s ~/qiubix-settings/.vimrc ~/.vimrc
+fi
+if [ ! -f ~/.ideavimrc ]; then
+  ln -s ~/qiubix-settings/.ideavimrc ~/.ideavimrc
+fi
+if [ ! -f ~/.qtcreatorvimrc ]; then
+  ln -s ~/qiubix-settings/.qtcreatorvimrc ~/.qtcreatorvimrc
+fi
 
 # ========== install pathogen ==========
 echo "Installing pathogen..."
