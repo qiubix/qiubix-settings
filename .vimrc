@@ -10,6 +10,7 @@ set termencoding=utf-8
 set nocompatible
 
 set hidden					"hides buffers instead of closing them
+set noswapfile
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
