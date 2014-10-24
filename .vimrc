@@ -85,6 +85,9 @@ nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
+vnoremap < <gv
+vnoremap > >gv
+
 
 execute pathogen#infect()
 execute pathogen#helptags()
