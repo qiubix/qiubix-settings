@@ -30,6 +30,12 @@ set nohlsearch			" turn off highlight searches, but:
 										" Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
+" sane search - center cursor line
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+vnoremap <silent> n nzz
+vnoremap <silent> N Nzz
+
 
 " key mappings 
 set timeout timeoutlen=200
