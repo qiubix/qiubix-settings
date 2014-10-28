@@ -44,9 +44,6 @@ set timeout timeoutlen=200
 inoremap jk 	<Esc>
 inoremap jj		<Esc>A;<Esc>
 
-" moving around the file
-nnoremap <Space> <PageDown>
-
 " moving arount tabs
 nnoremap th :tabfirst<CR>
 nnoremap tk :tabnext<CR>

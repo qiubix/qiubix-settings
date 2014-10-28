@@ -1,5 +1,5 @@
 " 256 colours
-set t_Co=256
+set t_Co=256				
 
 " UTF-8 encoding
 set enc=utf-8
@@ -7,7 +7,7 @@ set fenc=utf-8
 set termencoding=utf-8
 
 "disable compatibility with previous versions
-set nocompatible
+set nocompatible			
 
 set hidden					"hides buffers instead of closing them
 set noswapfile
@@ -38,7 +38,7 @@ nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
-" key mappings
+" key mappings 
 set timeout timeoutlen=200
 
 " mapping ESC to more convinient location
@@ -85,9 +85,6 @@ nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
-vnoremap < <gv
-vnoremap > >gv
-
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -124,7 +121,14 @@ nnoremap <F3> :NumbersToggle<CR>
 " nnoremap <F4> :NumbersOnOff<CR>
 
 
-"======== forget about SHIFT entering COMMAND mode ========
+"======== forget about SHIFT entering COMMAND mode ======== 
 nnoremap ; :
 nnoremap : ;
 
+" if has('gui running')
+	set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
+" endif
+
+
+set vb 
+set t_vb=
