@@ -39,7 +39,7 @@ nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
-" key mappings
+" key mappings timeout
 set timeout timeoutlen=200
 
 " mapping ESC to more convinient location
@@ -48,6 +48,10 @@ inoremap jj		<Esc>A;<Esc>
 
 " moving around the file
 nnoremap <Space> <PageDown>
+
+" adding new line from normal mode
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
