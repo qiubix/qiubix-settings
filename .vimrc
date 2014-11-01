@@ -12,8 +12,10 @@ set nocompatible
 set hidden					"hides buffers instead of closing them
 set noswapfile
 
+" Ex commands settings
 set wildmenu
 set wildmode=full
+set history=200     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
@@ -26,7 +28,6 @@ set autoindent			"automaticaly indent
 set copyindent			"copy with existing indentation
 set smarttab				"insert tabs on the start of the line according to shiftwidth
 set expandtab
-set history=50
 
 " searching
 set incsearch				" move cursor to next occurence while typing
