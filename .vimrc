@@ -9,11 +9,12 @@ set termencoding=utf-8
 "disable compatibility with previous versions
 set nocompatible
 
+" buffer and files
 set hidden					"hides buffers instead of closing them
 set noswapfile
 
 " Ex commands settings
-set wildmenu
+set wildmenu        "zsh-like hints of commands
 set wildmode=full
 set history=200     "history size of Ex commands
 
@@ -27,7 +28,7 @@ set shiftwidth=2		"indent size
 set autoindent			"automaticaly indent
 set copyindent			"copy with existing indentation
 set smarttab				"insert tabs on the start of the line according to shiftwidth
-set expandtab
+set expandtab       "tabs replaced with multiple spaces
 
 " searching
 set incsearch				" move cursor to next occurence while typing
@@ -54,8 +55,8 @@ inoremap jj		<Esc>A;<Esc>
 nnoremap <Space> <PageDown>
 
 " adding new line from normal mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>
+" nmap <S-Enter> O<Esc>j
+" nmap <CR> o<Esc>
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
