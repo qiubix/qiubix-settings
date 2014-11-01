@@ -40,7 +40,8 @@ vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
 " key mappings 
-set timeoutlen=200
+" set timeout
+" set tm=200
 
 " mapping ESC to more convinient location
 inoremap jk 	<Esc>
