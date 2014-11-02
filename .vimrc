@@ -127,7 +127,8 @@ map <silent> <C-E> ;NERDTreeToggle<CR>
 
 " GitGutter config
 highlight clear SignColumn
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
+nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
