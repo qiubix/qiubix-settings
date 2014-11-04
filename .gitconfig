@@ -12,6 +12,11 @@
 	status = auto
 	branch = auto
 	ui = true
+  interactive = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
 [branch]
 	autosetuprebase = always
 [core]
