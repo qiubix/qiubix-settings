@@ -9,6 +9,11 @@ set termencoding=utf-8
 "disable compatibility with previous versions
 set nocompatible
 
+" Quickly edit/reload the vimrc file
+" WARNING - ;/: remapping forces to use ; instead of :
+nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
+nmap <silent> <leader>sv ;so $MYVIMRC<CR>
+
 " buffer and files
 set hidden					"hides buffers instead of closing them
 set noswapfile
