@@ -43,6 +43,9 @@ set nohlsearch			" turn off highlight searches, but:
 										" Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
+" highlight last inserted text
+nnoremap <leader>v `[<C-V>`]
+
 " sane search - center cursor line
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
