@@ -51,7 +51,7 @@ set timeout timeoutlen=200
 inoremap jk 	<Esc>
 inoremap jj		<Esc>A;<Esc>
 
-" moving around the file
+"==== moving around the file ====
 nnoremap <Space> <PageDown>
 
 " adding new line from normal mode
@@ -76,6 +76,7 @@ nnoremap <C-l> <C-w>l
 set splitbelow
 set splitright
 
+"==== Display help in new tab instead of split ====
 augroup HelpInTabs
   autocmd!
   autocmd BufEnter *.txt call HelpInNewTab()
@@ -98,7 +99,7 @@ vnoremap <C-V>     v
 vnoremap < <gv
 vnoremap > >gv
 
-
+"==== plugin configuration ====
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -119,7 +120,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:netrw_winsize = 20
 
 " Hit enter in the file browser to open the selected
-" " file with :vsplit to the right of the browser.
+" file with :vsplit to the right of the browser.
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
@@ -132,8 +133,6 @@ nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
-" nnoremap <F4> :NumbersOnOff<CR>
-
 
 "======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
