@@ -25,7 +25,7 @@ set magic           "for regular expressions
 " Ex commands settings
 set wildmenu        "zsh-like hints of commands
 set wildmode=full
-set history=200     "history size of Ex commands
+set history=1000     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
@@ -136,6 +136,8 @@ let g:netrw_winsize = 20
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
+" NERDTree toggle mapping
+" WARNING - ;/: remapping forces to use ; instead of :
 map <silent> <C-E> ;NERDTreeToggle<CR>
 
 " GitGutter config
@@ -150,6 +152,11 @@ nnoremap <F3> :NumbersToggle<CR>
 nnoremap ; :
 nnoremap : ;
 
+nnoremap q; q:
+nnoremap q: q;
+
+nnoremap @; @:
+nnoremap @: @;
 
 let g:tex_flavor='latex'
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
