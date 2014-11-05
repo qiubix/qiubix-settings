@@ -16,7 +16,11 @@ nmap <silent> <leader>sv ;so $MYVIMRC<CR>
 
 " buffer and files
 set hidden					"hides buffers instead of closing them
-set noswapfile
+set noswapfile      "it's all under git anyway..
+set nobackup
+
+set lazyredraw      "don't redraw when executing macros
+set magic           "for regular expressions
 
 " Ex commands settings
 set wildmenu        "zsh-like hints of commands
