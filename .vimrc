@@ -148,6 +148,9 @@ nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
 
+" ==== Hard-mode plugin ====
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
 "======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
 nnoremap : ;
