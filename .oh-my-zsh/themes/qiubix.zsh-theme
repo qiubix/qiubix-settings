@@ -114,6 +114,7 @@ PROMPT="╭─${PR_TIME} ${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
 RPS1="${return_code}"
 
 RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) %{$(echotc DO 1)%}%{$PR_NO_COLOR%}'
+# RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)%{$(echotc UP 1)%}%{$(echotc DO 1)%}%{$PR_NO_COLOR%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$PR_YELLOW%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$PR_NO_COLOR%}"

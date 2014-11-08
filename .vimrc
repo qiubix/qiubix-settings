@@ -57,7 +57,7 @@ vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
 " key mappings timeout
-set timeout timeoutlen=200
+set timeout timeoutlen=500
 
 " mapping ESC to more convinient location
 inoremap jk 	<Esc>
@@ -150,6 +150,9 @@ nnoremap <F3> :NumbersToggle<CR>
 
 " ==== Hard-mode plugin ====
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" ==== CtrlP settings ====
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 "======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
