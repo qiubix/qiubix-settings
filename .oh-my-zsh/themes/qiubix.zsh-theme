@@ -76,9 +76,6 @@ function _git_time_since_commit() {
 
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}✚ "
@@ -98,23 +95,16 @@ local return_code="%(?..%{$PR_RED%}%? ↵%{$PR_NO_COLOR%})"
 
 local user_host='${PR_USER}${PR_CYAN}@${PR_HOST}'
 local current_dir='%{$PR_BOLD$PR_BLUE%}%~%{$PR_NO_COLOR%}'
-local rvm_ruby=''
-if which rvm-prompt &> /dev/null; then
-  rvm_ruby='%{$PR_RED%}‹$(rvm-prompt i v g s)›%{$PR_NO_COLOR%}'
-else
-  if which rbenv &> /dev/null; then
-    rvm_ruby='%{$PR_RED%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$PR_NO_COLOR%}'
-  fi
-fi
 local git_branch='$(git_prompt_info) $(git_prompt_status)%{$PR_NO_COLOR%}'
 
 #PROMPT="${user_host} ${current_dir} ${rvm_ruby} ${git_branch}$PR_PROMPT "
-PROMPT="╭─${PR_TIME} ${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
+PROMPT="╭─${PR_TIME} ${user_host} ${current_dir} ${git_branch}
 ╰─$PR_PROMPT "
 RPS1="${return_code}"
+RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)$(_git_time_since_commit) %{$PR_NO_COLOR%}'
 
-RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) %{$(echotc DO 1)%}%{$PR_NO_COLOR%}'
-# RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)%{$(echotc UP 1)%}%{$(echotc DO 1)%}%{$PR_NO_COLOR%}'
+# RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) %{$(echotc DO 1)%}%{$PR_NO_COLOR%}'
+# RPROMPT='%{$PR_NO_COLOR%}$(_vi_status)%{$(echotc UP 1)%}${return_code} %{$(echotc DO 1)%}%{$PR_NO_COLOR%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$PR_YELLOW%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$PR_NO_COLOR%}"
