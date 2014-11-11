@@ -1,5 +1,5 @@
 " 256 colours
-set t_Co=256				
+set t_Co=256
 
 " UTF-8 encoding
 set enc=utf-8
@@ -7,10 +7,25 @@ set fenc=utf-8
 set termencoding=utf-8
 
 "disable compatibility with previous versions
-set nocompatible			
+set nocompatible
 
+" Quickly edit/reload the vimrc file
+" WARNING - ;/: remapping forces to use ; instead of :
+nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
+nmap <silent> <leader>sv ;so $MYVIMRC<CR>
+
+" buffer and files
 set hidden					"hides buffers instead of closing them
-set noswapfile
+set noswapfile      "it's all under git anyway..
+set nobackup
+
+set lazyredraw      "don't redraw when executing macros
+set magic           "for regular expressions
+
+" Ex commands settings
+set wildmenu        "zsh-like hints of commands
+set wildmode=full
+set history=1000     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
@@ -22,7 +37,7 @@ set shiftwidth=2		"indent size
 set autoindent			"automaticaly indent
 set copyindent			"copy with existing indentation
 set smarttab				"insert tabs on the start of the line according to shiftwidth
-set expandtab
+set expandtab       "tabs replaced with multiple spaces
 
 " searching
 set incsearch				" move cursor to next occurence while typing
@@ -32,13 +47,16 @@ set nohlsearch			" turn off highlight searches, but:
 										" Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
+" highlight last inserted text
+nnoremap <leader>v `[<C-V>`]
+
 " sane search - center cursor line
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
-" key mappings 
+" key mappings timeout
 set timeout timeoutlen=200
 
 " mapping ESC to more convinient location
@@ -66,6 +84,7 @@ nnoremap <C-l> <C-w>l
 set splitbelow
 set splitright
 
+"==== Display help in new tab instead of split ====
 augroup HelpInTabs
   autocmd!
   autocmd BufEnter *.txt call HelpInNewTab()
@@ -84,6 +103,9 @@ nnoremap    v   <C-V>
 nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
+
+vnoremap < <gv
+vnoremap > >gv
 
 
 execute pathogen#infect()
@@ -110,25 +132,31 @@ let g:netrw_winsize = 20
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
+" NERDTree toggle mapping
+" WARNING - ;/: remapping forces to use ; instead of :
 map <silent> <C-E> ;NERDTreeToggle<CR>
 
 " GitGutter config
 highlight clear SignColumn
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
+nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
-" nnoremap <F4> :NumbersOnOff<CR>
 
 
-"======== forget about SHIFT entering COMMAND mode ======== 
+"======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
 nnoremap : ;
+nnoremap q; q:
+nnoremap q: q;
+nnoremap @; @:
+nnoremap @: @;
 
 " if has('gui running')
 	set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
 " endif
 
-
-set vb 
+" Disable visualbell
+set vb
 set t_vb=
