@@ -170,3 +170,8 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 " tags support
 " au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h set omnifunc=omni#cpp#complete#Main
 " map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+
+" Disable visualbell
+set vb
+set t_vb=
