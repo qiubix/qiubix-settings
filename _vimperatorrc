@@ -1,21 +1,9 @@
 set incsearch
 set ignorecase
 set smartcase
-set nohlsearch
-
-nnoremap <silent> <C-N> :se invhlsearch<CR>
-
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-vnoremap <silent> n nzz
-vnoremap <silent> N Nzz
+"nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 inoremap jk 	<Esc>
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 nnoremap    v   <C-V>
 nnoremap <C-V>     v
