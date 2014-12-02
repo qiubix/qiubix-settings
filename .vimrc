@@ -29,6 +29,7 @@ set history=1000     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
+set showcmd         "display incomplete command
 
 " wrapping and indentation
 set nowrap					"disable wrapping lines
