@@ -181,6 +181,10 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " ==== CtrlP settings ====
 " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)\build$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
 
 "======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
