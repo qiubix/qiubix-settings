@@ -196,7 +196,13 @@ nnoremap q: q;
 nnoremap @; @:
 nnoremap @: @;
 
+vnoremap ; :
+vnoremap : ;
+
+" ==== latex settings
 let g:tex_flavor='latex'
+
+" ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 
 " tags support

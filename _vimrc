@@ -152,6 +152,8 @@ nnoremap q; q:
 nnoremap q: q;
 nnoremap @; @:
 nnoremap @: @;
+vnoremap ; :
+vnoremap : ;
 
 " if has('gui running')
 	set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE

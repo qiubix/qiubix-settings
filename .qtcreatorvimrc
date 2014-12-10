@@ -73,4 +73,5 @@ vnoremap <C-V>     v
 "======== forget about SHIFT entering COMMAND mode ======== 
 nnoremap ; :
 nnoremap : ;
-
+vnoremap ; :
+vnoremap : ;

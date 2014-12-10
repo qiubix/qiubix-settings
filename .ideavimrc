@@ -74,4 +74,6 @@ vnoremap > >gv
 "======== forget about SHIFT entering COMMAND mode ======== 
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
