@@ -146,6 +146,8 @@ execute pathogen#helptags()
 filetype plugin indent on
 syntax on
 
+"==== activate matchit plugin
+runtime macros/matchit.vim
 
 set background=dark
 colorscheme solarized
