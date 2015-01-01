@@ -136,6 +136,7 @@ nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
+" keep selection after intending
 vnoremap < <gv
 vnoremap > >gv
 
