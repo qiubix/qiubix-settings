@@ -7,14 +7,11 @@ clear
 #ubuntu tweak tool
 sudo add-apt-repository ppa:tualatrix/ppa
 
-sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59 
-
 # ======== update repository list ==============
 sudo apt-get update
 
 # ======== installing programs ==================
-sudo apt-get install terminator vlc ubuntu-tweak wireshark
+sudo apt-get install terminator vlc ubuntu-tweak
 
 # ======== installing useful tools ==================
 sudo apt-get install tree p7zip-full p7zip-rar ncdu
@@ -33,4 +30,7 @@ chsh -s /bin/zsh
 cp ~/qiubix-settings/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
 
 # install spotify
+sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
+sudo apt-get update
 sudo apt-get install spotify-client
