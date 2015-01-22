@@ -11,7 +11,7 @@ sudo add-apt-repository ppa:tualatrix/ppa
 sudo apt-get update
 
 # ======== installing programs ==================
-sudo apt-get install terminator vlc ubuntu-tweak
+sudo apt-get install terminator vlc ubuntu-tweak gnome-tweak-tool
 
 # ======== installing useful tools ==================
 sudo apt-get install tree p7zip-full p7zip-rar ncdu
