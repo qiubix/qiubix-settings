@@ -30,6 +30,12 @@ sudo apt-get install indicator-synapse
 # download solarized theme
 git clone git://github.com/altercation/solarized.git ~/themes/solarized
 
+# download and install powerline fonts
+git clone https://github.com/Lokaltog/powerline-fonts.git ~/themes/powerline-fonts
+mkdir -pv ~/.fonts/
+cp -r ~/themes/powerline-fonts/* ~/.fonts/
+fc-cache -vf ~/.fonts
+
 #install solarized for gnome-terminal
 git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/themes/gnome-terminal-colors-solarized
 cd ~/themes/gnome-terminal-colors-solarized
@@ -39,9 +45,3 @@ cd ~/themes/gnome-terminal-colors-solarized
 git clone https://github.com/ghuntley/terminator-solarized.git ~/themes/terminator-solarized
 mkdir -p ~/.config/terminator/
 cp ~/themes/terminator-solarized/config ~/.config/terminator/
-
-# download and install powerline fonts
-git clone https://github.com/Lokaltog/powerline-fonts.git ~/themes/powerline-fonts
-mkdir -pv ~/.fonts/
-cp -r ~/themes/powerline-fonts/* ~/.fonts/
-fc-cache -vf ~/.fonts
