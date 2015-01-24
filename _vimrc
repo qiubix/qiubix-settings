@@ -57,7 +57,9 @@ vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
 " key mappings timeout
-set timeout timeoutlen=200
+" set timeout timeoutlen=500
+:autocmd InsertEnter * set timeoutlen=150
+:autocmd InsertLeave * set timeoutlen=1000
 
 " mapping ESC to more convinient location
 inoremap jk 	<Esc>
