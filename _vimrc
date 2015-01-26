@@ -149,6 +149,13 @@ nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
 
+" ==== CtrlP settings ====
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)\build$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
+
 
 "======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
