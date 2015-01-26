@@ -167,6 +167,10 @@ nnoremap @: @;
 vnoremap ; :
 vnoremap : ;
 
+" ==== C/C++ settings
+autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
+
+
 " if has('gui running')
 	set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
 " endif
