@@ -3,7 +3,7 @@ set ignorecase
 set smartcase
 "nnoremap <silent> <C-N> :se invhlsearch<CR>
 
-inoremap jk 	<Esc>
+"inoremap jk 	<Esc>
 
 nnoremap    v   <C-V>
 nnoremap <C-V>     v
