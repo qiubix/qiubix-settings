@@ -38,6 +38,7 @@ set autoindent			"automaticaly indent
 set copyindent			"copy with existing indentation
 set smarttab				"insert tabs on the start of the line according to shiftwidth
 set expandtab       "tabs replaced with multiple spaces
+set backspace=indent,eol,start
 
 " searching
 set incsearch				" move cursor to next occurence while typing
