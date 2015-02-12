@@ -29,11 +29,18 @@ set ignorecase
 set smartcase
 set nohlsearch
 
+" ===== moving =====
+set scrolloff=10
+
 " ===== mappings =====
-set timeout timeoutlen=200
+set timeout timeoutlen=150
 inoremap jk 	<Esc>
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 nnoremap <Space> <PageDown>
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
 
 " ====== Tabs and splits =====
 nnoremap th :tabfirst<CR>
