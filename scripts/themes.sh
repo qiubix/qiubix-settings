@@ -38,3 +38,11 @@ cd ~/themes/gnome-terminal-colors-solarized
 git clone https://github.com/ghuntley/terminator-solarized.git ~/themes/terminator-solarized
 mkdir -p ~/.config/terminator/
 cp ~/themes/terminator-solarized/config ~/.config/terminator/
+
+# conky
+cd && wget -O .start-conky http://drive.noobslab.com/data/conky/start-conky
+chmod +x .start-conky
+
+# conky-two theme
+cd && wget -O two-noobslab-wu.zip http://drive.noobslab.com/data/conky/two/conky-two-wlan-u.zip
+unzip two-noobslab-wu.zip && rm two-noobslab-wu.zip
