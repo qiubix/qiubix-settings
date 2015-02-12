@@ -8,6 +8,8 @@ set magic           "for regular expressions
 set number
 set showmatch
 set showcmd 
+set ruler
+set statusline
 
 " ===== Ex commands settings =====
 set wildmenu        "zsh-like hints of commands

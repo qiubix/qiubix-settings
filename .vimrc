@@ -73,6 +73,7 @@ nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
+set scrolloff=10
 
 " adding new line from normal mode
 " nmap <S-Enter> O<Esc>j
@@ -105,6 +106,9 @@ vnoremap <C-V>     v
 " keep selection after intending
 vnoremap < <gv
 vnoremap > >gv
+
+" other useful mappings
+set pastetoggle=<F2>
 
 "==== plugin configuration ====
 execute pathogen#infect()
