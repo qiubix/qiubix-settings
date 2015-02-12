@@ -29,6 +29,8 @@ set history=1000     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
+set showcmd         "display incomplete command
+set mouse=a         "use mouse to split/tab switching
 
 " wrapping and indentation
 set nowrap					"disable wrapping lines
@@ -68,6 +70,11 @@ inoremap jj		<Esc>A;<Esc>
 
 " moving around the file
 nnoremap <Space> <PageDown>
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+set scrolloff=10
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
@@ -110,6 +117,8 @@ vnoremap <C-V>     v
 vnoremap < <gv
 vnoremap > >gv
 
+" other useful mappings
+set pastetoggle=<F2>
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -180,5 +189,4 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 " endif
 
 " Disable visualbell
-set vb
-set t_vb=
+set visualbell t_vb=
