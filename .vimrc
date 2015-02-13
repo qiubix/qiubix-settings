@@ -173,6 +173,7 @@ vnoremap ; :
 vnoremap : ;
 
 " ==== latex settings
+set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 
 " ==== C/C++ settings
@@ -184,5 +185,4 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 
 
 " Disable visualbell
-set vb
-set t_vb=
+set visualbell t_vb=

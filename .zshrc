@@ -90,6 +90,9 @@ export TCL_LIBRARY=$TCL_LIBRARY:/home/qiubix/ns-allinone-2.35/tcl8.5.10/library
 # sudo update-grub2
 # reboot
 
+# tmux setup
+alias tmux='TERM=xterm-256color /home/$USER/bin/tmux'
+
 # ==================================================
 # ALIASES
 # ==================================================
