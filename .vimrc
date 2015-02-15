@@ -9,6 +9,31 @@ set termencoding=utf-8
 "disable compatibility with previous versions
 set nocompatible
 
+" set up plugins with Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-vinegar'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'bling/vim-bufferline'
+Plugin 'tpope/vim-dispatch'
+
+call vundle#end()
+filetype plugin indent on
+
+syntax on
+
 " Quickly edit/reload the vimrc file
 " WARNING - ;/: remapping forces to use ; instead of :
 nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
@@ -110,19 +135,17 @@ vnoremap > >gv
 " other useful mappings
 set pastetoggle=<F2>
 
-"==== plugin configuration ====
-execute pathogen#infect()
-execute pathogen#helptags()
-
-filetype plugin indent on
-syntax on
-
-"==== activate matchit plugin
-runtime macros/matchit.vim
-
+" colorscheme configuration
 set background=dark
 colorscheme solarized
 "colorscheme default
+
+"==========================================
+"========== plugin configuration ==========
+"==========================================
+
+"==== activate matchit plugin
+runtime macros/matchit.vim
 
 " vim-airline
 set laststatus=2
