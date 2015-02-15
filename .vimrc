@@ -28,6 +28,8 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-dispatch'
+Plugin 'drmingdrmer/xptemplate'
+Plugin 'derekwyatt/vim-fswitch'
 
 call vundle#end()
 filetype plugin indent on
