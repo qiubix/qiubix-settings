@@ -1,3 +1,4 @@
+" ==========[ TERMINAL SETTINGS ]=========={{{
 " 256 colours
 set t_Co=256
 
@@ -5,11 +6,12 @@ set t_Co=256
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
+" end of terminal settings }}}
 
 "disable compatibility with previous versions
 set nocompatible
 
-" set up plugins with Vundle
+" ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -33,8 +35,15 @@ Plugin 'derekwyatt/vim-fswitch'
 
 call vundle#end()
 filetype plugin indent on
+" Vundle setup end }}}
 
+" ==========[ BASIC SETTINGS ]=========={{{
 syntax on
+
+" colorscheme configuration
+set background=dark
+colorscheme solarized
+"colorscheme default
 
 " Quickly edit/reload the vimrc file
 " WARNING - ;/: remapping forces to use ; instead of :
@@ -84,7 +93,9 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
+" end of vim settings }}}
 
+" ==========[ KEY MAPPINGS ]=========={{{
 " key mappings timeout
 " set timeout timeoutlen=500
 :autocmd InsertEnter * set timeoutlen=150
@@ -137,16 +148,11 @@ vnoremap > >gv
 " other useful mappings
 set pastetoggle=<F2>
 
-" colorscheme configuration
-set background=dark
-colorscheme solarized
-"colorscheme default
+" end of mappings }}}
 
-"==========================================
-"========== plugin configuration ==========
-"==========================================
+" ==========[ PLUGIN CONFIGURATION ]=========={{{
 
-"==== activate matchit plugin
+" activate matchit plugin
 runtime macros/matchit.vim
 
 " vim-airline
@@ -184,7 +190,9 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 
-"======== forget about SHIFT entering COMMAND mode ========
+" end of plugin configuration }}}
+
+" ==========[ forget about SHIFT entering COMMAND mode ]=========={{{
 nnoremap ; :
 nnoremap : ;
 
@@ -196,7 +204,9 @@ nnoremap @: @;
 
 vnoremap ; :
 vnoremap : ;
+" end of :/; remapping }}}
 
+" ==========[ FILE SPECIFIC SETTINGS ]=========={{{
 " ==== latex settings
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
@@ -208,6 +218,7 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 " au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h set omnifunc=omni#cpp#complete#Main
 " map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
+" end of file specific settings }}}
 
 " Disable visualbell
 set visualbell t_vb=
