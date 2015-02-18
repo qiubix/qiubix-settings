@@ -1,0 +1,64 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+# ==================================================
+# HISTORY
+# ==================================================
+HISTCONTROL=ignoredubs:ignorespace
+setopt HIST_IGNORE_DUPS
+HISTSIZE=2000
+SAVEHIST=2000
+
+export EDITOR=vim
+
+# ==================================================
+# ALIASES
+# ==================================================
+alias ls='ls --color=auto'
+alias rm='rm -vI'
+alias mv='mv -vi'
+alias mkdir='mkdir -v'
+alias list='ls -lhgop'
+#alias grep='grep -rni'
+
+# reboot/shutdown
+alias off='sudo shutdown -h now'
+alias reboot='sudo reboot'
+
+# editor and programs
+alias v='vim'
+alias tree='tree -CF'
+alias edit='gnome-open'
+
+# tmux setup
+alias tmux='TERM=xterm-256color /home/$USER/bin/tmux'
+
+# ==================================================
+# MODULES CONFIG
+# ==================================================
+# vi mode binding
+bindkey -M viins 'jk' vi-cmd-mode
+
+# Incremental search is elite!
+bindkey -M vicmd "/" history-incremental-search-backward
+bindkey -M vicmd "?" history-incremental-search-forward
+
+# Search based on what you typed in already
+bindkey -M vicmd "//" history-beginning-search-backward
+bindkey -M vicmd "??" history-beginning-search-forward
+
+# oh wow!  This is killer...  try it!
+bindkey -M vicmd "q" push-line
+
+# it's like, space AND completion.  Gnarlbot.
+bindkey -M viins ' ' magic-space
