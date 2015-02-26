@@ -17,11 +17,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -66,8 +66,13 @@ set history=1000     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
+set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
+
+set nolist          " Display unprintable characters f12 - switches
+set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable chars mapping
+nnoremap <silent> <F12> :set invlist<CR>
 
 " wrapping and indentation
 set nowrap					"disable wrapping lines
@@ -161,6 +166,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 
 let g:netrw_winsize = 20
 
