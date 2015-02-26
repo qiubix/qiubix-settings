@@ -99,6 +99,13 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
+
+" folding
+set foldenable " Turn on folding
+set foldmethod=marker " Fold on the marker
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+
 " end of vim settings }}}
 
 " ==========[ KEY MAPPINGS ]=========={{{
