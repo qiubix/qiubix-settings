@@ -22,6 +22,12 @@ SAVEHIST=2000
 export EDITOR=vim
 
 # ==================================================
+# ENVIRONMENT SETTINGS
+# ==================================================
+export SCALA_HOME=/usr/local/scala/scala-2.11.5
+export PATH=$PATH:$SCALA_HOME/bin
+
+# ==================================================
 # ALIASES
 # ==================================================
 alias ls='ls --color=auto'
