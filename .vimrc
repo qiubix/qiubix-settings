@@ -61,6 +61,7 @@ set magic           "for regular expressions
 
 " Ex commands settings
 set wildmenu        "zsh-like hints of commands
+set wildignorecase
 set wildmode=full
 set history=1000     "history size of Ex commands
 
@@ -105,6 +106,8 @@ set foldenable " Turn on folding
 set foldmethod=marker " Fold on the marker
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+" set foldlevelstart=1
+" let vimsyn_folding='af'
 
 " end of vim settings }}}
 
@@ -127,8 +130,8 @@ nnoremap gj j
 set scrolloff=10
 
 " adding new line from normal mode
-" nmap <S-Enter> O<Esc>j
-" nmap <CR> o<Esc>
+nmap <S-CR> O<Esc>j
+nmap <CR> o<Esc>k
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
