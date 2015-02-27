@@ -43,8 +43,10 @@ syntax on
 
 " colorscheme configuration
 set background=dark
-colorscheme solarized
-"colorscheme default
+try
+  colorscheme solarized
+catch
+endtry
 
 " Quickly edit/reload the vimrc file
 " WARNING - ;/: remapping forces to use ; instead of :
@@ -77,6 +79,7 @@ nnoremap <silent> <F12> :set invlist<CR>
 
 " wrapping and indentation
 set nowrap					"disable wrapping lines
+set linebreak       "disable breaking words while wrapping lines
 set tabstop=2				"tab size
 set shiftwidth=2		"indent size
 set autoindent			"automaticaly indent
@@ -133,6 +136,8 @@ nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
+nnoremap } }zz
+nnoremap { {zz
 set scrolloff=10
 
 " disable useless Ex mode
