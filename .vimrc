@@ -103,9 +103,15 @@ vnoremap <silent> N Nzz
 
 " folding
 set foldenable " Turn on folding
-set foldmethod=marker " Fold on the marker
+set foldmethod=syntax " Fold on the syntax
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+
+augroup ft_vim
+  au!
+  au FileType vim setlocal foldmethod=marker
+  au FileType vim setlocal foldlevel=0
+augroup END
 " set foldlevelstart=1
 " let vimsyn_folding='af'
 
@@ -132,6 +138,12 @@ set scrolloff=10
 " adding new line from normal mode
 nmap <S-CR> O<Esc>j
 nmap <CR> o<Esc>k
+
+" disable useless Ex mode
+nnoremap Q @@
+
+" make tilde an operator
+set tildeop
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
