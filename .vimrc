@@ -135,10 +135,6 @@ nnoremap gk k
 nnoremap gj j
 set scrolloff=10
 
-" adding new line from normal mode
-nmap <S-CR> O<Esc>j
-nmap <CR> o<Esc>k
-
 " disable useless Ex mode
 nnoremap Q @@
 
