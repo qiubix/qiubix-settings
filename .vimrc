@@ -229,6 +229,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" ==== FSwitch settings ====
+au! BufEnter *.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '.'
+nmap <silent> <Leader>of :FSHere<cr>
+
 " end of plugin configuration }}}
 
 " ==========[ forget about SHIFT entering COMMAND mode ]=========={{{
