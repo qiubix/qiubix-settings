@@ -47,13 +47,16 @@ function prompt_sorin_setup {
 
   # Set editor-info parameters.
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{red}❯%F{yellow}❯%F{green}❯%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{blue}%(!:%F{red}:)❯%F{blue}❯%B❯%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{green}❮%F{yellow}❮%F{red}❮%f%b'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{yellow}%(!:%F{red}:)❮%F{yellow}❮%B❮%f%b'
+  #zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{red}❯%F{yellow}❯%F{green}❯%f%b'
+  #zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
+  #zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{green}❮%F{yellow}❮%F{red}❮%f%b'
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
-  zstyle ':prezto:module:git:info:action' format ':%%B%F{yellow}%s%f%%b'
+  zstyle ':prezto:module:git:info:action' format ':%%B%F{yellow}⁝%s%f%%b'
   zstyle ':prezto:module:git:info:added' format ' %F{green}✚%f%b'
   zstyle ':prezto:module:git:info:ahead' format ' %F{yellow}⬆%f%b'
   zstyle ':prezto:module:git:info:behind' format ' %F{yellow}⬇%f%b'
@@ -61,6 +64,7 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:clean' format '%F{green}✔%f'
   zstyle ':prezto:module:git:info:commit' format '%F{green}➦ %.7c%f'
   zstyle ':prezto:module:git:info:deleted' format ' %F{red}✖%f%%b'
+  zstyle ':prezto:module:git:info:dirty' format ' %F{red}⁝%f'
   zstyle ':prezto:module:git:info:modified' format ' %F{blue}✱%f%%b'
   zstyle ':prezto:module:git:info:position' format '%F{red}%p%f'
   zstyle ':prezto:module:git:info:renamed' format ' %F{magenta}➜%f%%b'
@@ -77,12 +81,14 @@ function prompt_sorin_setup {
 
 # Define prompts.
 PROMPT='╭─ ${SSH_TTY:+"%F{red}%n%f@%F{yellow}%m%f "}%F{blue}${_prompt_sorin_pwd}%f${(e)git_info[ref]}${(e)git_info[prompt]}${git_info[rprompt]}
-╰─%(!:%F{red}:)➤${editor_info[keymap]} '
+╰─${editor_info[keymap]} '
 RPROMPT='${editor_info[overwrite]}%(?:: %F{red}✘%f)${VIM:+" %B%F{green}V%f%b"}${INSIDE_EMACS:+" %B%F{green}E%f%b"} %F{blue}[%F{green}%D{%H:%M:%S}%F{blue}]%f'
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
 # backup configs
 # ╰─➤%(!. %B%F{yellow}⚡%f%b.)${editor_info[keymap]} '
+# %(!:%F{red}❯%f:)
+# ╰─$%(!:%F{red}:)➤{editor_info[keymap]} '
 
 prompt_sorin_setup "$@"
