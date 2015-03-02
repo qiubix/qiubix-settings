@@ -1,3 +1,4 @@
+" ==========[ TERMINAL SETTINGS ]=========={{{
 " 256 colours
 set t_Co=256
 
@@ -5,9 +6,47 @@ set t_Co=256
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
+" end of terminal settings }}}
 
 "disable compatibility with previous versions
 set nocompatible
+
+" ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-vinegar'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'bling/vim-bufferline'
+Plugin 'tpope/vim-dispatch'
+Plugin 'drmingdrmer/xptemplate'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'scrooloose/syntastic'
+
+call vundle#end()
+filetype plugin indent on
+" Vundle setup end }}}
+
+" ==========[ BASIC SETTINGS ]=========={{{
+syntax on
+
+" colorscheme configuration
+set background=dark
+try
+  colorscheme solarized
+catch
+endtry
 
 " Quickly edit/reload the vimrc file
 " WARNING - ;/: remapping forces to use ; instead of :
@@ -24,13 +63,19 @@ set magic           "for regular expressions
 
 " Ex commands settings
 set wildmenu        "zsh-like hints of commands
+set wildignorecase
 set wildmode=full
 set history=1000     "history size of Ex commands
 
 set number					"display line numbers
 set showmatch				"show matching parenthesis
+set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
+
+set nolist          " Display unprintable characters f12 - switches
+set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable chars mapping
+nnoremap <silent> <F12> :set invlist<CR>
 
 " wrapping and indentation
 set nowrap					"disable wrapping lines
@@ -59,6 +104,23 @@ nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
+" folding
+set foldenable " Turn on folding
+set foldmethod=syntax " Fold on the syntax
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+
+augroup ft_vim
+  au!
+  au FileType vim setlocal foldmethod=marker
+  au FileType vim setlocal foldlevel=0
+augroup END
+" set foldlevelstart=1
+" let vimsyn_folding='af'
+
+" end of vim settings }}}
+
+" ==========[ KEY MAPPINGS ]=========={{{
 " key mappings timeout
 " set timeout timeoutlen=500
 :autocmd InsertEnter * set timeoutlen=150
@@ -74,7 +136,15 @@ nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
+nnoremap } }zz
+nnoremap { {zz
 set scrolloff=10
+
+" disable useless Ex mode
+nnoremap Q @@
+
+" make tilde an operator
+set tildeop
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
@@ -120,19 +190,12 @@ vnoremap > >gv
 " other useful mappings
 set pastetoggle=<F2>
 
-execute pathogen#infect()
-execute pathogen#helptags()
+" end of mappings }}}
 
-filetype plugin indent on
-syntax on
-
+" ==========[ PLUGIN CONFIGURATION ]=========={{{
 
 "==== activate matchit plugin
 runtime macros/matchit.vim
-
-set background=dark
-colorscheme solarized
-"colorscheme default
 
 " vim-airline
 set laststatus=2
@@ -166,8 +229,9 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 
+" end of plugin configuration }}}
 
-"======== forget about SHIFT entering COMMAND mode ========
+" ==========[ forget about SHIFT entering COMMAND mode ]=========={{{
 nnoremap ; :
 nnoremap : ;
 nnoremap q; q:
@@ -176,17 +240,20 @@ nnoremap @; @:
 nnoremap @: @;
 vnoremap ; :
 vnoremap : ;
+" end of :/; remapping }}}
 
+" ==========[ FILE SPECIFIC SETTINGS ]=========={{{
 " ==== latex settings
 let g:tex_flavor='latex'
 
 " ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 
+" end of file specific settings }}}
 
-" if has('gui running')
+if has("gui_win32")
 	set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
-" endif
+endif
 
 " Disable visualbell
 set visualbell t_vb=
