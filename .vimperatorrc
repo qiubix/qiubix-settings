@@ -12,4 +12,7 @@ vnoremap <C-V>     v
 
 nnoremap ; :
 nnoremap : ;
-
+nnoremap q; q:
+nnoremap q: q;
+nnoremap @; @:
+nnoremap @: @;
