@@ -26,6 +26,13 @@ export EDITOR=vim
 # ==================================================
 export SCALA_HOME=/usr/local/scala/scala-2.11.5
 export PATH=$PATH:$SCALA_HOME/bin
+export CLUSTERNAME=slony_example
+export MASTERDBNAME=pgbench
+export SLAVEDBNAME=pgbenchslave
+export MASTERHOST=localhost
+export SLAVEHOST=localhost
+export REPLICATIONUSER=postgres
+export PGBENCHUSER=pgbench
 
 # ==================================================
 # ALIASES
@@ -48,6 +55,28 @@ alias edit='gnome-open'
 
 # tmux setup
 alias tmux='TERM=xterm-256color /home/$USER/bin/tmux -2'
+
+# ----------------------
+# additional git aliases
+# ----------------------
+alias gst='git status'
+alias ga='git add'
+alias gdl='git ls-files'
+alias gd='git diff'
+alias glgg='git log --graph --max-count=10'
+alias glog='git log --oneline --decorate --color --graph'
+
+# Will return the current branch name
+# Usage example: git pull origin $(current_branch)
+#
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+alias ggpull='git pull origin $(current_branch)'
+alias ggpur='git pull --rebase origin $(current_branch)'
+alias ggpush='git push origin $(current_branch)'
 
 # ==================================================
 # MODULES CONFIG

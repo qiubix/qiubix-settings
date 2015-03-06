@@ -22,13 +22,6 @@ sudo apt-get install libxss1
 # sudo dpkg -i google-chrome*.deb
 sudo apt-get install google-chrome-stable
 
-# install zsh shell and copy shell settings
-sudo apt-get install zsh
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp ~/qiubix-settings/.zshrc ~/.zshrc
-chsh -s /bin/zsh
-cp ~/qiubix-settings/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
-
 # install spotify
 sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59

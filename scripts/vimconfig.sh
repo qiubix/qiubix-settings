@@ -4,7 +4,7 @@ clear
 echo "Installing vim..."
 
 # ========== install vim ==========
-sudo apt-get install vim curl
+sudo apt-get install vim
 
 # ========== copy vim settings from settings repo ==========
 echo "Copying vim settings..."
