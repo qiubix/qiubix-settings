@@ -33,6 +33,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'drmingdrmer/xptemplate'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+" Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -47,11 +49,6 @@ try
   colorscheme solarized
 catch
 endtry
-
-" Quickly edit/reload the vimrc file
-" WARNING - ;/: remapping forces to use ; instead of :
-nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
-nmap <silent> <leader>sv ;so $MYVIMRC<CR>
 
 " buffer and files
 set hidden					"hides buffers instead of closing them
@@ -73,10 +70,6 @@ set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
 
-set nolist          " Display unprintable characters f12 - switches
-set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable chars mapping
-nnoremap <silent> <F12> :set invlist<CR>
-
 " wrapping and indentation
 set nowrap					"disable wrapping lines
 set linebreak       "disable breaking words while wrapping lines
@@ -95,14 +88,15 @@ set nohlsearch			" turn off highlight searches, but:
 										" Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
-" highlight last inserted text
-nnoremap <leader>v `[<C-V>`]
-
 " sane search - center cursor line
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
+
+" Setting cursorline while in insert mode
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul
 
 " folding
 set foldenable " Turn on folding
@@ -110,13 +104,25 @@ set foldmethod=syntax " Fold on the syntax
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-augroup ft_vim
+augroup vim_filetype
   au!
   au FileType vim setlocal foldmethod=marker
   au FileType vim setlocal foldlevel=0
 augroup END
 " set foldlevelstart=1
 " let vimsyn_folding='af'
+
+" Code folding options
+" nmap <leader>f0 :set foldlevel=0<CR>
+" nmap <leader>f1 :set foldlevel=1<CR>
+" nmap <leader>f2 :set foldlevel=2<CR>
+" nmap <leader>f3 :set foldlevel=3<CR>
+" nmap <leader>f4 :set foldlevel=4<CR>
+" nmap <leader>f5 :set foldlevel=5<CR>
+" nmap <leader>f6 :set foldlevel=6<CR>
+" nmap <leader>f7 :set foldlevel=7<CR>
+" nmap <leader>f8 :set foldlevel=8<CR>
+" nmap <leader>f9 :set foldlevel=9<CR>
 
 " end of vim settings }}}
 
@@ -142,9 +148,6 @@ set scrolloff=10
 
 " disable useless Ex mode
 nnoremap Q @@
-
-" make tilde an operator
-set tildeop
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
@@ -178,6 +181,42 @@ vnoremap > >gv
 set pastetoggle=<F2>
 
 " end of mappings }}}
+
+" ==========[ EXTRA SETTINGS and TRICKS ]=========={{{
+
+" Quickly edit/reload the vimrc file
+" WARNING - ;/: remapping forces to use ; instead of :
+nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
+nmap <silent> <leader>sv ;so $MYVIMRC<CR>
+
+" highlight last inserted text
+nnoremap <leader>v `[<C-V>`]
+
+set list          " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
+"set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable chars mapping
+nnoremap <silent> <F12> :set invlist<CR>
+
+" better yank to clipboard
+if has('clipboard')
+  if has('unnamedplus')  " When possible use + register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else         " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+  endif
+endif
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+" make tilde an operator
+set tildeop
+
+" }}} end of extra settings
 
 " ==========[ PLUGIN CONFIGURATION ]=========={{{
 
@@ -228,6 +267,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+      \ "mode": "passive" }
 
 " ==== FSwitch settings ====
 au! BufEnter *.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '.'
@@ -253,6 +294,8 @@ vnoremap : ;
 " ==== latex settings
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
+" Turn on spell checking for .tex files
+au BufRead *.tex setlocal spell spelllang=pl,en,de
 
 " ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
