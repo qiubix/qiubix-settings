@@ -34,6 +34,10 @@ export SLAVEHOST=localhost
 export REPLICATIONUSER=postgres
 export PGBENCHUSER=pgbench
 
+# DisCODe installation
+export DISCODE_DCL_DIR=/home/$USER/DCL
+export PATH=$PATH:/home/$USER/DisCODe/build/inst/bin
+
 # ==================================================
 # ALIASES
 # ==================================================
