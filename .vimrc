@@ -180,6 +180,11 @@ vnoremap > >gv
 " other useful mappings
 set pastetoggle=<F2>
 
+" parenthesis and brackets tricks
+inoremap ( (  )<ESC>hi
+inoremap { {  }<ESC>hi
+inoremap [ [  ]<ESC>hi
+
 " end of mappings }}}
 
 " ==========[ EXTRA SETTINGS and TRICKS ]=========={{{
