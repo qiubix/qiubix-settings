@@ -54,7 +54,7 @@ nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
 nmap <silent> <leader>sv ;so $MYVIMRC<CR>
 
 " buffer and files
-set hidden					"hides buffers instead of closing them
+set hidden          "hides buffers instead of closing them
 set noswapfile      "it's all under git anyway..
 set nobackup
 
@@ -64,11 +64,11 @@ set magic           "for regular expressions
 " Ex commands settings
 set wildmenu        "zsh-like hints of commands
 set wildignorecase
-set wildmode=full
-set history=1000     "history size of Ex commands
+set wildmode=list:longest,full
+set history=1000    "history size of Ex commands
 
-set number					"display line numbers
-set showmatch				"show matching parenthesis
+set number          "display line numbers
+set showmatch       "show matching parenthesis
 set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
@@ -78,21 +78,21 @@ set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable char
 nnoremap <silent> <F12> :set invlist<CR>
 
 " wrapping and indentation
-set nowrap					"disable wrapping lines
-set tabstop=2				"tab size
-set shiftwidth=2		"indent size
-set autoindent			"automaticaly indent
-set copyindent			"copy with existing indentation
-set smarttab				"insert tabs on the start of the line according to shiftwidth
+set nowrap          "disable wrapping lines
+set tabstop=2       "tab size
+set shiftwidth=2    "indent size
+set autoindent      "automaticaly indent
+set copyindent      "copy with existing indentation
+set smarttab        "insert tabs on the start of the line according to shiftwidth
 set expandtab       "tabs replaced with multiple spaces
 set backspace=indent,eol,start
 
 " searching
-set incsearch				" move cursor to next occurence while typing
-set ignorecase			" ignore case while searching
-set smartcase				" don't ignore case when seach uses capitals
-set nohlsearch			" turn off highlight searches, but:
-										" Turn hlsearch off/on with CTRL-N
+set incsearch       " move cursor to next occurence while typing
+set ignorecase      " ignore case while searching
+set smartcase       " don't ignore case when seach uses capitals
+set nohlsearch      " turn off highlight searches, but:
+                    " Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 " highlight last inserted text
@@ -127,8 +127,8 @@ augroup END
 :autocmd InsertLeave * set timeoutlen=1000
 
 " mapping ESC to more convinient location
-inoremap jk 	<Esc>
-inoremap jj		<Esc>A;<Esc>
+inoremap jk <Esc>
+inoremap jj <Esc>A;<Esc>
 
 " moving around the file
 nnoremap <Space> <PageDown>
@@ -252,8 +252,9 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 " end of file specific settings }}}
 
 if has("gui_win32")
-	set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
+  set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
 endif
 
 " Disable visualbell
 set visualbell t_vb=
+set novisualbell

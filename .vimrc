@@ -51,7 +51,7 @@ catch
 endtry
 
 " buffer and files
-set hidden					"hides buffers instead of closing them
+set hidden          "hides buffers instead of closing them
 set noswapfile      "it's all under git anyway..
 set nobackup
 
@@ -61,31 +61,31 @@ set magic           "for regular expressions
 " Ex commands settings
 set wildmenu        "zsh-like hints of commands
 set wildignorecase
-set wildmode=full
-set history=1000     "history size of Ex commands
+set wildmode=list:longest,full
+set history=1000    "history size of Ex commands
 
-set number					"display line numbers
-set showmatch				"show matching parenthesis
+set number          "display line numbers
+set showmatch       "show matching parenthesis
 set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
 
 " wrapping and indentation
-set nowrap					"disable wrapping lines
+set nowrap          "disable wrapping lines
 set linebreak       "disable breaking words while wrapping lines
-set tabstop=2				"tab size
-set shiftwidth=2		"indent size
-set autoindent			"automaticaly indent
-set copyindent			"copy with existing indentation
-set smarttab				"insert tabs on the start of the line according to shiftwidth
+set tabstop=2       "tab size
+set shiftwidth=2    "indent size
+set autoindent      "automaticaly indent
+set copyindent      "copy with existing indentation
+set smarttab        "insert tabs on the start of the line according to shiftwidth
 set expandtab       "tabs replaced with multiple spaces
 
 " searching
-set incsearch				" move cursor to next occurence while typing
-set ignorecase			" ignore case while searching
-set smartcase				" don't ignore case when seach uses capitals
-set nohlsearch			" turn off highlight searches, but:
-										" Turn hlsearch off/on with CTRL-N
+set incsearch       " move cursor to next occurence while typing
+set ignorecase      " ignore case while searching
+set smartcase       " don't ignore case when seach uses capitals
+set nohlsearch      " turn off highlight searches, but:
+                    " Turn hlsearch off/on with CTRL-N
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 " sane search - center cursor line
@@ -99,7 +99,7 @@ vnoremap <silent> N Nzz
 :autocmd InsertLeave * set nocul
 
 " folding
-set foldenable " Turn on folding
+set foldenable      " Turn on folding
 set foldmethod=syntax " Fold on the syntax
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
@@ -133,8 +133,8 @@ augroup END
 :autocmd InsertLeave * set timeoutlen=1000
 
 " mapping ESC to more convinient location
-inoremap jk 	<Esc>
-inoremap jj		<Esc>A;<Esc>
+inoremap jk <Esc>
+inoremap jj <Esc>A;<Esc>
 
 "==== moving around the file ====
 nnoremap <Space> <PageDown>
@@ -220,6 +220,13 @@ nnoremap Y y$
 
 " make tilde an operator
 set tildeop
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+" Map <Leader>ff to display all lines with keyword under cursor
+" and ask which one to jump to
+nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " }}} end of extra settings
 
@@ -313,3 +320,4 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 
 " Disable visualbell
 set visualbell t_vb=
+set novisualbell

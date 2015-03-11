@@ -16,8 +16,8 @@ fi
 # ==================================================
 HISTCONTROL=ignoredubs:ignorespace
 setopt HIST_IGNORE_DUPS
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=20000
+SAVEHIST=20000
 
 export EDITOR=vim
 
