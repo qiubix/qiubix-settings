@@ -267,7 +267,7 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " ==== CtrlP settings ====
 " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)\build$',
+      \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 
@@ -284,7 +284,7 @@ let g:syntastic_mode_map = {
 
 " ==== FSwitch settings ====
 au! BufEnter *.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '.'
-nmap <silent> <Leader>of :FSHere<cr>
+nmap <silent> <Leader>of ;FSHere<cr>
 
 " end of plugin configuration }}}
 
