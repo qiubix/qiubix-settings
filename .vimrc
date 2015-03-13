@@ -180,11 +180,6 @@ vnoremap > >gv
 " other useful mappings
 set pastetoggle=<F2>
 
-" parenthesis and brackets tricks
-inoremap ( (  )<ESC>hi
-inoremap { {  }<ESC>hi
-inoremap [ [  ]<ESC>hi
-
 " end of mappings }}}
 
 " ==========[ EXTRA SETTINGS and TRICKS ]=========={{{
@@ -227,6 +222,19 @@ cmap w!! w !sudo tee % >/dev/null
 " Map <Leader>ff to display all lines with keyword under cursor
 " and ask which one to jump to
 nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" parenthesis and brackets tricks
+inoremap ( ()<left>
+inoremap { {}<left>
+inoremap [ []<left>
+inoremap ) <right>
+inoremap } <right>
+inoremap ] <right>
+inoremap (( (
+inoremap {{ {
+inoremap [[ [
+
+inoremap {<CR> {<CR>}<ESC>O
 
 " }}} end of extra settings
 
