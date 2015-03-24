@@ -82,6 +82,9 @@ alias ggpull='git pull origin $(current_branch)'
 alias ggpur='git pull --rebase origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 
+# Check and purge obsolete kernels
+# alias kernels = 'dpkg --list | grep linux-image'
+
 # ==================================================
 # MODULES CONFIG
 # ==================================================
