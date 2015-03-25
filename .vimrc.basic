@@ -7,9 +7,16 @@ set lazyredraw      "don't redraw when executing macros
 set magic           "for regular expressions
 set number
 set showmatch
-set showcmd 
+set showcmd
 set ruler
-set statusline
+set backspace=indent,eol,start " make that backspace key work the way it should
+
+syntax on " turn syntax highlighting on by default
+filetype on " detect type of file
+filetype indent on " load indent file for specific file type
+
+" first, enable status line always
+set laststatus=2
 
 " ===== Ex commands settings =====
 set wildmenu        "zsh-like hints of commands
@@ -36,7 +43,7 @@ set scrolloff=10
 
 " ===== mappings =====
 set timeout timeoutlen=150
-inoremap jk 	<Esc>
+inoremap jk <Esc>
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 nnoremap <Space> <PageDown>
 nnoremap k gk
@@ -81,5 +88,5 @@ vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
 "======== Disable visualbell ========
-set vb
-set t_vb=
+set vb t_vb=
+set novisualbell
