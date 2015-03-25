@@ -227,9 +227,9 @@ nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<C
 inoremap ( ()<left>
 inoremap { {}<left>
 inoremap [ []<left>
-inoremap ) <right>
-inoremap } <right>
-inoremap ] <right>
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 inoremap (( (
 inoremap {{ {
 inoremap [[ [
