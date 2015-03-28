@@ -11,6 +11,25 @@ set termencoding=utf-8
 "disable compatibility with previous versions
 set nocompatible
 
+" ==========[ ENVIRONMENT ]=========={{{
+
+" identify system
+silent function! LINUX()
+  return has('unix') && !has('macunix') && !has('win32unix')
+endfunction
+silent function! WINDOWS()
+  return  (has('win16') || has('win32') || has('win64'))
+endfunction
+
+" Windows Compatible
+" On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
+" across (heterogeneous) systems easier.
+if WINDOWS()
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+
+" end of system compatibility settings }}}
+
 " ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -129,7 +148,7 @@ augroup END
 " ==========[ KEY MAPPINGS ]=========={{{
 " key mappings timeout
 " set timeout timeoutlen=500
-:autocmd InsertEnter * set timeoutlen=150
+:autocmd InsertEnter * set timeoutlen=200
 :autocmd InsertLeave * set timeoutlen=1000
 
 " mapping ESC to more convinient location
