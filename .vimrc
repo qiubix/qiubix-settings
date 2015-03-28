@@ -26,6 +26,7 @@ endfunction
 " across (heterogeneous) systems easier.
 if WINDOWS()
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+  set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 
   " Be nice and check for multi_byte even if the config requires
   " multi_byte support most of the time
@@ -48,17 +49,17 @@ endif
 
 " ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
 let vundle_present=1
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+let vundle_readme=expand('$HOME/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim
+  silent !mkdir -p $HOME/.vim/bundle
+  silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
   let vundle_present=0
 endif
 
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
