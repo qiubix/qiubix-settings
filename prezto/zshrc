@@ -24,7 +24,7 @@ export EDITOR=vim
 # ==================================================
 # ENVIRONMENT SETTINGS
 # ==================================================
-export SCALA_HOME=/usr/local/scala/scala-2.11.5
+export SCALA_HOME=/usr/local/scala/scala
 export PATH=$PATH:$SCALA_HOME/bin
 export CLUSTERNAME=slony_example
 export MASTERDBNAME=pgbench
