@@ -8,27 +8,25 @@ sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
 sudo apt-get update
 
 # ====== dependencies installation ======
-sudo apt-get install cmake cmake-curses-gui
-sudo apt-get install libqt4-dev
-sudo apt-get install libboost-dev
-sudo apt-get install libopencv-dev
-sudo apt-get install python3.2 python3-pyside
-sudo apt-get install libpcl-all
+echo "Installing dependencies..."
+sudo apt-get install cmake cmake-curses-gui libqt4-dev libboost-dev libopencv-dev python3.2 python3-pyside libpcl-all
 
-# ====== DisCODe installation ====== 
-git clone https://github.com/DisCODe/DisCODe.git ~/DisCODe
-mkdir -p ~/DisCODe/build && cd ~/DisCODe/build
+# ====== DisCODe installation ======
+echo "Installing DisCODe..."
+git clone https://github.com/DisCODe/DisCODe.git $HOME/src/DisCODe
+mkdir -p $HOME/src/DisCODe/build && cd $HOME/src/DisCODe/build
 cmake .. -DCMAKE_INSTALL_PREFIX=`pwd`/inst && make && make install
 
-# ====== DCL installation ====== 
-mkdir -p ~/DCL
+# ====== DCL installation ======
+echo "Setting up basic DCL..."
+mkdir -p $HOME/src/DCL
 
 # CvBasic
-git clone https://github.com/DisCODe/DCL_CvBasic.git ~/DCL/CvBasic
-mkdir -p ~/DCL/CvBasic/build && cd ~/DCL/CvBasic/build
+git clone https://github.com/DisCODe/DCL_CvBasic.git $HOME/src/DCL/CvBasic
+mkdir -p $HOME/src/DCL/CvBasic/build && cd $HOME/src/DCL/CvBasic/build
 cmake .. && make -j4 && make install
 
 # CvCoreTypes
-git clone https://github.com/DisCODe/DCL_CvCoreTypes ~/DCL/CvCoreTypes
-mkdir -p ~/DCL/CvCoreTypes/build && cd ~/DCL/CvCoreTypes/build
+git clone https://github.com/DisCODe/DCL_CvCoreTypes $HOME/src/DCL/CvCoreTypes
+mkdir -p $HOME/src/DCL/CvCoreTypes/build && cd $HOME/src/DCL/CvCoreTypes/build
 cmake .. && make -j4 && make install
