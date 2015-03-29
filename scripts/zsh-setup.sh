@@ -6,6 +6,8 @@ sudo apt-get install zsh
 echo "Making zsh your default shell..."
 chsh -s /bin/zsh
 
+echo "Setting up zsh to be the most awesome shell..."
+
 # ZSH setup based on oh-my-zsh:
 
 # echo "Setting up prompt and plugins..."
@@ -19,10 +21,11 @@ chsh -s /bin/zsh
 # ZSH setup based on prezto:
 echo "Setting up prezto..."
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+
+echo "Configuring prezto..."
+ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
 
 echo "Creating symbolic links..."
 ln -s ~/qiubix-settings/prezto/zpreztorc ~/.zpreztorc
