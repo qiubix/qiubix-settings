@@ -42,6 +42,7 @@ if WINDOWS()
     " Newer Windows files might contain utf-8 or utf-16 LE so we might
     " want to try them first.
     set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+    set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
   endif
 endif
 
@@ -60,7 +61,12 @@ endif
 
 filetype off
 set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
+if WINDOWS()
+  let path='$HOME/.vim/bundle'
+  call vundle#begin(path)
+else
+  call vundle#begin()
+endif
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
