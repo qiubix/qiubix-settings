@@ -80,6 +80,7 @@ Plugin 'drmingdrmer/xptemplate'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
+Plugin 'Tagbar'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -322,6 +323,9 @@ nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
+
+" ==== Tagbar ====
+nnoremap <leader>t :TagbarToggle<CR>
 
 " ==== Hard-mode plugin ====
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
