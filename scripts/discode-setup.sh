@@ -15,7 +15,7 @@ sudo apt-get install cmake cmake-curses-gui libqt4-dev libboost-dev libopencv-de
 echo "Installing DisCODe..."
 git clone https://github.com/DisCODe/DisCODe.git $HOME/src/DisCODe
 mkdir -p $HOME/src/DisCODe/build && cd $HOME/src/DisCODe/build
-cmake .. -DCMAKE_INSTALL_PREFIX=`pwd`/inst && make && make install
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/bin/DisCODe && make && make install
 
 # ====== DCL installation ======
 echo "Setting up basic DCL..."

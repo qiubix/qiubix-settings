@@ -35,8 +35,8 @@ export REPLICATIONUSER=postgres
 export PGBENCHUSER=pgbench
 
 # DisCODe installation
-export DISCODE_DCL_DIR=/home/$USER/DCL
-export PATH=$PATH:/home/$USER/DisCODe/build/inst/bin
+export DISCODE_DCL_DIR=/home/$USER/src/DCL
+export PATH=$PATH:/home/$USER/bin/DisCODe/bin
 
 # ==================================================
 # ALIASES
