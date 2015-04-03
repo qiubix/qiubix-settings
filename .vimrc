@@ -87,6 +87,7 @@ Plugin 'derekwyatt/vim-fswitch'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'Tagbar'
+Plugin 'mileszs/ack.vim'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -343,6 +344,11 @@ let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
+
+" ==== Ack/Ag settings ====
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 " ==== Syntastic settings ====
 set statusline+=%#warningmsg#
