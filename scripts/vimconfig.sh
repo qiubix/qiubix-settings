@@ -4,7 +4,7 @@ clear
 echo "Installing vim..."
 
 # ========== install vim ==========
-sudo apt-get install vim
+sudo apt-get install vim-gnome ack-grep silversearcher-ag
 
 # ========== copy vim settings from settings repo ==========
 echo "Copying vim settings..."
