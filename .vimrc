@@ -365,6 +365,9 @@ let g:syntastic_mode_map = {
 au! BufEnter *.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '.'
 nmap <silent> <Leader>of ;FSHere<cr>
 
+" ==== Dispatch settings ====
+autocmd FileType hpp,cpp let b:dispatch = 'make && make test'
+
 " end of plugin configuration }}}
 
 " ==========[ forget about SHIFT entering COMMAND mode ]=========={{{
