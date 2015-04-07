@@ -1,12 +1,13 @@
 #!/bin/bash
 
-sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+sudo add-apt-repository --yes ppa:v-launchpad-jochen-sprickerhof-de/pcl
+sudo add-apt-repository --yes ppa:xqms/opencv-nonfree
 
 sudo apt-get update
 
 # ====== dependencies installation ======
 echo "Installing dependencies..."
-sudo apt-get install cmake cmake-curses-gui libqt4-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libboost-program-options-dev libboost-iostreams-dev libboost-regex-dev libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev libboost-timer-dev libopencv-dev python3 python3-pyside libpcl-all
+sudo apt-get install cmake cmake-curses-gui libqt4-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libboost-program-options-dev libboost-iostreams-dev libboost-regex-dev libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev libboost-timer-dev libopencv-dev libopencv-nonfree-dev python3 python3-pyside libpcl-all
 
 # ====== DisCODe installation ======
 echo "Installing DisCODe..."
