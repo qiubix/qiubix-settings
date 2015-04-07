@@ -1,5 +1,5 @@
 " 256 colours
-set t_Co=256				
+set t_Co=256
 
 " UTF-8 encoding
 set enc=utf-8
@@ -7,31 +7,32 @@ set fenc=utf-8
 set termencoding=utf-8
 
 "disable compatibility with previous versions
-set nocompatible			
+set nocompatible
 
-set hidden					"hides buffers instead of closing them
+set hidden          "hides buffers instead of closing them
 
-set number					"display line numbers
-set showmatch				"show matching parenthesis
+set number          "display line numbers
+set showmatch       "show matching parenthesis
 
 " wrapping and indentation
-set nowrap					"disable wrapping lines
-set tabstop=2				"tab size
-set shiftwidth=2		"indent size
-set autoindent			"automaticaly indent
-set copyindent			"copy with existing indentation
-set smarttab				"insert tabs on the start of the line according to shiftwidth
+set nowrap          "disable wrapping lines
+set tabstop=2       "tab size
+set shiftwidth=2    "indent size
+set autoindent      "automaticaly indent
+set copyindent      "copy with existing indentation
+set smarttab        "insert tabs on the start of the line according to shiftwidth
 set expandtab
+set showcmd
 
 set matchpairs+=<:>
 
 " searching
-set incsearch				" move cursor to next occurence while typing
-set ignorecase			" ignore case while searching
-set smartcase				" don't ignore case when seach uses capitals
-set nohlsearch			" turn off highlight searches, but:
-										" Turn hlsearch off/on with CTRL-N
-nnoremap <silent> <C-N> :se invhlsearch<CR>
+set incsearch       " move cursor to next occurence while typing
+set ignorecase      " ignore case while searching
+set smartcase       " don't ignore case when seach uses capitals
+set nohlsearch      " turn off highlight searches, but:
+                    " Turn hlsearch off/on with CTRL-N
+nnoremap <silent> \n :se invhlsearch<CR>
 
 " sane search
 nnoremap <silent> n nzz
@@ -39,16 +40,25 @@ nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
-" key mappings 
+" key mappings
 " set timeout
 " set tm=200
 
 " mapping ESC to more convinient location
-inoremap jk 	<Esc>
-inoremap jj		<Esc>A;<Esc>
+inoremap jk   <Esc>
+inoremap jj   <Esc>A;<Esc>
 
 " moving around the file
 nnoremap <Space> <PageDown>
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+nnoremap } }zz
+nnoremap { {zz
+
+" disable useless Ex mode
+nnoremap Q @@
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
@@ -64,14 +74,24 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+" make tilde an operator
+set tildeop
+
 "==== Swap v and CTRL-V ======
 nnoremap    v   <C-V>
 nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
-"======== forget about SHIFT entering COMMAND mode ======== 
+"======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
 nnoremap : ;
+nnoremap q; q:
+nnoremap q: q;
+nnoremap @; @:
+nnoremap @: @;
 vnoremap ; :
 vnoremap : ;

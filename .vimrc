@@ -110,6 +110,7 @@ set background=dark
 try
   colorscheme solarized
 catch
+  colorscheme darkblue
 endtry
 
 " buffer and files
