@@ -88,6 +88,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'Tagbar'
 Plugin 'mileszs/ack.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
