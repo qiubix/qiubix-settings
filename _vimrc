@@ -33,6 +33,13 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'drmingdrmer/xptemplate'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'Tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
@@ -222,12 +229,18 @@ nnoremap <F4> :GitGutterLineHighlightsToggle<CR>
 "==== map switching between absolute and relative numbers =====
 nnoremap <F3> :NumbersToggle<CR>
 
+" ==== Tagbar ====
+nnoremap <leader>t :TagbarToggle<CR>
+
 " ==== CtrlP settings ====
 " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/]\.(git|hg|svn)\build$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
+
+" ==== Dispatch settings ====
+autocmd FileType hpp,cpp let b:dispatch = 'make && make test'
 
 " end of plugin configuration }}}
 
