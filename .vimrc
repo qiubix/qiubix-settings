@@ -92,6 +92,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'uguu-org/vim-matrix-screensaver'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -130,6 +131,7 @@ set wildmenu        "zsh-like hints of commands
 set wildignorecase
 set wildmode=list:longest,full
 set history=1000    "history size of Ex commands
+set viminfo+=:1000
 
 set number          "display line numbers
 set showmatch       "show matching parenthesis
