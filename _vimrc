@@ -12,9 +12,21 @@ set termencoding=utf-8
 set nocompatible
 
 " ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
+set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+let vundle_present=1
+let vundle_readme=expand('$HOME/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p $HOME/.vim/bundle
+  silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
+  let vundle_present=0
+endif
+
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+let path='$HOME/.vim/bundle'
+call vundle#begin(path)
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
