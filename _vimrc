@@ -54,6 +54,13 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 call vundle#end()
+
+if vundle_present == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :BundleInstall
+endif
+
 filetype plugin indent on
 " Vundle setup end }}}
 
@@ -61,16 +68,12 @@ filetype plugin indent on
 syntax on
 
 " colorscheme configuration
-set background=dark
+set background=light
 try
   colorscheme solarized
 catch
+  colorscheme default
 endtry
-
-" Quickly edit/reload the vimrc file
-" WARNING - ;/: remapping forces to use ; instead of :
-nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
-nmap <silent> <leader>sv ;so $MYVIMRC<CR>
 
 " buffer and files
 set hidden          "hides buffers instead of closing them
@@ -92,10 +95,6 @@ set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
 
-set nolist          " Display unprintable characters f12 - switches
-set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable chars mapping
-nnoremap <silent> <F12> :set invlist<CR>
-
 " wrapping and indentation
 set nowrap          "disable wrapping lines
 set tabstop=2       "tab size
@@ -112,16 +111,17 @@ set ignorecase      " ignore case while searching
 set smartcase       " don't ignore case when seach uses capitals
 set nohlsearch      " turn off highlight searches, but:
                     " Turn hlsearch off/on with CTRL-N
-nnoremap <silent> <C-N> :se invhlsearch<CR>
-
-" highlight last inserted text
-nnoremap <leader>v `[<C-V>`]
+nnoremap <silent> <leader>n :se invhlsearch<CR>
 
 " sane search - center cursor line
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
+
+" Setting cursorline while in insert mode
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul
 
 " folding
 set foldenable " Turn on folding
@@ -211,6 +211,62 @@ set pastetoggle=<F2>
 
 " end of mappings }}}
 
+" ==========[ EXTRA SETTINGS and TRICKS ]=========={{{
+
+" Quickly edit/reload the vimrc file
+" WARNING - ;/: remapping forces to use ; instead of :
+nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
+nmap <silent> <leader>sv ;so $MYVIMRC<CR>
+
+" highlight last inserted text
+nnoremap <leader>v `[<C-V>`]
+
+set list          " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
+"set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:« " Unprintable chars mapping
+nnoremap <silent> <F12> :set invlist<CR>
+
+" better yank to clipboard
+if has('clipboard')
+  if has('unnamedplus')  " When possible use + register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else         " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+  endif
+endif
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+" make tilde an operator
+set tildeop
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+" Map <Leader>ff to display all lines with keyword under cursor
+" and ask which one to jump to
+nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" parenthesis and brackets tricks
+"inoremap ( ()<left>
+"inoremap { {}<left>
+"inoremap [ []<left>
+"inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+"inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+"inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+"inoremap (( (
+"inoremap {{ {
+"inoremap [[ [
+"
+"inoremap {<CR> {<CR>}<ESC>O
+
+" }}} end of extra settings
+
 " ==========[ PLUGIN CONFIGURATION ]=========={{{
 
 "==== activate matchit plugin
@@ -247,7 +303,7 @@ nnoremap <leader>t :TagbarToggle<CR>
 " ==== CtrlP settings ====
 " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)\build$',
+      \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build|dist)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 
@@ -269,7 +325,10 @@ vnoremap : ;
 
 " ==========[ FILE SPECIFIC SETTINGS ]=========={{{
 " ==== latex settings
+set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
+" Turn on spell checking for .tex files
+au BufRead *.tex setlocal spell spelllang=pl,en
 
 " ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
