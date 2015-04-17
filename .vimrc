@@ -156,7 +156,7 @@ set smartcase       " don't ignore case when seach uses capitals
 set nohlsearch      " turn off highlight searches, but:
                     " Turn hlsearch off/on with CTRL-N
 "nnoremap <silent> <C-N> :se invhlsearch<CR>
-nnoremap <silent> \n :se invhlsearch<CR>
+nnoremap <silent> <leader>n :se invhlsearch<CR>
 
 " sane search - center cursor line
 nnoremap <silent> n nzz
@@ -348,7 +348,7 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " ==== CtrlP settings ====
 " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
+      \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build|dist)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 
@@ -396,7 +396,7 @@ vnoremap : ;
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 " Turn on spell checking for .tex files
-au BufRead *.tex setlocal spell spelllang=pl,en,de
+au BufRead *.tex setlocal spell spelllang=pl,en
 
 " ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
