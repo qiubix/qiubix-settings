@@ -1,4 +1,5 @@
-" ===== basic settings =====
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" ===== basic settings ====={
 set nocompatible
 set hidden
 set noswapfile
@@ -17,13 +18,15 @@ filetype indent on " load indent file for specific file type
 
 " first, enable status line always
 set laststatus=2
+"}
 
-" ===== Ex commands settings =====
+" ===== Ex commands settings ====={
 set wildmenu        "zsh-like hints of commands
 set wildmode=full
 set history=1000     "history size of Ex commands
+"}
 
-" ===== intend, tabs =====
+" ===== intend, tabs ====={
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -31,17 +34,20 @@ set autoindent
 set copyindent
 set smarttab
 set expandtab
+"}
 
-" ===== searching =====
+" ===== searching ====={
 set incsearch
 set ignorecase
 set smartcase
 set nohlsearch
+"}
 
-" ===== moving =====
+" ===== moving ====={
 set scrolloff=10
+"}
 
-" ===== mappings =====
+" ===== mappings ====={
 set timeout timeoutlen=150
 inoremap jk <Esc>
 nnoremap <silent> <C-N> :se invhlsearch<CR>
@@ -50,8 +56,9 @@ nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
+"}
 
-" ====== Tabs and splits =====
+" ====== Tabs and splits ====={
 nnoremap th :tabfirst<CR>
 nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
@@ -66,8 +73,9 @@ nnoremap <C-l> <C-w>l
 
 set splitbelow
 set splitright
+"}
 
-"==== Display help in new tab instead of split ====
+"==== Display help in new tab instead of split ===={
 augroup HelpInTabs
   autocmd!
   autocmd BufEnter *.txt call HelpInNewTab()
@@ -80,14 +88,16 @@ function! HelpInNewTab()
     execute "normal \<C-W>T"
   endif
 endfunction
+"}
 
-"==== Swap v and CTRL-V ======
+"==== Swap v and CTRL-V ======{
 nnoremap    v   <C-V>
 nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
+"}
 
-"======== forget about SHIFT entering COMMAND mode ========
+"======== forget about SHIFT entering COMMAND mode ========{
 nnoremap ; :
 nnoremap : ;
 nnoremap q; q:
@@ -96,7 +106,9 @@ nnoremap @; @:
 nnoremap @: @;
 vnoremap ; :
 vnoremap : ;
+"}
 
-"======== Disable visualbell ========
+"======== Disable visualbell ========{
 set vb t_vb=
 set novisualbell
+"}
