@@ -1,5 +1,5 @@
 " 256 colours
-set t_Co=256				
+set t_Co=256
 
 " UTF-8 encoding
 set enc=utf-8
@@ -7,28 +7,28 @@ set fenc=utf-8
 set termencoding=utf-8
 
 "disable compatibility with previous versions
-set nocompatible			
+set nocompatible
 
-set hidden					"hides buffers instead of closing them
+set hidden          "hides buffers instead of closing them
 
-set number					"display line numbers
-set showmatch				"show matching parenthesis
+set number          "display line numbers
+set showmatch       "show matching parenthesis
 
 " wrapping and indentation
-set nowrap					"disable wrapping lines
-set tabstop=2				"tab size
-set shiftwidth=2		"indent size
-set autoindent			"automaticaly indent
-set copyindent			"copy with existing indentation
-set smarttab				"insert tabs on the start of the line according to shiftwidth
+set nowrap          "disable wrapping lines
+set tabstop=2       "tab size
+set shiftwidth=2    "indent size
+set autoindent      "automaticaly indent
+set copyindent      "copy with existing indentation
+set smarttab        "insert tabs on the start of the line according to shiftwidth
 set expandtab
 
 " searching
-set incsearch				" move cursor to next occurence while typing
-set ignorecase			" ignore case while searching
-set smartcase				" don't ignore case when seach uses capitals
-set nohlsearch			" turn off highlight searches, but:
-										" Turn hlsearch off/on with CTRL-N
+set incsearch       " move cursor to next occurence while typing
+set ignorecase      " ignore case while searching
+set smartcase       " don't ignore case when seach uses capitals
+set nohlsearch      " turn off highlight searches, but:
+                    " Turn hlsearch off/on with CTRL-N
 nnoremap <silent> \n :se invhlsearch<CR>
 
 " sane search - center cursor line
@@ -37,12 +37,12 @@ nnoremap <silent> N Nzz
 vnoremap <silent> n nzz
 vnoremap <silent> N Nzz
 
-" key mappings 
+" key mappings
 set timeout timeoutlen=200
 
 " mapping ESC to more convinient location
-inoremap jk 	<Esc>
-inoremap jj		<Esc>A;<Esc>
+inoremap jk   <Esc>
+inoremap jj   <Esc>A;<Esc>
 
 " moving arount tabs
 nnoremap th :tabfirst<CR>
@@ -71,7 +71,7 @@ vnoremap <C-V>     v
 vnoremap < <gv
 vnoremap > >gv
 
-"======== forget about SHIFT entering COMMAND mode ======== 
+"======== forget about SHIFT entering COMMAND mode ========
 nnoremap ; :
 nnoremap : ;
 nnoremap q: q;
