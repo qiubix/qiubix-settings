@@ -6,6 +6,9 @@ set t_Co=256
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
+
+set title
+
 " end of terminal settings }}}
 
 "disable compatibility with previous versions
@@ -133,6 +136,7 @@ set wildignorecase
 set wildmode=list:longest,full
 set history=1000    "history size of Ex commands
 set viminfo+=:1000
+set undolevels=1000
 
 set number          "display line numbers
 set showmatch       "show matching parenthesis
