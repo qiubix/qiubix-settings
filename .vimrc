@@ -309,7 +309,7 @@ inoremap {<CR> {<CR>}<ESC>O
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
      \   exe "normal! g`\"" |
      \ endif
 " Remember info about open buffers on close
