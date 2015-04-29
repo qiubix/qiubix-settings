@@ -122,6 +122,7 @@ endtry
 set hidden          "hides buffers instead of closing them
 set noswapfile      "it's all under git anyway..
 set nobackup
+set autoread        "auto read file, when it's changed from outside
 
 set lazyredraw      "don't redraw when executing macros
 set magic           "for regular expressions
@@ -228,10 +229,10 @@ nnoremap tt :tabedit<Space>
 nnoremap tn :tabnew<CR>
 
 " moving around splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " new split placing
 set splitbelow
@@ -305,6 +306,14 @@ inoremap {{ {
 inoremap [[ [
 
 inoremap {<CR> {<CR>}<ESC>O
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
 
 " }}} end of extra settings
 
