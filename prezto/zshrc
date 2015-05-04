@@ -35,6 +35,8 @@ export SLAVEHOST=localhost
 export REPLICATIONUSER=postgres
 export PGBENCHUSER=pgbench
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
 # DisCODe installation
 export DISCODE_DCL_DIR=/home/$USER/src/DCL
 export PATH=$PATH:/home/$USER/bin/DisCODe/bin
