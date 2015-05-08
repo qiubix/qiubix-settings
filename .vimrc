@@ -79,6 +79,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'gregsexton/gitv'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-vinegar'
@@ -234,6 +235,7 @@ nnoremap tn :tabnew<CR>
 
 " moving around splits
 map <C-h> <C-w>h
+let g:BASH_Ctrl_j = 'off'
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
