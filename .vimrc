@@ -234,11 +234,11 @@ nnoremap tt :tabedit<Space>
 nnoremap tn :tabnew<CR>
 
 " moving around splits
-map <C-h> <C-w>h
+nnoremap <C-h> <C-w>h
 let g:BASH_Ctrl_j = 'off'
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " new split placing
 set splitbelow
