@@ -1,18 +1,14 @@
-" 256 colours
-set t_Co=256
-
 " UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
-set termencoding=utf-8
 
 "disable compatibility with previous versions
-set nocompatible
+"set nocompatible
 
-set hidden          "hides buffers instead of closing them
+"set hidden          "hides buffers instead of closing them
 
-set number          "display line numbers
-set showmatch       "show matching parenthesis
+"set number          "display line numbers
+"set showmatch       "show matching parenthesis
 
 " wrapping and indentation
 set nowrap          "disable wrapping lines
@@ -43,14 +39,6 @@ set timeout timeoutlen=200
 " mapping ESC to more convinient location
 inoremap jk   <Esc>
 inoremap jj   <Esc>A;<Esc>
-
-" moving arount tabs
-nnoremap th :tabfirst<CR>
-nnoremap tk :tabnext<CR>
-nnoremap tj :tabprev<CR>
-nnoremap tl :tablast<CR>
-nnoremap tt :tabedit<Space>
-nnoremap tn :tabnew<CR>
 
 " moving around splits
 nnoremap <C-h> <C-w>h
