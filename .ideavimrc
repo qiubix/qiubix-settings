@@ -5,10 +5,7 @@ set fenc=utf-8
 "disable compatibility with previous versions
 "set nocompatible
 
-"set hidden          "hides buffers instead of closing them
-
-"set number          "display line numbers
-"set showmatch       "show matching parenthesis
+set number          "display line numbers
 
 " wrapping and indentation
 set nowrap          "disable wrapping lines
