@@ -236,6 +236,7 @@ nnoremap tn :tabnew<CR>
 " moving around splits
 nnoremap <C-h> <C-w>h
 let g:BASH_Ctrl_j = 'off'
+let g:C_Ctrl_j = 'off'
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
