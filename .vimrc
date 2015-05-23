@@ -235,9 +235,9 @@ nnoremap tn :tabnew<CR>
 
 " moving around splits
 nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
 let g:BASH_Ctrl_j = 'off'
 let g:C_Ctrl_j = 'off'
-nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
@@ -412,7 +412,12 @@ vnoremap : ;
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 " Turn on spell checking for .tex files
-au BufRead *.tex setlocal spell spelllang=pl,en
+augroup tex_files
+  au!
+  au BufRead *.tex setlocal spell spelllang=pl,en
+  au BufRead *.tex setlocal wrap
+  au BufRead *.tex setlocal nolist
+augroup END
 
 " ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
