@@ -1,6 +1,42 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
-" ===== basic settings ====={
 set nocompatible
+
+" ===== plugin settings ====={
+
+" identify system
+silent function! LINUX()
+  return has('unix') && !has('macunix') && !has('win32unix')
+endfunction
+silent function! WINDOWS()
+  return  (has('win16') || has('win32') || has('win64'))
+endfunction
+
+filetype off
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+if WINDOWS()
+  let path='$HOME/.vim/bundle'
+  call vundle#begin(path)
+else
+  call vundle#begin()
+endif
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-bufferline'
+Plugin 'drmingdrmer/xptemplate'
+Plugin 'ervandew/supertab'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+call vundle#end()
+"}
+
+" ===== basic settings ====={
 set hidden
 set noswapfile
 set nobackup
@@ -113,4 +149,27 @@ vnoremap : ;
 "======== Disable visualbell ========{
 set vb t_vb=
 set novisualbell
+"}
+
+" ===== plugin settings ====={
+" activate matchit plugin
+runtime macros/matchit.vim
+
+" vim-airline
+set laststatus=2
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep='|'
+let g:airline_theme='dark'
+
+let g:netrw_winsize = 20
+
+" Hit enter in the file browser to open the selected
+" file with :vsplit to the right of the browser.
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+" NERDTree toggle mapping
+" WARNING - ;/: remapping forces to use ; instead of :
+map <silent> <C-E> ;NERDTreeToggle<CR>
+
 "}
