@@ -1,11 +1,3 @@
-" 256 colours
-set t_Co=256
-
-" UTF-8 encoding
-set enc=utf-8
-set fenc=utf-8
-set termencoding=utf-8
-
 "disable compatibility with previous versions
 set nocompatible
 
