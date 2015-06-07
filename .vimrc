@@ -367,6 +367,7 @@ let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build|dist)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " ==== Ack/Ag settings ====
 if executable('ag')
@@ -390,6 +391,7 @@ nmap <silent> <Leader>of ;FSHere<cr>
 
 " ==== Dispatch settings ====
 autocmd FileType hpp,cpp let b:dispatch = 'make && make test'
+autocmd FileType tex let b:dispatch = 'pdflatex'
 
 " end of plugin configuration }}}
 
