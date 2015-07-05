@@ -320,7 +320,7 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 " Remember info about open buffers on close
-set viminfo^=%
+"set viminfo^=%
 
 " }}} end of extra settings
 
