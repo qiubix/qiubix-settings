@@ -41,6 +41,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export DISCODE_DCL_DIR=/home/$USER/src/DCL
 export PATH=$PATH:/home/$USER/bin/DisCODe/bin
 
+# GMock location
+export GMOCK_HOME=~/libs/gmock-1.7.0
+
 # ==================================================
 # ALIASES
 # ==================================================
