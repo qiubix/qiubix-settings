@@ -42,7 +42,13 @@ export DISCODE_DCL_DIR=/home/$USER/src/DCL
 export PATH=$PATH:/home/$USER/bin/DisCODe/bin
 
 # GMock location
-export GMOCK_HOME=~/libs/gmock-1.7.0
+export GMOCK_HOME=~/libs/gmock-1.6.0
+
+# cURL
+export CURL_HOME=~/libs/curl
+
+# JsonCpp
+export JSONCPP_HOME=~/libs/jsoncpp
 
 # ==================================================
 # ALIASES
