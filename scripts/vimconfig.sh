@@ -10,6 +10,9 @@ sudo apt-get install vim-gnome ack-grep silversearcher-ag
 echo "Copying vim settings..."
 if [ ! -f ~/.vimrc ]; then
   ln -s ~/qiubix-settings/.vimrc ~/.vimrc
+else
+  mv ~/.vimrc ~/.vimrc_old
+  ln -s ~/qiubix-settings/.vimrc ~/.vimrc
 fi
 if [ ! -f ~/.ideavimrc ]; then
   ln -s ~/qiubix-settings/.ideavimrc ~/.ideavimrc
