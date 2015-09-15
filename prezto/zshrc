@@ -36,6 +36,7 @@ export REPLICATIONUSER=postgres
 export PGBENCHUSER=pgbench
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$HOME/Qt/5.4/gcc_64/lib/cmake
 
 # DisCODe installation
 export DISCODE_DCL_DIR=/home/$USER/src/DCL
