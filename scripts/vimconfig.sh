@@ -35,3 +35,8 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 vim +PluginInstall +qall
+
+if [ -f ~/.vim/bundle/YouCompleteMe ]; then
+  cd ~/.vim/bundle/YouCompleteMe
+  ./install.py --clang-completer
+fi
