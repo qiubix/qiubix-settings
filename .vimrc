@@ -24,91 +24,12 @@ silent function! WINDOWS()
   return  (has('win16') || has('win32') || has('win64'))
 endfunction
 
-" Windows Compatible
-" On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-" across (heterogeneous) systems easier.
-if WINDOWS()
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-  set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-
-  " Be nice and check for multi_byte even if the config requires
-  " multi_byte support most of the time
-  if has("multi_byte")
-    " Windows cmd.exe still uses cp850. If Windows ever moved to
-    " Powershell as the primary terminal, this would be utf-8
-    set termencoding=cp850
-    " Let Vim use utf-8 internally, because many scripts require this
-    set encoding=utf-8
-    setglobal fileencoding=utf-8
-    " Windows has traditionally used cp1252, so it's probably wise to
-    " fallback into cp1252 instead of eg. iso-8859-15.
-    " Newer Windows files might contain utf-8 or utf-16 LE so we might
-    " want to try them first.
-    set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
-    set guifont=Sauce_Code_Powerline:h10:cEASTEUROPE
-  endif
-endif
-
 " end of system compatibility settings }}}
 
 " ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
-let vundle_present=1
-let vundle_readme=expand('$HOME/.vim/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p $HOME/.vim/bundle
-  silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
-  let vundle_present=0
-endif
 
-filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-if WINDOWS()
-  let path='$HOME/.vim/bundle'
-  call vundle#begin(path)
-else
-  call vundle#begin()
-endif
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'gregsexton/gitv'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-vinegar'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'bling/vim-bufferline'
-Plugin 'tpope/vim-dispatch'
-Plugin 'drmingdrmer/xptemplate'
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
-Plugin 'Tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'uguu-org/vim-matrix-screensaver'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-
-call vundle#end()
-
-if vundle_present == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :BundleInstall
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
 endif
 
 filetype plugin indent on
