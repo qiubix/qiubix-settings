@@ -99,7 +99,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'myusuf3/numbers.vim'
 
 " Boost TAB functionality
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 
 " Display tags in current file
 Plugin 'Tagbar'
