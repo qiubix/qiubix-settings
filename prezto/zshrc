@@ -36,6 +36,7 @@ export REPLICATIONUSER=postgres
 export PGBENCHUSER=pgbench
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/libs/vert.x/bin"
 export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$HOME/Qt/5.4/gcc_64/lib/cmake
 
 # DisCODe installation
@@ -96,7 +97,7 @@ alias ggpur='git pull --rebase origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 
 # Check and purge obsolete kernels
-# alias kernels = 'dpkg --list | grep linux-image'
+alias kernels='dpkg --list | grep linux-image'
 
 # ==================================================
 # MODULES CONFIG
