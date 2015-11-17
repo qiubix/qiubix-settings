@@ -405,6 +405,9 @@ autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
 " au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h set omnifunc=omni#cpp#complete#Main
 " map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
+" set spelling for git commit
+autocmd FileType gitcommit setlocal spell
+
 " end of file specific settings }}}
 
 " Disable visualbell
