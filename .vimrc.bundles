@@ -148,6 +148,7 @@ Plugin 'tpope/vim-dispatch'
 " Others {
 Plugin 'uguu-org/vim-matrix-screensaver'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'derekwyatt/vim-scala'
 " }
 
 " }
