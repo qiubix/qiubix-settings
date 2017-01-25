@@ -68,7 +68,7 @@ set undolevels=1000
 
 set number          "display line numbers
 set showmatch       "show matching parenthesis
-set matchpairs+=<:>
+"set matchpairs+=<:>
 set showcmd         "display incomplete command
 set mouse=a         "use mouse to split/tab switching
 
@@ -400,6 +400,7 @@ augroup END
 
 " ==== C/C++ settings
 autocmd FileType c,cpp autocmd BufWritePre <buffer> ;%s/\s\+$//e
+"autocmd FileType c,cpp let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " tags support
 " au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h set omnifunc=omni#cpp#complete#Main
