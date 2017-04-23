@@ -11,6 +11,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+export EDITOR=vim
+
+# ==================================================
+# APPEARANCE
+# ==================================================
+
+eval `dircolors $HOME/.dir_colors/dircolors`
+
 # ==================================================
 # HISTORY
 # ==================================================
@@ -18,39 +27,6 @@ HISTCONTROL=ignoredubs:ignorespace
 setopt HIST_IGNORE_DUPS
 HISTSIZE=20000
 SAVEHIST=20000
-
-export EDITOR=vim
-
-# ==================================================
-# ENVIRONMENT SETTINGS
-# ==================================================
-export SCALA_HOME=/usr/local/scala/scala
-export SBT_HOME=/usr/local/scala/sbt
-export PATH=$PATH:$SCALA_HOME/bin:$SBT_HOME/bin
-export CLUSTERNAME=slony_example
-export MASTERDBNAME=pgbench
-export SLAVEDBNAME=pgbenchslave
-export MASTERHOST=localhost
-export SLAVEHOST=localhost
-export REPLICATIONUSER=postgres
-export PGBENCHUSER=pgbench
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/libs/vert.x/bin"
-export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$HOME/Qt/5.4/gcc_64/lib/cmake
-
-# DisCODe installation
-export DISCODE_DCL_DIR=/home/$USER/src/DCL
-export PATH=$PATH:/home/$USER/bin/DisCODe/bin
-
-# GMock location
-export GMOCK_HOME=~/libs/gmock
-
-# cURL
-export CURL_HOME=~/libs/curl
-
-# JsonCpp
-export JSONCPP_HOME=~/libs/jsoncpp
 
 # ==================================================
 # ALIASES

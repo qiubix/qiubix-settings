@@ -25,12 +25,12 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 echo "Configuring prezto..."
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
 
 echo "Creating symbolic links..."
 ln -s ~/qiubix-settings/prezto/zpreztorc ~/.zpreztorc
 ln -s ~/qiubix-settings/prezto/zprofile ~/.zprofile
 ln -s ~/qiubix-settings/prezto/zshrc ~/.zshrc
+ln -s ~/qiubix-settings/prezto/zshenv ~/.zshenv
 ln -s ~/qiubix-settings/prezto/prompt_qiubix_setup ~/.zprezto/modules/prompt/functions/prompt_qiubix_setup
 ln -s ~/qiubix-settings/prezto/prompt_qiubix2_setup ~/.zprezto/modules/prompt/functions/prompt_qiubix2_setup
 
