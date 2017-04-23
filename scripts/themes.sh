@@ -11,14 +11,14 @@ sudo add-apt-repository ppa:noobslab/apps
 sudo apt-get update
 
 #install faenza icons
-sudo apt-get install faenza-icon-theme dconf-cli
+sudo apt-get install -y faenza-icon-theme dconf-cli
 
 #install mac os lion theme and icons
-sudo apt-get install mac-icons-v3
-sudo apt-get install mac-ithemes-v3
+sudo apt-get install -y mac-icons-v3
+sudo apt-get install -y mac-ithemes-v3
 
 #Mac spotlight-like search, synapse
-sudo apt-get install indicator-synapse
+sudo apt-get install -y indicator-synapse
 
 # download solarized theme
 git clone git://github.com/altercation/solarized.git ~/themes/solarized
