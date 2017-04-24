@@ -3,13 +3,39 @@
 clear
 echo "Installing extra tools..."
 
-sudo add-apt-repository ppa:cairo-dock-team/ppa
-
 sudo apt-get update
 
-sudo apt-get install gconf-editor
-sudo apt-get install cairo-dock cairo-dock-plugins
-sudo apt-get install flashplugin-installer ubuntu-restricted-extras
-sudo apt-get install compizconfig-settings-manager
-sudo apt-get install conky curl lm-sensors hddtemp
-sudo apt-get install wireshark
+# advanced configuration tools
+sudo apt-get install -y gconf-editor compizconfig-settings-manager
+
+# restricted extras
+sudo apt-get install -y flashplugin-installer \
+  ubuntu-restricted-extras
+
+# monitors
+sudo apt-get install -y conky \
+  curl \
+  lm-sensors \
+  hddtemp \
+  wireshark \
+  indicator-multiload \
+  powertop
+
+# codecs
+sudo apt-get install -y ffmpeg \
+  gxine \
+  libdvdread4 \
+  icedax \
+  tagtool \
+  libdvd-pkg \
+  easytag \
+  id3tool \
+  lame \
+  libxine2-ffmpeg \
+  nautilus-script-audio-convert \
+  libmad0 \
+  mpg321 \
+  libavcodec-extra \
+  gstreamer1.0-libav
+
+echo "Done."
