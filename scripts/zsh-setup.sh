@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing zsh..."
-sudo apt-get install zsh
+sudo apt-get install -y zsh
 
 echo "Making zsh your default shell..."
 chsh -s /bin/zsh
@@ -26,7 +26,7 @@ echo "Configuring prezto..."
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
 
-echo "Creating symbolic links..."
+echo "Creating symbolic links for customized config files..."
 ln -s ~/qiubix-settings/prezto/zpreztorc ~/.zpreztorc
 ln -s ~/qiubix-settings/prezto/zprofile ~/.zprofile
 ln -s ~/qiubix-settings/prezto/zshrc ~/.zshrc
@@ -37,3 +37,4 @@ ln -s ~/qiubix-settings/prezto/prompt_qiubix2_setup ~/.zprezto/modules/prompt/fu
 # end of setup based on prezto
 
 echo "Done :)"
+echo "Logout and login for full effect."

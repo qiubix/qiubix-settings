@@ -48,7 +48,8 @@ alias tree='tree -CF'
 alias edit='gnome-open'
 
 # tmux setup
-alias tmux='TERM=xterm-256color /home/$USER/bin/tmux -2'
+# alias tmux='TERM=xterm-256color /home/$USER/bin/tmux -2'
+alias tmux='./tmux-startup.sh && tmux attach -t default'
 
 # ----------------------
 # additional git aliases
