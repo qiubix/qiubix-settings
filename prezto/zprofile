@@ -85,3 +85,6 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+# Ubuntu make installation of Ubuntu Make binary symlink
+PATH=/home/qiubix/.local/share/umake/bin:$PATH
+

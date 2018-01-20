@@ -49,7 +49,7 @@ alias edit='gnome-open'
 
 # tmux setup
 # alias tmux='TERM=xterm-256color /home/$USER/bin/tmux -2'
-alias tmux='./tmux-startup.sh && tmux attach -t default'
+alias start-tmux='./tmux-startup.sh && tmux attach -t default'
 
 # ----------------------
 # additional git aliases
@@ -98,3 +98,7 @@ bindkey -M vicmd "q" push-line
 
 # it's like, space AND completion.  Gnarlbot.
 bindkey -M viins ' ' magic-space
+
+# tabtab source for jhipster package
+# uninstall by removing these lines or running `tabtab uninstall jhipster`
+[[ -f /home/qiubix/.config/yarn/global/node_modules/tabtab/.completions/jhipster.zsh ]] && . /home/qiubix/.config/yarn/global/node_modules/tabtab/.completions/jhipster.zsh
