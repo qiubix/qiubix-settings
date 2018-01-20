@@ -9,8 +9,8 @@ set number          "display line numbers
 
 " wrapping and indentation
 set nowrap          "disable wrapping lines
-set tabstop=2       "tab size
-set shiftwidth=2    "indent size
+set tabstop=4       "tab size
+set shiftwidth=4    "indent size
 set autoindent      "automaticaly indent
 set copyindent      "copy with existing indentation
 set smarttab        "insert tabs on the start of the line according to shiftwidth
@@ -35,6 +35,7 @@ set timeout timeoutlen=200
 
 " mapping ESC to more convinient location
 inoremap jk   <Esc>
+vnoremap jk   <Esc>
 inoremap jj   <Esc>A;<Esc>
 
 " moving around splits
@@ -46,6 +47,9 @@ nnoremap <C-l> <C-w>l
 " new split placing
 set splitbelow
 set splitright
+
+nnoremap Y y$
+nnoremap Q @@
 
 "==== Swap v and CTRL-V ======
 nnoremap    v   <C-V>
