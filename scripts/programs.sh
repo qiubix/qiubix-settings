@@ -10,6 +10,9 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 # ubuntu tweak tool - no longer needed in 16.04 LTS (?)
 # sudo add-apt-repository ppa:tualatrix/ppa
 
+# albert launcher
+sudo add-apt-repository ppa:nilarimogard/webupd8
+
 # ======== update repository list ==============
 sudo apt-get update
 
@@ -21,7 +24,8 @@ sudo apt-get install -y vlc ubuntu-tweak gnome-tweak-tool tmux
 # 7zip - for archives
 # ncdu - analyze disk usage
 # gufw - firewall
-sudo apt-get install -y tree p7zip-full p7zip-rar ncdu gufw
+# albert - awesome launcher
+sudo apt-get install -y tree p7zip-full p7zip-rar ncdu gufw albert
 
 # install chrome
 sudo apt-get install libxss1 google-chrome-stable
