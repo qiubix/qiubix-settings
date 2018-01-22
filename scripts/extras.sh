@@ -3,17 +3,17 @@
 clear
 echo "Installing extra tools..."
 
-sudo apt-get update
+sudo apt update
 
 # advanced configuration tools
-sudo apt-get install -y gconf-editor compizconfig-settings-manager
+sudo apt install -y gconf-editor compizconfig-settings-manager
 
 # restricted extras
-sudo apt-get install -y flashplugin-installer \
+sudo apt install -y flashplugin-installer \
   ubuntu-restricted-extras
 
 # monitors
-sudo apt-get install -y conky \
+sudo apt install -y conky \
   curl \
   lm-sensors \
   hddtemp \
@@ -22,7 +22,7 @@ sudo apt-get install -y conky \
   powertop
 
 # codecs
-sudo apt-get install -y ffmpeg \
+sudo apt install -y ffmpeg \
   gxine \
   libdvdread4 \
   icedax \

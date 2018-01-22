@@ -14,7 +14,7 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 sudo apt-get update
 
 # ======== installing programs ==================
-sudo apt-get install -y terminator vlc ubuntu-tweak gnome-tweak-tool tmux
+sudo apt-get install -y vlc ubuntu-tweak gnome-tweak-tool tmux
 
 # ======== installing useful tools ==================
 # tree - directory browser
