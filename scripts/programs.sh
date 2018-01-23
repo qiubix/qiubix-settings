@@ -25,7 +25,8 @@ sudo apt-get install -y vlc ubuntu-tweak gnome-tweak-tool tmux
 # ncdu - analyze disk usage
 # gufw - firewall
 # albert - awesome launcher
-sudo apt-get install -y tree p7zip-full p7zip-rar ncdu gufw albert
+# plank - MacOS-like dock
+sudo apt-get install -y tree p7zip-full p7zip-rar ncdu gufw albert plank
 
 # install chrome
 sudo apt-get install libxss1 google-chrome-stable
