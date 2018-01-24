@@ -13,11 +13,26 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 # albert launcher
 sudo add-apt-repository ppa:nilarimogard/webupd8
 
+# docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
 # ======== update repository list ==============
-sudo apt-get update
+sudo apt update
 
 # ======== installing programs ==================
-sudo apt-get install -y vlc ubuntu-tweak gnome-tweak-tool tmux
+sudo apt install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+
+sudo apt install docker-ce
+
+sudo apt install -y vlc ubuntu-tweak gnome-tweak-tool tmux
 
 # ======== installing useful tools ==================
 # tree - directory browser

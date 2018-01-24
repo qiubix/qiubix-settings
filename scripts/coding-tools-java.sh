@@ -9,4 +9,7 @@ sudo apt install -y oracle-java8-installer
 echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" | sudo tee -a /etc/environment
 
 echo "Installing JVM tools..."
-sudo apt-get install maven gradle
+sudo apt install maven gradle
+
+echo "Installing PostgreSQL"
+sudo apt install postgresql
