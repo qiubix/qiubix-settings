@@ -43,3 +43,5 @@ export SLAVEHOST=localhost
 export REPLICATIONUSER=postgres
 export PGBENCHUSER=pgbench
 
+
+export JBOSS_HOME=/home/$USER/libs/syncron-wildfly-9.0.2.final/jboss-as

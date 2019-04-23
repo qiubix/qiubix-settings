@@ -4,20 +4,20 @@ clear
 echo "Installing vim..."
 
 # ========== install vim ==========
-sudo apt-get install vim-gnome ack-grep silversearcher-ag
+sudo apt install vim-gnome ack-grep silversearcher-ag
 
 # ========== copy vim settings from settings repo ==========
 echo "Copying vim settings..."
 
 if [ ! -f ~/.vimrc ]; then
-  ln -s ~/qiubix-settings/.vimrc ~/.vimrc
+  ln -s ~/qiubix-settings/vim/vimrc.vim ~/.vimrc
 else
   mv ~/.vimrc ~/.vimrc_old
-  ln -s ~/qiubix-settings/.vimrc ~/.vimrc
+  ln -s ~/qiubix-settings/vim/vimrc.vim ~/.vimrc
 fi
 
-if [ ! -f ~/.vimrc.bundles ]; then
-  ln -s ~/qiubix-settings/.vimrc.bundles ~/.vimrc.bundles
+if [ ! -f ~/.vim-bundles ]; then
+  ln -s ~/qiubix-settings/vim/vim-bundles.vim ~/.vim-bundles
 fi
 
 if [ ! -f ~/.ideavimrc ]; then
@@ -28,20 +28,12 @@ if [ ! -f ~/.qtcreatorvimrc ]; then
   ln -s ~/qiubix-settings/.qtcreatorvimrc ~/.qtcreatorvimrc
 fi
 
-if [ ! -f ~/.vim ]; then
-  ln -s ~/qiubix-settings/.vim ~/.vim
-fi
-
 # ==========================================
 # ========== PLUGINS INSTALLATION ==========
 # ==========================================
 echo "Installing plugins..."
 
-# ========== Vundle for managing plugins ==========
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-
+# Vim is self-bootstraping
 vim +PluginInstall +qall
 
 if [ -f ~/.vim/bundle/YouCompleteMe ]; then

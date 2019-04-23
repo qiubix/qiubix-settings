@@ -30,8 +30,8 @@ endfunction
 
 " ==========[ SET UP PLUGINS WITH Vundle ]=========={{{
 
-if filereadable(expand("~/.vimrc.bundles"))
-    source ~/.vimrc.bundles
+if filereadable(expand("~/.vim-bundles"))
+    source ~/.vim-bundles
 endif
 
 filetype plugin indent on
