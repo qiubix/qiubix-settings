@@ -114,7 +114,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 
 " cpp/hpp file switching
-Plugin 'derekwyatt/vim-fswitch'
+"Plugin 'derekwyatt/vim-fswitch'
 
 " }
 
@@ -137,7 +137,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 
 " crazy project drawer / directory browser
-Plugin 'tpope/vim-vinegar'
+"Plugin 'tpope/vim-vinegar'
 
 " }
 
@@ -148,7 +148,9 @@ Plugin 'tpope/vim-dispatch'
 " Others {
 Plugin 'uguu-org/vim-matrix-screensaver'
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'derekwyatt/vim-scala'
+"Plugin 'derekwyatt/vim-scala'
+"Plugin 'vim-latex/vim-latex'
+
 " }
 
 " }
