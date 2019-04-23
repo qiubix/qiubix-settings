@@ -36,8 +36,9 @@ git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/.th
 cd ~/.themes/gnome-terminal-colors-solarized
 ./install.sh
 
-git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git ~/.themes/macOS-Sierra
-xfconf-query -c xsettings -p /Net/ThemeName -s "macOS Sierra"
+git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git ~/.themes/macOS-Sierra-dark
+git clone https://github.com/B00merang-Project/macOS-Sierra.git ~/.themes/macOS-Sierra-light
+xfconf-query -c xsettings -p /Net/ThemeName -s "macOS Sierra light"
 
 # terminator color scheme
 # git clone https://github.com/ghuntley/terminator-solarized.git ~/themes/terminator-solarized
