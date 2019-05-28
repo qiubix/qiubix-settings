@@ -1,26 +1,14 @@
-" UTF-8 encoding
-set enc=utf-8
-set fenc=utf-8
-
-"disable compatibility with previous versions
-"set nocompatible
-
 set number          "display line numbers
 
 " wrapping and indentation
 set nowrap          "disable wrapping lines
 set autoindent      "automaticaly indent
 set copyindent      "copy with existing indentation
-set smarttab        "insert tabs on the start of the line according to shiftwidth
-set expandtab
 
 " searching
 set incsearch       " move cursor to next occurence while typing
 set ignorecase      " ignore case while searching
 set smartcase       " don't ignore case when seach uses capitals
-set nohlsearch      " turn off highlight searches, but:
-                    " Turn hlsearch off/on with CTRL-N
-nnoremap <silent> \n :se invhlsearch<CR>
 
 " sane search - center cursor line
 nnoremap <silent> n nzz
@@ -57,14 +45,4 @@ vnoremap <C-V>     v
 
 vnoremap < <gv
 vnoremap > >gv
-
-"======== forget about SHIFT entering COMMAND mode ========
-" nnoremap ; :
-" nnoremap : ;
-" nnoremap q: q;
-" nnoremap q; q:
-" nnoremap @: @;
-" nnoremap @; @:
-" vnoremap ; :
-" vnoremap : ;
 

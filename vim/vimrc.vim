@@ -191,8 +191,8 @@ set pastetoggle=<F2>
 
 " Quickly edit/reload the vimrc file
 " WARNING - ;/: remapping forces to use ; instead of :
-nmap <silent> <leader>ev ;tabedit $MYVIMRC<CR>
-nmap <silent> <leader>sv ;so $MYVIMRC<CR>
+nmap <silent> <leader>ev :tabedit $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " highlight last inserted text
 nnoremap <leader>v `[<C-V>`]
@@ -373,17 +373,17 @@ endif
 " end of plugin configuration }}}
 
 " ==========[ forget about SHIFT entering COMMAND mode ]=========={{{
-nnoremap ; :
-nnoremap : ;
+" nnoremap ; :
+" nnoremap : ;
 
-nnoremap q; q:
-nnoremap q: q;
+" nnoremap q; q:
+" nnoremap q: q;
 
-nnoremap @; @:
-nnoremap @: @;
+" nnoremap @; @:
+" nnoremap @: @;
 
-vnoremap ; :
-vnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
 " end of :/; remapping }}}
 
 " ==========[ FILE SPECIFIC SETTINGS ]=========={{{

@@ -16,11 +16,35 @@ eval `dircolors $HOME/.dir_colors/dircolors`
 # ZSH environment
 source ~/qiubix-settings/zsh/env.zsh
 
+# Completion
+# forces zsh to realize new commands
+zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# rehash if command not found (possibly recently installed)
+zstyle ':completion:*' rehash true
+
+# menu if nb items > 2
+zstyle ':completion:*' menu select=2
+
+# Prompt
+setopt PROMPT_SUBST
+setopt CORRECT
+setopt COMPLETE_IN_WORD
+
 # HISTORY
-HISTCONTROL=ignoredubs:ignorespace
-setopt HIST_IGNORE_DUPS
+HISTFILE=~/.zsh-history
 HISTSIZE=20000
 SAVEHIST=20000
+HISTCONTROL=ignoredubs:ignorespace
+setopt HIST_IGNORE_DUPS
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # ZSH aliases
 source ~/qiubix-settings/zsh/aliases.zsh
@@ -35,6 +59,11 @@ bindkey -M vicmd "?" history-incremental-search-forward
 # Search based on what you typed in already
 bindkey -M vicmd "//" history-beginning-search-backward
 bindkey -M vicmd "??" history-beginning-search-forward
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # oh wow!  This is killer...  try it!
 bindkey -M vicmd "q" push-line
