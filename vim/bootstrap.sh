@@ -21,11 +21,7 @@ if [ ! -f ~/.vim-bundles ]; then
 fi
 
 if [ ! -f ~/.ideavimrc ]; then
-  ln -s ~/qiubix-settings/.ideavimrc ~/.ideavimrc
-fi
-
-if [ ! -f ~/.qtcreatorvimrc ]; then
-  ln -s ~/qiubix-settings/.qtcreatorvimrc ~/.qtcreatorvimrc
+  ln -s ~/qiubix-settings/vim/idea.vim ~/.ideavimrc
 fi
 
 # ==========================================

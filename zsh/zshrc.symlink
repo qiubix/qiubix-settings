@@ -70,3 +70,7 @@ bindkey -M vicmd "q" push-line
 
 # it's like, space AND completion.  Gnarlbot.
 bindkey -M viins ' ' magic-space
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/karkat/.sdkman"
+[[ -s "/home/karkat/.sdkman/bin/sdkman-init.sh" ]] && source "/home/karkat/.sdkman/bin/sdkman-init.sh"
