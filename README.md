@@ -18,8 +18,6 @@ My personal Linux system customization.
   * .bashrc - basic setup for bash
   * .vimrc - config file with all settings making vim better and more convinient, enabling specific plugins, mapping keys, configuring colors
   * and a few more...
-* QtCreator
-  * solarized dark and light
 
 ## Installation
 Basically everything can be set up with provided scripts.
