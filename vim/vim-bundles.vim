@@ -80,16 +80,15 @@ Plugin 'bling/vim-bufferline'
 " }
 
 " Git {
+
+" Git runtime files
 Plugin 'tpope/vim-git'
 
 " Git wrapper - use git from inside of vim
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 " git diff in special column, different coloring for lines
 Plugin 'airblade/vim-gitgutter'
-
-" Repository viewer
-Plugin 'gregsexton/gitv'
 
 " }
 
@@ -121,7 +120,7 @@ Plugin 'tpope/vim-surround'
 " Word completion {
 Plugin 'drmingdrmer/xptemplate'
 Plugin 'scrooloose/syntastic'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'

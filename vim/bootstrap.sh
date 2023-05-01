@@ -1,10 +1,10 @@
 #!/bin/bash
 
-clear
 echo "Installing vim..."
 
 # ========== install vim ==========
-sudo apt install vim-gnome ack-grep silversearcher-ag
+# sudo apt install vim-gnome ack-grep silversearcher-ag
+# brew install vim
 
 # ========== copy vim settings from settings repo ==========
 echo "Copying vim settings..."

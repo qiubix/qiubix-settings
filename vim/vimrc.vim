@@ -272,7 +272,7 @@ let g:netrw_altv = 1
 
 " NERDTree toggle mapping
 " WARNING - ;/: remapping forces to use ; instead of :
-map <silent> <C-E> ;NERDTreeToggle<CR>
+map <silent> <C-E> :NERDTreeToggle<CR>
 
 " GitGutter config
 highlight clear SignColumn
