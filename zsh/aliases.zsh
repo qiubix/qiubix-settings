@@ -1,10 +1,8 @@
 #!/bin/zsh
 
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -la'
-#alias rm='rm -vI'
-#alias mv='mv -vi'
 alias mkdir='mkdir -v'
 alias list='ls -lhgop'
 #alias grep='grep -rni'
@@ -14,15 +12,8 @@ alias off='sudo shutdown -h now'
 alias reboot='sudo reboot'
 
 # editor and programs
-#alias v='vim'
 alias tree='tree -CF'
 #alias edit='gnome-open'
-
-# tmux setup
-export TERM=xterm-256color
-# alias tmux='tmux -2'
-# alias tmux='TERM=xterm-256color /home/$USER/bin/tmux -2'
-alias start-tmux='~/tmux-startup.sh && tmux attach -t coding'
 
 # ----------------------
 # additional git aliases
@@ -46,13 +37,17 @@ alias ggpull='git pull origin $(current_branch)'
 alias ggpur='git pull --rebase origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 
+# ----------------------
+# other aliases
+# ----------------------
+
 # Check and purge obsolete kernels
 alias kernels='dpkg --list | grep linux-image'
 
-# use new python
-#alias python='python3'
 
+# -----------------
+# Linux @ Syncron
+# -----------------
 alias display-setup='xrandr --output eDP1 --auto --pos 0x0 --output DP1-1 --auto --pos 1920x0 --output DP1-2 --auto --pos 3840x0'
-
 alias vpn-up='nmcli con up id SyncronVPN'
 alias vpn-down='nmcli con down id SyncronVPN'

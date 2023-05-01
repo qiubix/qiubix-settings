@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+
+ZSH_DISABLE_COMPFIX=true
+autoload -Uz compinit && compinit
+
 # Init antibody framework
 source <(antibody init)
 antibody bundle < ~/qiubix-settings/zsh/plugins.zsh
@@ -7,7 +18,7 @@ antibody bundle < ~/qiubix-settings/zsh/plugins.zsh
 # ==================================================
 # APPEARANCE
 # ==================================================
-eval `dircolors $HOME/.dir_colors/dircolors`
+# eval `dircolors $HOME/.dir_colors/dircolors`
 
 # ==================================================
 # CONFIG
