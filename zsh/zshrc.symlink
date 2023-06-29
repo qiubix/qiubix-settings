@@ -47,6 +47,7 @@ zstyle ':completion:*' menu select=2
 setopt PROMPT_SUBST
 setopt CORRECT
 setopt COMPLETE_IN_WORD
+autoload -Uz promptinit && promptinit && prompt pure
 
 # HISTORY
 HISTFILE=~/.zsh-history
