@@ -7,7 +7,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-
 ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit && compinit
 

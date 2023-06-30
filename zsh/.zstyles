@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:tmux' lazy yes

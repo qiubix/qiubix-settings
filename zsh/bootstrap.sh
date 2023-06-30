@@ -6,6 +6,7 @@ case "$(uname -sr)" in
 
   Darwin*)
     echo 'Mac OS X'
+    echo 'zsh is already here by default :)'
     ;;
 
   Linux*Microsoft*)
@@ -36,9 +37,13 @@ esac
 
 echo "Setting up zsh to be the most awesome shell..."
 
-curl -sL git.io/antibody | sh -s
-ln -s ~/qiubix-settings/zsh/zshrc.symlink ~/.zshrc
+#curl -sL git.io/antibody | sh -s
+
+# Set up zsh dotdir
+mkdir -p ~/.config/
+ln -s ~/qiubix-settings/zsh ~/.config/zsh
+ln -s ~/qiubix-settings/zsh/.zshenv ~/.zshenv
 
 
 echo "Done :)"
-echo "Logout and login for full effect."
+echo "Start a new shell for full effect."

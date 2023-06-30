@@ -1,0 +1,40 @@
+# List of ZSH plugins to install
+# =============================
+
+# My own aliases
+$ZDOTDIR/aliases.zsh
+djui/alias-tips
+
+# simple command prompt
+sindresorhus/pure
+
+# Git
+# ohmyzsh/oh-my-zsh path:plugins/git
+
+# vi-mode
+# ohmyzsh/oh-my-zsh path:plugins/vi-mode
+jeffreytse/zsh-vi-mode
+
+# Completion
+$ZDOTDIR/custom/plugins/completion
+zsh-users/zsh-completions path:src kind:fpath
+
+# Compinit plugins should be near the end of .zsh_plugins.txt so that $fpath has been
+# fully populated. Use zsh-utils for its completion plugin.
+belak/zsh-utils path:completion
+
+# tmux aliases (it needs to be after compinit - completion plugin)
+ohmyzsh/oh-my-zsh path:plugins/tmux
+
+ohmyzsh/oh-my-zsh path:plugins/nvm
+
+# === This section should be last ===
+
+# display suggestions as-you-type
+zsh-users/zsh-autosuggestions kind:defer
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+
+# It needs to be after zsh-history-substring-search
+$ZDOTDIR/custom/plugins/vi-mode-config
