@@ -26,8 +26,6 @@ belak/zsh-utils path:completion
 ohmyzsh/oh-my-zsh path:plugins/tmux
 
 ohmyzsh/oh-my-zsh path:plugins/nvm
-# Git
-ohmyzsh/oh-my-zsh path:plugins/git
 
 # === This section should be last ===
 

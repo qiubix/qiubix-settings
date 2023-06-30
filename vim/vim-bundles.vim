@@ -74,7 +74,7 @@ Plugin 'mileszs/ack.vim'
 " }
 
 " User interface {
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-bufferline'
 " }
@@ -101,7 +101,7 @@ Plugin 'myusuf3/numbers.vim'
 " Plugin 'ervandew/supertab'
 
 " Display tags in current file
-Plugin 'Tagbar'
+" Plugin 'Tagbar'
 
 " parenthesis/brackets finishing
 Plugin 'Raimondi/delimitMate'
@@ -118,13 +118,13 @@ Plugin 'tpope/vim-surround'
 " }
 
 " Word completion {
-Plugin 'drmingdrmer/xptemplate'
-Plugin 'scrooloose/syntastic'
+" Plugin 'drmingdrmer/xptemplate'
+" Plugin 'scrooloose/syntastic'
 " Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'honza/vim-snippets'
+" Plugin 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/neosnippet'
+" Plugin 'Shougo/neosnippet-snippets'
 " }
 
 " Browsing {
@@ -141,7 +141,7 @@ Plugin 'scrooloose/nerdtree'
 " }
 
 " Compilation / deployment {
-Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 " }
 
 " Others {
