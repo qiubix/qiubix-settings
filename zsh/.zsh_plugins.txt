@@ -4,12 +4,10 @@
 # My own aliases
 $ZDOTDIR/aliases.zsh
 djui/alias-tips
+$ZDOTDIR/custom/plugins/history
 
 # simple command prompt
 sindresorhus/pure
-
-# Git
-# ohmyzsh/oh-my-zsh path:plugins/git
 
 # vi-mode
 # ohmyzsh/oh-my-zsh path:plugins/vi-mode
@@ -23,10 +21,13 @@ zsh-users/zsh-completions path:src kind:fpath
 # fully populated. Use zsh-utils for its completion plugin.
 belak/zsh-utils path:completion
 
-# tmux aliases (it needs to be after compinit - completion plugin)
+# OMZ plugins need to be after compinit - completion plugin)
+# tmux aliases
 ohmyzsh/oh-my-zsh path:plugins/tmux
 
 ohmyzsh/oh-my-zsh path:plugins/nvm
+# Git
+ohmyzsh/oh-my-zsh path:plugins/git
 
 # === This section should be last ===
 

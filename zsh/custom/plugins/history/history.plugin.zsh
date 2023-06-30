@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+HISTSIZE=20000
+SAVEHIST=20000
+HISTCONTROL=ignoredubs:ignorespace
+setopt HIST_IGNORE_DUPS
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
