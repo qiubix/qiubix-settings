@@ -22,6 +22,9 @@ brew install --cask jetbrains-toolbox
 git clone https://github.com/jenv/jenv.git $HOME/.jenv
 brew install maven
 
+echo "Setting up docker..."
+brew install colima
+
 echo "Setting up Python env..."
 brew install pyenv python3
 
@@ -31,3 +34,11 @@ brew install --cask timeular
 brew install --cask obsidian
 brew install --cask todoist
 brew install --cask vanilla rocket horo
+
+
+# Inventory
+brew install pre-commit
+brew install --cask balance-lock
+brew install --cask rescuetime
+brew install --cask sync
+
