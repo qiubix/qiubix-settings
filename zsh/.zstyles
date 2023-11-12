@@ -2,3 +2,5 @@
 
 zstyle ':omz:plugins:nvm' lazy yes
 zstyle ':omz:plugins:tmux' lazy yes
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes

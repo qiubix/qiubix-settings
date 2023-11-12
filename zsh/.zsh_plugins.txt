@@ -16,6 +16,7 @@ jeffreytse/zsh-vi-mode
 # Completion
 $ZDOTDIR/custom/plugins/completion
 zsh-users/zsh-completions path:src kind:fpath
+docker/cli path:/cli/contrib/zsh kind:fpath
 
 # Compinit plugins should be near the end of .zsh_plugins.txt so that $fpath has been
 # fully populated. Use zsh-utils for its completion plugin.

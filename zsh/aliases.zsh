@@ -51,6 +51,8 @@ function git_current_branch() {
 # Check and purge obsolete kernels
 alias kernels='dpkg --list | grep linux-image'
 
+alias infra='terraform -chdir=infra'
+
 
 # -----------------
 # Linux @ Syncron
