@@ -40,14 +40,18 @@ filetype plugin indent on
 
 " ==========[ BASIC SETTINGS ]=========={{{
 syntax on
+syntax enable
 
 " colorscheme configuration
-set background=dark
+set background=light
 try
+  let g:solarized_termcolors=256
   colorscheme solarized
 catch
   colorscheme darkblue
 endtry
+
+set backspace=indent,eol,start
 
 " buffer and files
 set hidden          "hides buffers instead of closing them
@@ -259,7 +263,8 @@ runtime macros/matchit.vim
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
@@ -290,8 +295,9 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " ==== CtrlP settings ====
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build|dist)$',
+      \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build|dist|target)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 nnoremap <leader>b :CtrlPBuffer<CR>
@@ -352,22 +358,22 @@ autocmd FileType tex let b:dispatch = 'pdflatex'
 
 " ==== neosnippet ====
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+" 
+" " SuperTab like snippets behavior.
+" imap <expr><TAB>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" 
+" " For conceal markers.
+" if has('conceal')
+"   set conceallevel=2 concealcursor=niv
+" endif
 
 
 " end of plugin configuration }}}
