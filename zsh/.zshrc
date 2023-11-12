@@ -34,6 +34,9 @@ antidote load
 # autoload -Uz promptinit; promptinit
 # prompt pure
 
-#autoload -Uz compinit && compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' awslocal
 
 source "${ZDOTDIR:-$HOME}/env.zsh"
