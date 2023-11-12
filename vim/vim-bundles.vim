@@ -75,6 +75,7 @@ Plugin 'mileszs/ack.vim'
 
 " User interface {
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-bufferline'
 " }
