@@ -53,6 +53,7 @@ alias kernels='dpkg --list | grep linux-image'
 
 alias infra='terraform -chdir=infra'
 
+alias v='nvim'
 
 # -----------------
 # Linux @ Syncron

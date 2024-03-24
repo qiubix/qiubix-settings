@@ -6,6 +6,7 @@
 export PATH="$HOME/.jenv/libexec:$PATH"
 eval "$(jenv init -)"
 
+export PATH="$HOME/.bin:$PATH"
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
