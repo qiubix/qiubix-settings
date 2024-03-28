@@ -3,7 +3,7 @@
 " Environment {
 
 set nocompatible        " Must be first line
-set background=dark     " Assume a dark background
+"set background=dark     " Assume a dark background
 
   " Windows Compatible {
   silent function! WINDOWS()
@@ -96,7 +96,7 @@ Plugin 'airblade/vim-gitgutter'
 " Editor enhancement {
 
 " Relative line numbering
-Plugin 'myusuf3/numbers.vim'
+" Plugin 'myusuf3/numbers.vim'
 
 " Boost TAB functionality
 " Plugin 'ervandew/supertab'
@@ -142,7 +142,7 @@ Plugin 'scrooloose/nerdtree'
 " }
 
 " Compilation / deployment {
-" Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 " }
 
 " Others {

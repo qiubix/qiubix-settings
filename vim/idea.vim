@@ -1,4 +1,5 @@
 set ideajoin        "utilize IntelliJ to do the smart line joining
+set easymotion
 set number          "display line numbers
 
 " wrapping and indentation

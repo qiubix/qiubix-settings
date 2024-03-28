@@ -39,17 +39,19 @@ filetype plugin indent on
 " Vundle setup end }}}
 
 " ==========[ BASIC SETTINGS ]=========={{{
-syntax on
-syntax enable
+" syntax on
 
 " colorscheme configuration
-set background=light
-try
-  let g:solarized_termcolors=256
-  colorscheme solarized
-catch
-  colorscheme darkblue
-endtry
+" colorscheme default
+let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+syntax enable
+set background=dark
+colorscheme solarized
+" try
+" catch
+  " colorscheme darkblue
+" endtry
 
 set backspace=indent,eol,start
 
@@ -264,7 +266,7 @@ runtime macros/matchit.vim
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
+let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
@@ -361,7 +363,7 @@ autocmd FileType tex let b:dispatch = 'pdflatex'
 " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 " xmap <C-k>     <Plug>(neosnippet_expand_target)
-" 
+"
 " " SuperTab like snippets behavior.
 " imap <expr><TAB>
 "  \ pumvisible() ? "\<C-n>" :
@@ -369,7 +371,7 @@ autocmd FileType tex let b:dispatch = 'pdflatex'
 "  \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
 " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" 
+"
 " " For conceal markers.
 " if has('conceal')
 "   set conceallevel=2 concealcursor=niv
