@@ -13,6 +13,7 @@ export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 export AWS_PROFILE=867957065351_PowerUserPlusDev
 
@@ -20,8 +21,9 @@ export AWS_PROFILE=867957065351_PowerUserPlusDev
 # complete -o nospace -C /usr/local/bin/terraform terraform
 
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+# export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
+source <(kubectl completion zsh)
 
 # Node version manager completion is disabled for now, as it seems to be really slow
 #export NVM_DIR="$HOME/.nvm"
