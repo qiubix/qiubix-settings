@@ -40,3 +40,4 @@ complete -C '/usr/local/bin/aws_completer' aws
 complete -C '/usr/local/bin/aws_completer' awslocal
 
 source "${ZDOTDIR:-$HOME}/env.zsh"
+source "${ZDOTDIR:-$HOME}/secrets.zsh"
