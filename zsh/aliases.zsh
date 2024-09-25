@@ -1,8 +1,8 @@
 #!/bin/zsh
 
 alias ls='ls -G'
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -lh'
+alias la='ls -lha'
 alias mkdir='mkdir -v'
 alias list='ls -lhgop'
 #alias grep='grep -rni'
@@ -52,6 +52,7 @@ function git_current_branch() {
 alias kernels='dpkg --list | grep linux-image'
 
 alias infra='terraform -chdir=infra'
+alias tg='terragrunt'
 
 alias v='nvim'
 
