@@ -103,6 +103,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Display tags in current file
 " Plugin 'Tagbar'
+Plugin 'hashivim/vim-terraform'
 
 " parenthesis/brackets finishing
 Plugin 'Raimondi/delimitMate'

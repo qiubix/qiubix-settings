@@ -24,6 +24,11 @@ if [ ! -f ~/.ideavimrc ]; then
   ln -s ~/qiubix-settings/vim/idea.vim ~/.ideavimrc
 fi
 
+if [ ! -f ~/.config/nvim/init.vim ]; then
+  mkdir -p ~/.config/nvim
+  ln -s ~/qiubix-settings/vim/nvim-init.vim ~/.config/nvim/init.vim
+fi
+
 # ==========================================
 # ========== PLUGINS INSTALLATION ==========
 # ==========================================
