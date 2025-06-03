@@ -14,7 +14,7 @@ echo "Setting up vim..."
 brew install vim neovim
 
 echo "Installing useful tools..."
-brew install tree
+brew install tree btop fzf tldr
 brew install pre-commit
 brew install tfenv jq go-task adr-tools
 
