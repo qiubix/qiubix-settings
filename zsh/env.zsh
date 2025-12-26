@@ -9,6 +9,7 @@ eval "$(jenv init -)"
 export PATH="$HOME/.bin:$PATH"
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
