@@ -7,7 +7,7 @@ set t_Co=256
 " UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
-set termencoding=utf-8
+"set termencoding=utf-8
 
 set title
 
@@ -145,6 +145,9 @@ augroup END
 inoremap jk <Esc>
 inoremap jj <Esc>A;<Esc>
 
+" mapping <leader>
+let mapleader = " "
+
 "==== moving around the file ====
 nnoremap <Space> <PageDown>
 nnoremap k gk
@@ -189,7 +192,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " other useful mappings
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 
 " end of mappings }}}
 
@@ -310,15 +313,15 @@ if executable('ag')
 endif
 
 " ==== Syntastic settings ====
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-      \ "mode": "passive" }
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_mode_map = {
+"       \ "mode": "passive" }
 
 " ==== FSwitch settings ====
 au! BufEnter *.cpp let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = '.'

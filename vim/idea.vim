@@ -1,16 +1,23 @@
 set ideajoin        "utilize IntelliJ to do the smart line joining
 set easymotion
-set number          "display line numbers
+set showcmd         "display part of the command
+let mapleader = " " "remap <leader> to SPACE
+nmap <bslash> <space>
 
 " wrapping and indentation
 set nowrap          "disable wrapping lines
 set autoindent      "automaticaly indent
 set copyindent      "copy with existing indentation
 
+" line numbers
+set number          "display line numbers
+nnoremap <silent> <leader>l :set invrelativenumber<CR>
+
 " searching
 set incsearch       " move cursor to next occurence while typing
 set ignorecase      " ignore case while searching
 set smartcase       " don't ignore case when seach uses capitals
+nnoremap <silent> <leader>n :se invhlsearch<CR>
 
 " sane search - center cursor line
 nnoremap <silent> n nzz
