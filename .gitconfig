@@ -20,4 +20,5 @@
 [branch]
 	autosetuprebase = always
 [core]
+	pager = less -FR
 	editor = vim
