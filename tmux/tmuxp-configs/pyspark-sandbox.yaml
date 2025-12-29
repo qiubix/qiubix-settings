@@ -1,0 +1,10 @@
+session_name: pyspark-sandbox
+windows:
+- window_name: zsh
+  focus: 'true'
+  options: {}
+  panes:
+  - zsh
+  - focus: 'true'
+    shell_command: 
+  start_directory: /Users/karkat/sandbox
