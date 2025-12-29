@@ -26,7 +26,7 @@ fi
 
 if [ ! -f ~/.config/nvim/init.vim ]; then
   mkdir -p ~/.config/nvim
-  ln -s ~/qiubix-settings/vim/nvim-init.vim ~/.config/nvim/init.vim
+  ln -s ~/qiubix-settings/vim/nvim ~/.config/nvim
 fi
 
 # ==========================================
