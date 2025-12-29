@@ -1,0 +1,26 @@
+session_name: tmux-test
+windows:
+- window_name: sandbox-brown
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: 
+  start_directory: /Users/karkat/src/ssc.extensible-forecasting-infra/live/dev/eu-west-1/karkat-brown
+- window_name: sandbox-tatum
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: 
+  start_directory: /Users/karkat/src/ssc.extensible-forecasting-infra/live/dev/eu-west-1/karkat-tatum
+- window_name: epiroc-altair
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/ssc.extensible-forecasting-infra/live/staging/eu-west-1/epiroc-altair
+- window_name: zsh
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/extensible-forecasting/python-spark-feature-engineering/spark_job
