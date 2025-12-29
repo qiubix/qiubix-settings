@@ -5,6 +5,7 @@
 $ZDOTDIR/aliases.zsh
 djui/alias-tips
 $ZDOTDIR/custom/plugins/history
+$ZDOTDIR/custom/plugins/gh-sync
 
 # simple command prompt
 sindresorhus/pure

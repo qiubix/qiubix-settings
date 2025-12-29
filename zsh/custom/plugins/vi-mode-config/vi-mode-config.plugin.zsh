@@ -12,24 +12,31 @@ bindkey -M viins ' ' magic-space
 #
 # It needs to be enabled in .zsh_plugins.txt for this bindings to work
 
+# ZVM_ESCAPE_KEYTIMEOUT=0.3
+
 # Only changing the escape key to `jk` in insert mode, we still
 # keep using the default keybindings `^[` in other modes
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 function zvm_after_lazy_keybindings() {
 
   # Incremental search is elite!
   bindkey -M vicmd "/" history-incremental-search-backward
-  bindkey -M vicmd "?" history-incremental-search-forward
+  # bindkey -M vicmd "?" history-incremental-search-forward
+  bindkey -M vicmd "?" history-beginning-search-backward
 
   # Search based on what you typed in already
-  bindkey -M vicmd "//" history-beginning-search-backward
-  bindkey -M vicmd "??" history-beginning-search-forward
+  # bindkey -M vicmd "//" history-beginning-search-backward
+  # bindkey -M vicmd "??" history-beginning-search-forward
+  # zvm_bindkey vicmd "//" history-beginning-search-backward
+  # zvm_bindkey vicmd "??" history-beginning-search-forward
 
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
-  bindkey -M vicmd 'k' history-substring-search-up
-  bindkey -M vicmd 'j' history-substring-search-down
+  # bindkey -M vicmd 'k' history-substring-search-up
+  # bindkey -M vicmd 'j' history-substring-search-down
+  zvm_bindkey vicmd 'k' history-substring-search-up
+  zvm_bindkey vicmd 'j' history-substring-search-down
 }
 
 # This is a custom configuration for plugin:
@@ -42,14 +49,14 @@ function zvm_after_lazy_keybindings() {
 # bindkey -M viins 'jk' vi-cmd-mode
 
 # Incremental search is elite!
-bindkey -M vicmd "/" history-incremental-search-backward
-bindkey -M vicmd "?" history-incremental-search-forward
+# bindkey -M vicmd "/" history-incremental-search-backward
+# bindkey -M vicmd "?" history-incremental-search-forward
 
 # Search based on what you typed in already
-bindkey -M vicmd "//" history-beginning-search-backward
-bindkey -M vicmd "??" history-beginning-search-forward
+# bindkey -M vicmd "//" history-beginning-search-backward
+# bindkey -M vicmd "??" history-beginning-search-forward
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
