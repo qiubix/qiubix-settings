@@ -18,10 +18,15 @@ export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export AWS_PROFILE=867957065351_PowerUserPlusDev
-export AWS_INV_DEV=867957065351_PowerUserPlusDev
-export AWS_INV_STAGING=838805440704_PowerUserPlusDev
-export AWS_DS_DEV=835494090728_PowerUserPlusDev
+# export AWS_PROFILE=867957065351_PowerUserPlusDev
+export AWS_PROFILE=inventory-dev
+# export AWS_INV_DEV=867957065351_PowerUserPlusDev
+export AWS_INV_DEV=inventory-dev
+# export AWS_INV_STAGING=838805440704_PowerUserPlusDev
+export AWS_INV_STAGING=inventory-staging
+# export AWS_DS_DEV=835494090728_PowerUserPlusDev
+export AWS_DS_DEV=ds-staging
+export AWS_QBX=qiubix-admin
 
 #export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.4/libexec
 export SPARK_HOME=/opt/spark-3.5.4

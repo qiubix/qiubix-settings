@@ -41,3 +41,10 @@ complete -C '/usr/local/bin/aws_completer' awslocal
 
 source "${ZDOTDIR:-$HOME}/env.zsh"
 source "${ZDOTDIR:-$HOME}/secrets.zsh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# opencode
+export PATH=/Users/karkat/.opencode/bin:$PATH
