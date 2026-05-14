@@ -1,0 +1,15 @@
+session_name: gim
+windows:
+- window_name: gim-master
+  focus: 'true'
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/inventory/gim-master
+- window_name: gim-ai
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/inventory/gim-ai

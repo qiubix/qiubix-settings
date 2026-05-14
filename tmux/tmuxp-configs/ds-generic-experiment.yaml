@@ -1,0 +1,9 @@
+session_name: ds-generic-experiment
+windows:
+- window_name: code
+  focus: 'true'
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/ssc.ds-generic-experiment-main

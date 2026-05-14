@@ -1,0 +1,15 @@
+session_name: xfor
+windows:
+- window_name: code
+  focus: 'true'
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/xfor/extensible-forecasting-dev
+- window_name: deploy
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/xfor/ssc.extensible-forecasting-infra/live/dev/eu-west-1/karkat-tatum
