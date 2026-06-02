@@ -1,14 +1,14 @@
 theme = iTerm2 Solarized Dark
 
- # Font to match iTerm2
- font-family = Roboto Mono
- font-size = 14
+# Font to match iTerm2
+font-family = Roboto Mono
+font-size = 14
 
- # Use standard xterm-256color sequences — keeps arrow-key escape codes
- # consistent with iTerm2 (^[[A/^[[B), avoids xterm-ghostty divergence
- # term = xterm-256color
+# Use standard xterm-256color sequences — keeps arrow-key escape codes
+# consistent with iTerm2 (^[[A/^[[B), avoids xterm-ghostty divergence
+# term = xterm-256color
 
- # Disable automatic shell integration injection — it injects zle hooks
- # that reset zsh-vi-mode's vicmd keymap after zvm_after_lazy_keybindings runs,
- # breaking j/k history navigation
- shell-integration = none
+# Disable automatic shell integration injection — it injects zle hooks
+# that reset zsh-vi-mode's vicmd keymap after zvm_after_lazy_keybindings runs,
+# breaking j/k history navigation
+shell-integration = none

@@ -6,10 +6,22 @@ windows:
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/qbx.banana-points
+  start_directory: /Users/karkat/src/personal/qbx.banana-points
 - window_name: 🍌 banana deploy
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/qbx.banana-points
+  start_directory: /Users/karkat/src/personal/qbx.banana-points
+- window_name: 💸 cashew code
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/personal/qbx.cashew
+- window_name: 💸 cashew deploy
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+  start_directory: /Users/karkat/src/personal/qbx.cashew
