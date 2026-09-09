@@ -28,6 +28,7 @@ vim.o.history = 1000         -- history size of Ex commands
 vim.o.undolevels = 1000
 
 vim.o.number = true          -- display line numbers
+vim.o.relativenumber = true  -- display relative numbers by default
 vim.keymap.set('n', '<leader>l', ':set invrelativenumber<CR>', { noremap = true, silent = true })
 vim.o.showmatch = true       -- show matching parenthesis
 vim.o.showcmd = true         -- display incomplete command
