@@ -11,6 +11,7 @@ set copyindent      "copy with existing indentation
 
 " line numbers
 set number          "display line numbers
+set relativenumber	"relative line numbers by default
 nnoremap <silent> <leader>l :set invrelativenumber<CR>
 
 " searching
