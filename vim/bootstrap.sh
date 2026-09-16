@@ -1,43 +1,27 @@
 #!/bin/bash
 
-echo "Installing vim..."
+# Neovim (vim/nvim, Lua config) is the primary editor.
+# vimrc-server.vim is a minimal, no-plugin fallback for plain `vim`
+# (e.g. on remote boxes). The classic Vundle config lives in vim/legacy/
+# and is intentionally not deployed.
 
-# ========== install vim ==========
-# sudo apt install vim-gnome ack-grep silversearcher-ag
-# brew install vim
+echo "Linking editor configs..."
 
-# ========== copy vim settings from settings repo ==========
-echo "Copying vim settings..."
-
-if [ ! -f ~/.vimrc ]; then
-  ln -s ~/qiubix-settings/vim/vimrc.vim ~/.vimrc
-else
+# Minimal vim fallback -> ~/.vimrc
+if [ -e ~/.vimrc ] && [ ! -L ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc_old
-  ln -s ~/qiubix-settings/vim/vimrc.vim ~/.vimrc
 fi
+ln -sf ~/qiubix-settings/vim/vimrc-server.vim ~/.vimrc
 
-if [ ! -f ~/.vim-bundles ]; then
-  ln -s ~/qiubix-settings/vim/vim-bundles.vim ~/.vim-bundles
-fi
-
-if [ ! -f ~/.ideavimrc ]; then
+# IdeaVim
+if [ ! -e ~/.ideavimrc ]; then
   ln -s ~/qiubix-settings/vim/idea.vim ~/.ideavimrc
 fi
 
-if [ ! -f ~/.config/nvim/init.vim ]; then
-  mkdir -p ~/.config/nvim
+# Neovim (primary)
+if [ ! -e ~/.config/nvim ]; then
+  mkdir -p ~/.config
   ln -s ~/qiubix-settings/vim/nvim ~/.config/nvim
 fi
 
-# ==========================================
-# ========== PLUGINS INSTALLATION ==========
-# ==========================================
-echo "Installing plugins..."
-
-# Vim is self-bootstraping
-vim +PluginInstall +qall
-
-if [ -f ~/.vim/bundle/YouCompleteMe ]; then
-  cd ~/.vim/bundle/YouCompleteMe
-  ./install.py --clang-completer
-fi
+echo "Done. Neovim manages its own plugins (packer) on first launch."

@@ -1,30 +1,27 @@
 #!/bin/bash
+#
+# Work (TouK) git identity + SSH key setup (macOS).
+#
+# Sets the global git identity to the work account, symlinks the global ignore
+# file, and generates a work SSH key. Run gitsetup_qiubix.sh instead to switch
+# back to the personal identity.
 
-#installing and setting up git
+set -e
 
-sudo apt-get update
-sudo apt-get install git git-core xclip gitk gitg
+# Global gitignore (referenced by ~/.gitconfig core.excludesfile)
+ln -sf ~/qiubix-settings/.gitignore_global ~/.gitignore_global
 
-ln -s ~/qiubix-settings/.gitignore_global ~/.gitignore_global
-
+# Work identity
 git config --global user.name "Karol Katerzawa"
 git config --global user.email kkt@touk.pl
-git config --global push.default matching
-git config --global color.diff auto
-git config --global color.status auto
-git config --global color.branch auto
-git config --global color.ui true
-git config --global branch.autosetuprebase always
-git config --global merge.tool kdiff3
-git config --global core.editor vim
-git config --global core.excludesfile ~/.gitignore_global
 
-ssh-keygen -t rsa -C "kkt@touk.pl"
-cd ~/.ssh
-ssh-add id_rsa
-xclip -sel clip < ~/.ssh/id_rsa.pub
+# SSH key
+KEY="$HOME/.ssh/id_ed25519_touk"
+if [ ! -f "$KEY" ]; then
+  ssh-keygen -t ed25519 -C "kkt@touk.pl" -f "$KEY"
+fi
+pbcopy < "$KEY.pub"
 
-
-echo '===============================================
-SSH Key generated and copied to clipboard.
-Add it in your account settings on github and bitbucket.'
+echo '==============================================='
+echo 'Work SSH public key copied to clipboard.'
+echo 'Add it in your account settings on your git host.'

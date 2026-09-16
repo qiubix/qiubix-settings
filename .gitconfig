@@ -21,4 +21,5 @@
 	autosetuprebase = always
 [core]
 	pager = less -FR
-	editor = vim
+	editor = nvim
+	excludesfile = ~/.gitignore_global
