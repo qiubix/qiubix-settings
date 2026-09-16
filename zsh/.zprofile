@@ -36,7 +36,3 @@ path=(
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-
-# Added by Toolbox App
-export PATH="$PATH:/Users/karkat/Library/Application Support/JetBrains/Toolbox/scripts"
-

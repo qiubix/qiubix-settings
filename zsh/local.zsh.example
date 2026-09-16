@@ -1,0 +1,20 @@
+#!/bin/zsh
+#
+# local.zsh.example — template for zsh/local.zsh (UNTRACKED).
+# Copy to local.zsh and fill in machine/work-specific values.
+# install.sh seeds local.zsh from this file on first run.
+
+# AWS profiles
+# export AWS_PROFILE=your-profile
+# export AWS_INV_DEV=...
+# export AWS_INV_STAGING=...
+
+# Spark
+# export SPARK_HOME=/opt/spark-x.y.z
+# path=($SPARK_HOME/bin(N) $path)
+
+# Docker / Colima
+# export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
+# Host-specific tool paths (Homebrew prefix differs Intel vs Apple Silicon)
+# export PATH="$(brew --prefix ruby)/bin:$PATH"

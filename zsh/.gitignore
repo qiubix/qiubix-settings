@@ -10,3 +10,4 @@ bin/
 *.local.zsh
 *.zwc
 secrets.zsh
+local.zsh

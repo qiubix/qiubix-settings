@@ -1,6 +1,10 @@
 #!/bin/zsh
 #
-# .zshrc - Zsh file loaded on interactive shell sessions.
+# .zshrc — interactive shell orchestrator.
+#
+# Entrypoint chain: ~/.zshenv (sets ZDOTDIR) -> .zprofile (login) -> THIS FILE.
+# This file loads plugins, then sources one file per concern, in order:
+#   path -> env -> runtimes -> completions -> aliases -> os/<os> -> local -> secrets
 #
 
 # Zsh options.
@@ -11,48 +15,33 @@ ZFUNCDIR=${ZFUNCDIR:-$ZDOTDIR/functions}
 fpath=($ZFUNCDIR $fpath)
 autoload -Uz $fpath[1]/*(.:t)
 
-# Source zstyles you might use with antidote.
+# zstyles (used by antidote/completion).
 [[ -e ${ZDOTDIR:-~}/.zstyles ]] && source ${ZDOTDIR:-~}/.zstyles
 
-# Clone antidote if necessary.
+# Plugins via antidote (clone on first run).
 [[ -d ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-~}/.antidote
-
-
-#ZSH_DISABLE_COMPFIX=true
-# Init completion (must be after antidote init)
-#autoload -Uz compinit && compinit
-
-# Create an amazing Zsh config using antidote plugins.
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 antidote load
 
-# Prompt
-# setopt PROMPT_SUBST
-# setopt CORRECT
-# setopt COMPLETE_IN_WORD
-# autoload -Uz promptinit; promptinit
-# prompt pure
-
-autoload bashcompinit && bashcompinit
+# Completion system (after antidote so $fpath is fully populated).
+autoload -Uz bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-complete -C '/usr/local/bin/aws_completer' aws
-complete -C '/usr/local/bin/aws_completer' awslocal
 
-source "${ZDOTDIR:-$HOME}/env.zsh"
-source "${ZDOTDIR:-$HOME}/secrets.zsh"
+# Config — one concern per file.
+for _conf in path env runtimes completions aliases; do
+  source "$ZDOTDIR/$_conf.zsh"
+done
+unset _conf
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="$HOME/.sdkman"
-#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# opencode
-export PATH=/Users/karkat/.opencode/bin:$PATH
-
-# pnpm
-export PNPM_HOME="/Users/karkat/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+# OS-specific (tracked).
+case "$OSTYPE" in
+  darwin*) _os=macos ;;
+  linux*)  _os=linux ;;
 esac
-# pnpm end
+[[ -n "${_os:-}" && -r "$ZDOTDIR/os/$_os.zsh" ]] && source "$ZDOTDIR/os/$_os.zsh"
+unset _os
+
+# Machine-local (untracked).
+[[ -r "$ZDOTDIR/local.zsh" ]]   && source "$ZDOTDIR/local.zsh"
+[[ -r "$ZDOTDIR/secrets.zsh" ]] && source "$ZDOTDIR/secrets.zsh"
