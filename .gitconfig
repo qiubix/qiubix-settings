@@ -1,25 +1,26 @@
-[user]
-	name = qiubix
-	email = qiubix@gmail.com
+# Shared base git config. Machine-local identity (user.name/email) and
+# host-specific settings (e.g. safe.directory) live in ~/.gitconfig.local,
+# which is untracked and pulled in via the [include] below. install.sh seeds it.
+[include]
+	path = ~/.gitconfig.local
 [merge]
 	tool = kdiff3
-[github]
-	user = qiubix
 [push]
-	default = matching
+	default = simple
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 	ui = true
-  interactive = auto
+	interactive = auto
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 [branch]
 	autosetuprebase = always
 [core]
 	pager = less -FR
 	editor = nvim
 	excludesfile = ~/.gitignore_global
+	autocrlf = input

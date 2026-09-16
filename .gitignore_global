@@ -1,6 +1,15 @@
+# Build artifacts
 target/
 build/
-*.user
-.idea/
-*.iml
 .gradle/
+*.iml
+*.user
+
+# Editor / IDE
+.idea/
+
+# macOS
+**/.DS_Store
+
+# Tooling
+.claude/settings.local.json

@@ -1,0 +1,11 @@
+# Machine-local git config — copy to ~/.gitconfig.local and fill in.
+# This file is NOT tracked; it holds identity and host-specific settings.
+# install.sh seeds it automatically, harvesting identity from any existing
+# ~/.gitconfig on first run.
+[user]
+	name = Your Name
+	email = you@example.com
+
+# Host-specific safe directories (added by tooling like bazel), e.g.:
+# [safe]
+# 	directory = /path/to/repo
