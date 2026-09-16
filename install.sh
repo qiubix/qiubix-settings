@@ -59,10 +59,14 @@ if [[ ! -f "$HOME/.gitconfig.local" ]]; then
   fi
 fi
 
-# Zsh secrets (lives in the repo dir = ZDOTDIR; gitignored).
+# Zsh secrets + machine-local env (live in the repo dir = ZDOTDIR; gitignored).
 if [[ ! -f "$DOTFILES/zsh/secrets.zsh" ]]; then
   log "Seeding zsh/secrets.zsh"
   cp "$DOTFILES/zsh/secrets.zsh.example" "$DOTFILES/zsh/secrets.zsh"
+fi
+if [[ ! -f "$DOTFILES/zsh/local.zsh" ]]; then
+  log "Seeding zsh/local.zsh"
+  cp "$DOTFILES/zsh/local.zsh.example" "$DOTFILES/zsh/local.zsh"
 fi
 
 # ── 3. Symlink manifest (single source of truth) ─────────────────

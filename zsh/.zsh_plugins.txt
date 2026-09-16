@@ -1,8 +1,6 @@
 # List of ZSH plugins to install
 # =============================
 
-# My own aliases
-$ZDOTDIR/aliases.zsh
 djui/alias-tips
 $ZDOTDIR/custom/plugins/history
 $ZDOTDIR/custom/plugins/gh-sync
@@ -11,7 +9,6 @@ $ZDOTDIR/custom/plugins/gh-sync
 sindresorhus/pure
 
 # vi-mode
-# ohmyzsh/oh-my-zsh path:plugins/vi-mode
 jeffreytse/zsh-vi-mode
 
 # Completion
@@ -27,7 +24,6 @@ belak/zsh-utils path:completion
 # tmux aliases
 ohmyzsh/oh-my-zsh path:plugins/tmux
 
-ohmyzsh/oh-my-zsh path:plugins/nvm
 ohmyzsh/oh-my-zsh path:plugins/git
 
 # === This section should be last ===
