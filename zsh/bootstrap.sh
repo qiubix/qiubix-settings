@@ -37,7 +37,7 @@ esac
 
 echo "Setting up zsh to be the most awesome shell..."
 
-curl -sL git.io/antibody | sh -s
+# Plugins are managed by antidote, bootstrapped lazily from ~/.config/zsh/.zshrc
 
 # Set up zsh dotdir
 mkdir -p ~/.config/
