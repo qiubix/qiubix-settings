@@ -24,9 +24,10 @@ autoload -Uz $fpath[1]/*(.:t)
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 antidote load
 
-# Completion system (after antidote so $fpath is fully populated).
+# Completion system. compinit is run (cache-aware) by the belak/zsh-utils
+# completion plugin during `antidote load`; we only add bash-style completion
+# support here for tools that use `complete -C` (e.g. aws in completions.zsh).
 autoload -Uz bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
 
 # Config — one concern per file.
 for _conf in path env runtimes completions aliases; do

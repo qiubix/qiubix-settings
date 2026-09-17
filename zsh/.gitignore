@@ -1,6 +1,7 @@
 bin/
 .antidote/
 .zcompcache/
+.cache/
 .zsh_sessions/
 .zcompdump*
 .zsh_history
