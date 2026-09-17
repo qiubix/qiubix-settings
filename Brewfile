@@ -15,6 +15,7 @@ brew "tree"
 brew "btop"
 brew "fzf"
 brew "ripgrep"
+brew "fd"              # preferred file finder for fzf-lua (falls back to rg)
 brew "tldr"
 brew "jq"
 brew "pre-commit"

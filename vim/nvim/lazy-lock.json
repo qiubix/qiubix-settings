@@ -1,5 +1,5 @@
 {
-  "ctrlp.vim": { "branch": "master", "commit": "0065942ef13ce28293e2b26cb622d035da050b44" },
+  "fzf-lua": { "branch": "main", "commit": "02bc882f208f3481aa959dbbee8ce5edad2fd8b2" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "mini.nvim": { "branch": "main", "commit": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c" },
   "nvim-treesitter": { "branch": "main", "commit": "9a168f6357ed21c3a636e1727bc7d382abc451b8" },
