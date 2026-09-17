@@ -8,6 +8,7 @@ brew "tmux"
 brew "tmuxp"
 brew "vim"
 brew "neovim"
+brew "tree-sitter-cli"  # required by nvim-treesitter (main branch) to build parsers
 brew "antidote"        # zsh plugin manager (used by zsh/.zshrc)
 brew "mise"            # primary version manager
 brew "tree"

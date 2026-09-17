@@ -4,6 +4,7 @@ vim.o.termguicolors = true
 
 require("qiubix.remap")
 require("qiubix.colors")
+require("qiubix.lazy")
 
 vim.wo.wrap = false
 vim.o.autoindent = true
