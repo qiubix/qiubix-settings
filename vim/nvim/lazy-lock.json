@@ -1,7 +1,9 @@
 {
   "ctrlp.vim": { "branch": "master", "commit": "0065942ef13ce28293e2b26cb622d035da050b44" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
+  "mini.nvim": { "branch": "main", "commit": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c" },
   "nvim-treesitter": { "branch": "main", "commit": "9a168f6357ed21c3a636e1727bc7d382abc451b8" },
+  "render-markdown.nvim": { "branch": "main", "commit": "640a3ec6d538bad17c328be373c7cad0293d9589" },
   "solarized.nvim": { "branch": "main", "commit": "a8085e29883ddcfb39bd46197eb32ef00df05368" },
   "vim-airline": { "branch": "master", "commit": "ae24f4aca06731d5d7224df1fc5415975331b214" },
   "vim-airline-themes": { "branch": "master", "commit": "77aab8c6cf7179ddb8a05741da7e358a86b2c3ab" }
