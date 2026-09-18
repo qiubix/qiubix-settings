@@ -2,6 +2,11 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Yank to the system clipboard with y / Y (delete, change and paste keep the
+-- normal registers, so d/x don't clobber the clipboard).
+vim.keymap.set({ "n", "x" }, "y", '"+y', { noremap = true })
+vim.keymap.set("n", "Y", '"+y$', { noremap = true })
+
 -- Reload NeoVim config
 -- vim.keymap.set("n", "<leader>sv", 
 
