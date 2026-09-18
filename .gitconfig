@@ -20,7 +20,7 @@
 [branch]
 	autosetuprebase = always
 [core]
-	pager = less -FR
+	pager = less -+F -+X -R
 	editor = nvim
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
