@@ -37,15 +37,15 @@ log "Installing packages from Brewfile..."
 brew bundle --file="$DOTFILES/Brewfile"
 
 # ── 2. Seed machine-local files (never overwrite existing) ────────
-# Git identity: harvest from any pre-existing real ~/.gitconfig so the live
-# identity is preserved; otherwise fall back to the template.
+# Git identity is configured explicitly by scripts/setup-git.sh. Keep the
+# existing local file intact during dotfiles installation.
 if [[ ! -f "$HOME/.gitconfig.local" ]]; then
   log "Seeding ~/.gitconfig.local"
   if [[ -f "$HOME/.gitconfig" && ! -L "$HOME/.gitconfig" ]]; then
     name="$(git config -f "$HOME/.gitconfig" user.name || true)"
     email="$(git config -f "$HOME/.gitconfig" user.email || true)"
     {
-      printf '[user]\n'
+      printf '# Run scripts/setup-git.sh to configure separate personal/work identities.\n[user]\n'
       [[ -n "$name" ]]  && printf '\tname = %s\n' "$name"
       [[ -n "$email" ]] && printf '\temail = %s\n' "$email"
       # Preserve any existing safe.directory entries.

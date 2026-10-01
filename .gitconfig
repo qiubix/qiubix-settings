@@ -1,6 +1,5 @@
-# Shared base git config. Machine-local identity (user.name/email) and
-# host-specific settings (e.g. safe.directory) live in ~/.gitconfig.local,
-# which is untracked and pulled in via the [include] below. install.sh seeds it.
+# Shared base git config. Machine-local identity and conditional work identity
+# live in ~/.gitconfig.local, which is untracked and pulled in below.
 [include]
 	path = ~/.gitconfig.local
 [merge]
