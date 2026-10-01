@@ -24,6 +24,10 @@ belak/zsh-utils path:completion
 # tmux aliases
 ohmyzsh/oh-my-zsh path:plugins/tmux
 
+# The git plugin's gg*/g* aliases (ggpush, ggpull, gpsup, ...) call
+# git_current_branch(), which lives in OMZ's core lib/git.zsh, not the plugin.
+# Load the lib first so those aliases resolve.
+ohmyzsh/oh-my-zsh path:lib/git.zsh
 ohmyzsh/oh-my-zsh path:plugins/git
 
 # === This section should be last ===
