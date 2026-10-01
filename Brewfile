@@ -23,9 +23,9 @@ brew "go-task"
 brew "adr-tools"
 
 # ── Version managers (legacy, still referenced in zsh/env.zsh) ────
-brew "tfenv"
-brew "pyenv"
-brew "jenv"
+#brew "tfenv"
+#brew "pyenv"
+#brew "jenv"
 brew "python@3"
 
 # ── JVM / build ──────────────────────────────────────────────────
@@ -49,6 +49,7 @@ cask "spotify"
 cask "obsidian"
 cask "todoist"
 cask "timeular"
+cask "raycast"
 # cask "vanilla"
 # cask "rocket"
 cask "balance-lock"
