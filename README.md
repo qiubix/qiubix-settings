@@ -60,5 +60,8 @@ changed to the appropriate alias, for example:
 git remote set-url origin git@github.com-personal:OWNER/REPO.git
 ```
 
-Version managers (mise, and legacy jenv/pyenv) currently coexist in `zsh/env.zsh`;
-consolidation onto `mise` is in progress.
+**Runtime versions:** `zsh/runtimes.zsh` uses mise exclusively. It enables
+idiomatic `.java-version` and `.python-version` files, so existing repositories
+continue to select their declared versions without migration. From a repository
+directory, run `mise install` to install the declared versions and
+`mise ls --current` to inspect what mise selected.

@@ -1,17 +1,18 @@
 #!/bin/zsh
 #
-# runtimes.zsh — language/runtime version managers.
-# NOTE: jenv, pyenv and mise all initialize here. This is intentionally redundant
-# for now; mise could eventually replace jenv + pyenv.
+# runtimes.zsh — mise is the only language/runtime version manager.
+#
+# Enable mise's idiomatic version files so existing repositories continue to
+# work without converting .java-version and .python-version to mise.toml.
+export MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS="${MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS:-java,python}"
 
-# jenv — Java
-export PATH="$HOME/.jenv/libexec:$PATH"
-command -v jenv >/dev/null && eval "$(jenv init -)"
+if [[ -x "$HOME/.local/bin/mise" ]]; then
+  mise_bin="$HOME/.local/bin/mise"
+elif command -v mise >/dev/null 2>&1; then
+  mise_bin="$(command -v mise)"
+else
+  mise_bin=""
+fi
 
-# pyenv — Python
-export PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv >/dev/null && eval "$(pyenv init -)"
-
-# mise — polyglot runtime manager
-[[ -x "$HOME/.local/bin/mise" ]] && eval "$("$HOME/.local/bin/mise" activate zsh)"
+[[ -n "$mise_bin" ]] && eval "$("$mise_bin" activate zsh)"
+unset mise_bin
