@@ -39,8 +39,13 @@ brew "docker-compose"
 
 # ── Casks: terminal, JVM, editors ────────────────────────────────
 cask "ghostty"
+cask "font-roboto-mono-for-powerline"  # patched font used by Ghostty/Airline
+cask "font-0xproto-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-meslo-lg-nerd-font"
+cask "corretto@21"
 cask "corretto@17"
-cask "corretto@11"
 cask "jetbrains-toolbox"
 cask "basictex"
 
@@ -55,3 +60,4 @@ cask "raycast"
 cask "balance-lock"
 # cask "rescuetime"
 cask "sync"
+cask "brave"

@@ -1,7 +1,7 @@
 theme = iTerm2 Solarized Dark
 
-# Font to match iTerm2
-font-family = Roboto Mono
+# Powerline-patched font for prompt and Vim/Airline glyphs
+font-family = Roboto Mono for Powerline
 font-size = 14
 
 # Use standard xterm-256color sequences — keeps arrow-key escape codes
