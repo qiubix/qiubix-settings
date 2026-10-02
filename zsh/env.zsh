@@ -7,3 +7,6 @@
 # path.zsh; version managers in runtimes.zsh.
 
 # (add generic exports here)
+
+export WORK_DIR=$HOME/work
+export HACK_DIR=$HOME/code

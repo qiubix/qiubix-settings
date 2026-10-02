@@ -1,27 +1,21 @@
 session_name: side-hustle
 windows:
-- window_name: 🍌 banana code
+- window_name: 🍌 banana
   focus: 'true'
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/personal/qbx.banana-points
-- window_name: 🍌 banana deploy
+  start_directory: $HACK_DIR/banana-points
+- window_name: 💸 cashew
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/personal/qbx.banana-points
-- window_name: 💸 cashew code
+  start_directory: $HACK_DIR/cashew
+- window_name: 📚 book eater
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/personal/qbx.cashew
-- window_name: 💸 cashew deploy
-  options: {}
-  panes:
-  - focus: 'true'
-    shell_command:
-  start_directory: /Users/karkat/src/personal/qbx.cashew
+  start_directory: $HACK_DIR/book-eater

@@ -6,4 +6,4 @@ windows:
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/ssc.ds-generic-experiment-main
+  start_directory: $WORK_DIR/ssc.ds-generic-experiment-main

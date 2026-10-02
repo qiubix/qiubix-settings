@@ -6,10 +6,10 @@ windows:
   panes:
   - focus: 'true'
     shell_command: 
-  start_directory: /Users/karkat
+  start_directory: $HOME
 - window_name: dotfiles
   options: {}
   panes:
   - focus: 'true'
     shell_command: nvim
-  start_directory: /Users/karkat/qiubix-settings/zsh
+  start_directory: $HOME/qiubix-settings/zsh

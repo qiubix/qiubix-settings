@@ -23,3 +23,7 @@ alias glog='git log --oneline --decorate --color --graph'
 # terraform / terragrunt
 alias infra='terraform -chdir=infra'
 alias tg='terragrunt'
+alias tf='terraform'
+
+alias work='cd $WORK_DIR'
+alias hack='cd $HACK_DIR'

@@ -6,10 +6,10 @@ windows:
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/data-platform/ssc.dataservices
+  start_directory: $WORK_DIR/data-platform/ssc.dataservices
 - window_name: deploy
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: /Users/karkat/src/data-platform/ssc.dataservices
+  start_directory: $WORK_DIR/data-platform/ssc.dataservices
