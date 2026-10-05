@@ -21,6 +21,7 @@ brew "jq"
 brew "pre-commit"
 brew "go-task"
 brew "adr-tools"
+brew "awscli"
 
 # ── Version managers (legacy, still referenced in zsh/env.zsh) ────
 #brew "tfenv"
@@ -44,9 +45,9 @@ cask "font-0xproto-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
-cask "corretto@21"
 cask "corretto@17"
 cask "jetbrains-toolbox"
+cask "visual-studio-code"
 cask "basictex"
 
 # ── Casks: apps (trim to taste) ──────────────────────────────────
