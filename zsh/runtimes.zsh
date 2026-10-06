@@ -4,7 +4,7 @@
 #
 # Enable mise's idiomatic version files so existing repositories continue to
 # work without converting .java-version and .python-version to mise.toml.
-export MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS="${MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS:-java,python}"
+export MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS="${MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS:-java,python,terraform,terragrunt}"
 
 if [[ -x "$HOME/.local/bin/mise" ]]; then
   mise_bin="$HOME/.local/bin/mise"
