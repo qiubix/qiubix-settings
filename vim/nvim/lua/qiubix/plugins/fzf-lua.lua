@@ -11,5 +11,9 @@ return {
     { '<leader>s', function() require('fzf-lua').live_grep() end, desc = 'Search file contents (grep)' },
     { '<leader>b', function() require('fzf-lua').buffers() end, desc = 'Search open buffers' },
   },
-  opts = {},
+  opts = {
+    files = {
+      fd_opts = '--color=never --type f --hidden --follow --no-ignore --exclude .git',
+    },
+  },
 }
