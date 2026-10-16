@@ -1,6 +1,8 @@
 -- Fuzzy finder (replaces ctrlp). Uses fzf + ripgrep (Brewfile).
 --   <C-p>      -> fzf-lua picker menu (same as :FzfLua)
 --   <leader>f -> find files
+--   <A-n>      -> toggle hidden files in the picker (Alt-h moves tmux panes)
+--   <A-i>      -> toggle gitignored files in the picker
 --   <leader>s -> search file contents (live grep)
 return {
   'ibhagwan/fzf-lua',
@@ -13,7 +15,13 @@ return {
   },
   opts = {
     files = {
-      fd_opts = '--color=never --type f --hidden --follow --no-ignore --exclude .git',
+      hidden = false,
+      actions = {
+        ['alt-h'] = false,
+        ['alt-n'] = function(selected, opts)
+          require('fzf-lua').actions.toggle_hidden(selected, opts)
+        end,
+      },
     },
   },
 }
