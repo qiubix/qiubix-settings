@@ -1,6 +1,7 @@
 set ideajoin        "utilize IntelliJ to do the smart line joining
 set easymotion
 set showcmd         "display part of the command
+set clipboard+=unnamed "use the system clipboard for yanks
 let mapleader = " " "remap <leader> to SPACE
 nmap <bslash> <space>
 
@@ -55,4 +56,3 @@ vnoremap <C-V>     v
 
 vnoremap < <gv
 vnoremap > >gv
-
