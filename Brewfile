@@ -1,9 +1,13 @@
 # Brewfile — install with `brew bundle` (run by ./install.sh).
 # Declarative replacement for the old bootstrap-mac.sh.
 
+# ── Third-party taps ─────────────────────────────────────────────
+tap "drewdeponte/oss", "git://git.drewdeponte.com/homebrew-oss.git"
+
 # ── Core CLI / dev tools ─────────────────────────────────────────
 brew "git"
 brew "gh"
+brew "drewdeponte/oss/git-ps-rs"
 brew "tmux"
 brew "tmuxp"
 brew "vim"
@@ -45,15 +49,21 @@ cask "font-0xproto-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
-cask "corretto@17"
 cask "jetbrains-toolbox"
 cask "visual-studio-code"
 cask "basictex"
 
+# ── Casks: AI tools ──────────────────────────────────
+cask "claude"
+cask "claude-code"
+#cask "copilot-cli"
+#cask "github-copilot-app"
+
+
 # ── Casks: apps (trim to taste) ──────────────────────────────────
 cask "spotify"
 cask "obsidian"
-cask "todoist"
+cask "todoist-app"
 cask "timeular"
 cask "raycast"
 # cask "vanilla"
