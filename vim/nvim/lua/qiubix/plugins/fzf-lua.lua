@@ -1,9 +1,11 @@
 -- Fuzzy finder (replaces ctrlp). Uses fzf + ripgrep (Brewfile).
 --   <C-p>      -> fzf-lua picker menu (same as :FzfLua)
 --   <leader>f -> find files
---   <A-n>      -> toggle hidden files in the picker (Alt-h moves tmux panes)
---   <A-i>      -> toggle gitignored files in the picker
+--   <leader>h -> toggle hidden files in the file picker
+--   <leader>i -> toggle gitignored files in the file picker
 --   <leader>s -> search file contents (live grep)
+local timeoutlen
+
 return {
   'ibhagwan/fzf-lua',
   cmd = 'FzfLua',
@@ -16,10 +18,18 @@ return {
   opts = {
     files = {
       hidden = false,
-      actions = {
-        ['alt-h'] = false,
-        ['alt-n'] = function(selected, opts)
-          require('fzf-lua').actions.toggle_hidden(selected, opts)
+      winopts = {
+        on_create = function(e)
+          timeoutlen = vim.o.timeoutlen
+          vim.o.timeoutlen = 250
+          vim.keymap.set('t', '<leader>h', '<M-h>', { buffer = e.bufnr, silent = true })
+          vim.keymap.set('t', '<leader>i', '<M-i>', { buffer = e.bufnr, silent = true })
+        end,
+        on_close = function()
+          if timeoutlen then
+            vim.o.timeoutlen = timeoutlen
+            timeoutlen = nil
+          end
         end,
       },
     },
