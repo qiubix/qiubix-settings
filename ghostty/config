@@ -4,8 +4,8 @@ theme = iTerm2 Solarized Dark
 font-family = Roboto Mono for Powerline
 font-size = 14
 
-# Send left Option as Alt for fzf shortcuts; keep right Option for special characters
-macos-option-as-alt = left
+# Keep Option available for typing special characters.
+macos-option-as-alt = false
 
 # Use standard xterm-256color sequences — keeps arrow-key escape codes
 # consistent with iTerm2 (^[[A/^[[B), avoids xterm-ghostty divergence
