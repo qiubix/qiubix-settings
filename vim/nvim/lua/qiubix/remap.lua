@@ -1,6 +1,9 @@
 -- Remap leader to <SPACE>
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>w", function()
+  vim.wo.wrap = not vim.wo.wrap
+end, { desc = "Toggle line wrapping" })
 
 -- Yank to the system clipboard with y / Y (delete, change and paste keep the
 -- normal registers, so d/x don't clobber the clipboard).
@@ -72,4 +75,3 @@ vim.keymap.set('v', '<C-V>', 'v', { noremap = true })
 -- Keep selection after indenting
 vim.keymap.set('v', '<', '<gv', { noremap = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true })
-
