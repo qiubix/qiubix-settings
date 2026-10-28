@@ -5,7 +5,10 @@
 # existing symlinks are force-relinked.
 #
 #   git clone https://github.com/qiubix/qiubix-settings.git ~/qiubix-settings
-#   cd ~/qiubix-settings && ./install.sh
+#   cd ~/qiubix-settings && ./install.sh [--personal | --work]
+#
+# With --personal or --work, Git identities and SSH keys are configured at the
+# end via scripts/setup-git.sh. Without a flag that step is skipped.
 
 set -euo pipefail
 
@@ -13,6 +16,18 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 backup_dir="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 
 log() { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
+usage() { echo "Usage: $(basename "$0") [--personal | --work]" >&2; }
+
+machine=""
+while (($#)); do
+  case "$1" in
+    --personal) machine=personal ;;
+    --work) machine=work ;;
+    -h|--help) usage; exit 0 ;;
+    *) usage; exit 1 ;;
+  esac
+  shift
+done
 
 # ── 0. Platform guard ────────────────────────────────────────────
 # macOS only for now. Add a Linux branch here when needed.
@@ -45,7 +60,7 @@ if [[ ! -f "$HOME/.gitconfig.local" ]]; then
     name="$(git config -f "$HOME/.gitconfig" user.name || true)"
     email="$(git config -f "$HOME/.gitconfig" user.email || true)"
     {
-      printf '# Run scripts/setup-git.sh to configure separate personal/work identities.\n[user]\n'
+      printf '# Run scripts/setup-git.sh to configure Git identities for this machine.\n[user]\n'
       [[ -n "$name" ]]  && printf '\tname = %s\n' "$name"
       [[ -n "$email" ]] && printf '\temail = %s\n' "$email"
       # Preserve any existing safe.directory entries.
@@ -105,6 +120,14 @@ if [[ "${SHELL:-}" != "$zsh_path" ]]; then
   log "Setting zsh as the default shell..."
   grep -qxF "$zsh_path" /etc/shells || echo "$zsh_path" | sudo tee -a /etc/shells >/dev/null
   chsh -s "$zsh_path" || echo "  (could not chsh automatically; run: chsh -s $zsh_path)"
+fi
+
+# ── 5. Git identities ────────────────────────────────────────────
+if [[ -n "$machine" ]]; then
+  log "Configuring Git for a $machine machine..."
+  "$DOTFILES/scripts/setup-git.sh" "--$machine"
+else
+  echo "  Git identities not configured; run: scripts/setup-git.sh --personal|--work"
 fi
 
 log "Done. Start a new shell for full effect."

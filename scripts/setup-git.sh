@@ -1,13 +1,26 @@
 #!/usr/bin/env bash
 #
-# Configure default/conditional Git identities and personal/work SSH aliases.
+# Configure Git identities and SSH host aliases for this machine.
 #
-# Repositories below WORK_ROOT and PERSONAL_ROOT use their matching identity.
-# The selected default applies outside both roots. SSH remotes use:
-#   git@github.com-personal:OWNER/REPO.git
-#   git@gitlab.com-personal:NAMESPACE/REPO.git
-#   git@github.com-work:ORG/REPO.git
-#   git@gitlab.com-work:NAMESPACE/REPO.git
+#   setup-git.sh [--personal | --work]
+#
+# Machine types:
+#   personal  One identity, no conditional includes. github.com and gitlab.com
+#             use the personal keys directly, so plain remotes just work:
+#               git@github.com:OWNER/REPO.git
+#             The -personal aliases are kept so remotes copied from a work
+#             machine also work.
+#   work      Personal and work identities, selected by repository root via
+#             includeIf gitdir; a chosen default applies outside both roots.
+#             SSH remotes use:
+#               git@github.com-personal:OWNER/REPO.git
+#               git@gitlab.com-personal:NAMESPACE/REPO.git
+#               git@github.com-work:ORG/REPO.git
+#               git@gitlab.com-work:NAMESPACE/REPO.git
+#
+# The machine type is remembered in ~/.gitconfig.local (qiubix.machine) and
+# offered as the default on re-runs. GIT_MACHINE overrides it, a flag
+# overrides both.
 
 set -euo pipefail
 
@@ -17,81 +30,125 @@ personal_config="$HOME/.gitconfig.personal"
 work_config="$HOME/.gitconfig.work"
 ssh_config="$HOME/.ssh/config"
 
+usage() { echo "Usage: $(basename "$0") [--personal | --work]" >&2; }
+
+machine="${GIT_MACHINE:-}"
+while (($#)); do
+  case "$1" in
+    --personal) machine=personal ;;
+    --work) machine=work ;;
+    -h|--help) usage; exit 0 ;;
+    *) usage; exit 1 ;;
+  esac
+  shift
+done
+
 prompt() {
   local label="$1" default="$2" output_var="$3" env_var="$4" value
   if [[ -n "${!env_var:-}" ]]; then
     printf -v "$output_var" '%s' "${!env_var}"
     return
   fi
-  read -r -p "$label [$default]: " value
+  read -r -p "$label [$default]: " value || true
   printf -v "$output_var" '%s' "${value:-$default}"
 }
 
-prompt "Personal name" "${GIT_PERSONAL_NAME:-qiubix}" personal_name GIT_PERSONAL_NAME
-prompt "Personal email" "${GIT_PERSONAL_EMAIL:-qiubix@gmail.com}" personal_email GIT_PERSONAL_EMAIL
-prompt "Work name" "${GIT_WORK_NAME:-Your Work Name}" work_name GIT_WORK_NAME
-prompt "Work email" "${GIT_WORK_EMAIL:-work@example.com}" work_email GIT_WORK_EMAIL
-prompt "Work repository root" "${GIT_WORK_ROOT:-$HOME/work}" work_root GIT_WORK_ROOT
-prompt "Personal repository root" "${GIT_PERSONAL_ROOT:-$HOME/code}" personal_root GIT_PERSONAL_ROOT
-prompt "Default identity (personal/work)" "${GIT_DEFAULT_IDENTITY:-personal}" default_identity GIT_DEFAULT_IDENTITY
+# Resolve a repository root to its physical path, creating it if needed.
+resolve_root() {
+  local root="$1" resolved
+  mkdir -p "$root"
+  resolved="$(cd "$root" 2>/dev/null && pwd -P || true)"
+  if [[ -z "$resolved" ]]; then
+    echo "Repository root does not exist: $root" >&2
+    exit 1
+  fi
+  printf '%s' "$resolved"
+}
 
-case "$default_identity" in
+if [[ -z "$machine" ]]; then
+  stored_machine="$(git config --file "$local_config" qiubix.machine 2>/dev/null || true)"
+  prompt "Machine type (personal/work)" "${stored_machine:-personal}" machine GIT_MACHINE
+fi
+case "$machine" in
   personal|work) ;;
   *)
-    echo "Default identity must be 'personal' or 'work': $default_identity" >&2
+    echo "Machine type must be 'personal' or 'work': $machine" >&2
     exit 1
     ;;
 esac
 
-if [[ -z "$personal_name" || -z "$personal_email" || -z "$work_name" ||
-  -z "$work_email" || -z "$work_root" || -z "$personal_root" ]]; then
-  echo "All Git identity values and repository roots are required." >&2
+prompt "Personal name" "${GIT_PERSONAL_NAME:-qiubix}" personal_name GIT_PERSONAL_NAME
+prompt "Personal email" "${GIT_PERSONAL_EMAIL:-qiubix@gmail.com}" personal_email GIT_PERSONAL_EMAIL
+if [[ -z "$personal_name" || -z "$personal_email" ]]; then
+  echo "Personal name and email are required." >&2
   exit 1
 fi
 
-mkdir -p "$work_root"
-work_root="$(cd "$work_root" 2>/dev/null && pwd -P || true)"
-if [[ -z "$work_root" ]]; then
-  echo "Work repository root does not exist: ${GIT_WORK_ROOT:-$HOME/work}" >&2
-  exit 1
-fi
-mkdir -p "$personal_root"
-personal_root="$(cd "$personal_root" 2>/dev/null && pwd -P || true)"
-if [[ -z "$personal_root" ]]; then
-  echo "Personal repository root does not exist: ${GIT_PERSONAL_ROOT:-$HOME/code}" >&2
-  exit 1
+if [[ "$machine" == work ]]; then
+  prompt "Work name" "${GIT_WORK_NAME:-Your Work Name}" work_name GIT_WORK_NAME
+  prompt "Work email" "${GIT_WORK_EMAIL:-work@example.com}" work_email GIT_WORK_EMAIL
+  prompt "Work repository root" "${GIT_WORK_ROOT:-$HOME/work}" work_root GIT_WORK_ROOT
+  prompt "Personal repository root" "${GIT_PERSONAL_ROOT:-$HOME/code}" personal_root GIT_PERSONAL_ROOT
+  prompt "Default identity (personal/work)" "${GIT_DEFAULT_IDENTITY:-personal}" default_identity GIT_DEFAULT_IDENTITY
+
+  case "$default_identity" in
+    personal|work) ;;
+    *)
+      echo "Default identity must be 'personal' or 'work': $default_identity" >&2
+      exit 1
+      ;;
+  esac
+  if [[ -z "$work_name" || -z "$work_email" || -z "$work_root" || -z "$personal_root" ]]; then
+    echo "Work identity values and both repository roots are required." >&2
+    exit 1
+  fi
+
+  work_root="$(resolve_root "$work_root")"
+  personal_root="$(resolve_root "$personal_root")"
 fi
 
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 
-cat >"$personal_config" <<EOF
+# ── Git config ───────────────────────────────────────────────────
+
+write_identity() {  # write_identity <file> <name> <email>
+  cat >"$1" <<EOF
 # Generated by $dotfiles_dir/scripts/setup-git.sh. Do not commit this file.
 [user]
-	name = $personal_name
-	email = $personal_email
+	name = $2
+	email = $3
 EOF
-chmod 600 "$personal_config"
+  chmod 600 "$1"
+}
 
-cat >"$work_config" <<EOF
-# Generated by $dotfiles_dir/scripts/setup-git.sh. Do not commit this file.
-[user]
-	name = $work_name
-	email = $work_email
-EOF
-chmod 600 "$work_config"
-
-# Preserve safe.directory entries while replacing the generated identity and
-# conditional include configuration.
+# Preserve safe.directory entries while replacing the generated identity
+# configuration.
 safe_directories=()
 if [[ -f "$local_config" ]]; then
   while IFS= read -r directory; do
     [[ -n "$directory" ]] && safe_directories+=("$directory")
   done < <(git config --file "$local_config" --get-all safe.directory 2>/dev/null || true)
 fi
+
 {
   cat <<EOF
 # Generated by $dotfiles_dir/scripts/setup-git.sh. Do not commit this file.
+[qiubix]
+	machine = $machine
+EOF
+  case "$machine" in
+    personal)
+      cat <<EOF
+
+[user]
+	name = $personal_name
+	email = $personal_email
+EOF
+      ;;
+    work)
+      cat <<EOF
+
 [include]
 	path = ~/.gitconfig.$default_identity
 
@@ -101,6 +158,8 @@ fi
 [includeIf "gitdir:$personal_root/**"]
 	path = ~/.gitconfig.personal
 EOF
+      ;;
+  esac
   if ((${#safe_directories[@]})); then
     for directory in "${safe_directories[@]}"; do
       printf '\n[safe]\n\tdirectory = %s\n' "$directory"
@@ -108,6 +167,19 @@ EOF
   fi
 } >"$local_config"
 chmod 600 "$local_config"
+
+case "$machine" in
+  personal)
+    # Identity lives in ~/.gitconfig.local; drop files from a previous work setup.
+    rm -f "$personal_config" "$work_config"
+    ;;
+  work)
+    write_identity "$personal_config" "$personal_name" "$personal_email"
+    write_identity "$work_config" "$work_name" "$work_email"
+    ;;
+esac
+
+# ── SSH keys and host aliases ────────────────────────────────────
 
 configure_key() {
   local key_file="$1" comment="$2"
@@ -118,9 +190,22 @@ configure_key() {
   chmod 644 "$key_file.pub"
 }
 
+ssh_host() {  # ssh_host <host patterns> <hostname> <key file>
+  cat <<EOF
+
+Host $1
+	HostName $2
+	User git
+	IdentityFile $3
+	IdentitiesOnly yes
+EOF
+}
+
 configure_key "$HOME/.ssh/id_ed25519_github_personal" "$personal_email"
 configure_key "$HOME/.ssh/id_ed25519_gitlab_personal" "$personal_email"
-configure_key "$HOME/.ssh/id_ed25519_work" "$work_email"
+if [[ "$machine" == work ]]; then
+  configure_key "$HOME/.ssh/id_ed25519_work" "$work_email"
+fi
 
 tmp_ssh_config="$(mktemp)"
 if [[ -f "$ssh_config" ]]; then
@@ -130,48 +215,59 @@ if [[ -f "$ssh_config" ]]; then
     !skip { print }
   ' "$ssh_config" >"$tmp_ssh_config"
 fi
-cat >>"$tmp_ssh_config" <<EOF
-
-# BEGIN qiubix git hosts
-Host github.com-personal
-	HostName github.com
-	User git
-	IdentityFile ~/.ssh/id_ed25519_github_personal
-	IdentitiesOnly yes
-
-Host gitlab.com-personal
-	HostName gitlab.com
-	User git
-	IdentityFile ~/.ssh/id_ed25519_gitlab_personal
-	IdentitiesOnly yes
-
-Host github.com-work
-	HostName github.com
-	User git
-	IdentityFile ~/.ssh/id_ed25519_work
-	IdentitiesOnly yes
-# END qiubix git hosts
-EOF
+{
+  printf '\n# BEGIN qiubix git hosts'
+  case "$machine" in
+    personal)
+      ssh_host "github.com github.com-personal" github.com "~/.ssh/id_ed25519_github_personal"
+      ssh_host "gitlab.com gitlab.com-personal" gitlab.com "~/.ssh/id_ed25519_gitlab_personal"
+      ;;
+    work)
+      ssh_host github.com-personal github.com "~/.ssh/id_ed25519_github_personal"
+      ssh_host gitlab.com-personal gitlab.com "~/.ssh/id_ed25519_gitlab_personal"
+      ssh_host github.com-work github.com "~/.ssh/id_ed25519_work"
+      ssh_host gitlab.com-work gitlab.com "~/.ssh/id_ed25519_work"
+      ;;
+  esac
+  printf '# END qiubix git hosts\n'
+} >>"$tmp_ssh_config"
 install -m 600 "$tmp_ssh_config" "$ssh_config"
 rm -f "$tmp_ssh_config"
 
+# ── Summary ──────────────────────────────────────────────────────
+
 echo
-echo "Git identities configured:"
-echo "  default:  $default_identity"
-echo "  personal: $personal_name <$personal_email> under $personal_root"
-echo "  work:     $work_name <$work_email> under $work_root"
-echo
-echo "Add these public keys to the matching accounts:"
-echo "  GitHub:  $HOME/.ssh/id_ed25519_github_personal.pub"
-echo "  GitLab:  $HOME/.ssh/id_ed25519_gitlab_personal.pub"
-echo "  Work:    $HOME/.ssh/id_ed25519_work.pub"
-echo
-echo "Personal remote examples:"
-echo "  git@github.com-personal:OWNER/REPO.git"
-echo "  git@gitlab.com-personal:NAMESPACE/REPO.git"
-echo
-echo "Work SSH remote examples:"
-echo "  git@github.com-work:ORG/REPO.git"
-echo "  git@gitlab.com-work:NAMESPACE/REPO.git"
-echo
-echo "For work HTTPS credentials, run: gh auth login && gh auth setup-git"
+echo "Git configured for a $machine machine:"
+case "$machine" in
+  personal)
+    echo "  identity: $personal_name <$personal_email>"
+    echo
+    echo "Add these public keys to the matching accounts:"
+    echo "  GitHub:  $HOME/.ssh/id_ed25519_github_personal.pub"
+    echo "  GitLab:  $HOME/.ssh/id_ed25519_gitlab_personal.pub"
+    echo
+    echo "Remote examples:"
+    echo "  git@github.com:OWNER/REPO.git"
+    echo "  git@gitlab.com:NAMESPACE/REPO.git"
+    ;;
+  work)
+    echo "  default:  $default_identity"
+    echo "  personal: $personal_name <$personal_email> under $personal_root"
+    echo "  work:     $work_name <$work_email> under $work_root"
+    echo
+    echo "Add these public keys to the matching accounts:"
+    echo "  GitHub:  $HOME/.ssh/id_ed25519_github_personal.pub"
+    echo "  GitLab:  $HOME/.ssh/id_ed25519_gitlab_personal.pub"
+    echo "  Work:    $HOME/.ssh/id_ed25519_work.pub"
+    echo
+    echo "Personal remote examples:"
+    echo "  git@github.com-personal:OWNER/REPO.git"
+    echo "  git@gitlab.com-personal:NAMESPACE/REPO.git"
+    echo
+    echo "Work SSH remote examples:"
+    echo "  git@github.com-work:ORG/REPO.git"
+    echo "  git@gitlab.com-work:NAMESPACE/REPO.git"
+    echo
+    echo "For work HTTPS credentials, run: gh auth login && gh auth setup-git"
+    ;;
+esac

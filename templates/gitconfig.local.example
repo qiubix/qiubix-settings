@@ -1,12 +1,10 @@
-# Machine-local git config. Run scripts/setup-git.sh to generate this file.
-# It is intentionally untracked: it contains personal/work identities and
-# the default identity and local path patterns used to select each identity.
+# Machine-local git config. Run scripts/setup-git.sh --personal|--work to
+# generate this file. It is intentionally untracked: it contains the identity
+# (personal machine) or the default identity and path patterns used to select
+# personal/work identities (work machine).
 [user]
 	name = Your Personal Name
 	email = you@example.com
-
-[includeIf "gitdir:/absolute/path/to/work/**"]
-	path = ~/.gitconfig.work
 
 # Host-specific safe directories (added by tooling like bazel), e.g.:
 # [safe]

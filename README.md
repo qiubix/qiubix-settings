@@ -10,7 +10,7 @@ My personal macOS dotfiles: shell, editor, terminal and tooling configuration.
 | `vim/`            | Neovim is primary: `vim/nvim/` (Lua config). `vimrc-server.vim` is a minimal no-plugin fallback for plain `vim`. `idea.vim` for IdeaVim. `vim/legacy/` holds the old classic Vundle config, kept for reference but not deployed. |
 | `tmux/`           | `tmux.conf`, `tmuxp-configs/` session layouts, `start-tmux.sh`. |
 | `ghostty/`        | Ghostty terminal config. |
-| `scripts/`        | `setup-git.sh` — per-directory identities and personal SSH host aliases. |
+| `scripts/`        | `setup-git.sh` — Git identities and SSH host aliases for a personal or work machine. |
 | `install.sh`      | The single entry point (see below). |
 | `Brewfile`        | Homebrew packages/casks, installed via `brew bundle`. |
 | `templates/`      | Seeds for machine-local files (`~/.gitconfig.local`). |
@@ -20,7 +20,7 @@ My personal macOS dotfiles: shell, editor, terminal and tooling configuration.
 
 ```sh
 git clone https://github.com/qiubix/qiubix-settings.git ~/qiubix-settings
-cd ~/qiubix-settings && ./install.sh
+cd ~/qiubix-settings && ./install.sh --personal   # or --work
 ```
 
 `install.sh` is idempotent (safe to re-run). It installs Homebrew if missing,
@@ -31,18 +31,33 @@ A single manifest inside `install.sh` is the source of truth for every symlink.
 `~/.dotfiles-backup/<timestamp>/` before its symlink is created; existing symlinks
 are force-relinked.
 
-**Git setup:** after installing, run:
+**Git setup:** `install.sh --personal` / `--work` runs `scripts/setup-git.sh`
+with that flag at the end. Without a flag that step is skipped; run it any
+time later (re-running is safe, and switching machine type cleanly replaces
+the previous setup):
 
 ```sh
-~/qiubix-settings/scripts/setup-git.sh
+~/qiubix-settings/scripts/setup-git.sh --personal   # or --work
 ```
 
-The script asks which identity should be the default and asks for both a work
-and personal repository root. Repositories below those roots automatically use
-their matching identity through Git's `includeIf gitdir` support; the selected
-default applies outside both roots. Git, Neovim, and IDEs therefore see the
-same identity without shell switching. The script creates separate personal
-and work SSH keys with stable aliases:
+The machine type is remembered in `~/.gitconfig.local` (`qiubix.machine`) and
+offered as the default when the script is run without a flag.
+
+*Personal machine:* a single identity in `~/.gitconfig.local`, and personal
+GitHub/GitLab SSH keys bound directly to `github.com` and `gitlab.com`, so
+plain remotes work (the `-personal` aliases below are accepted too):
+
+```sh
+git@github.com:OWNER/REPO.git
+git@gitlab.com:NAMESPACE/REPO.git
+```
+
+*Work machine:* the script asks which identity should be the default and asks
+for both a work and personal repository root. Repositories below those roots
+automatically use their matching identity through Git's `includeIf gitdir`
+support; the selected default applies outside both roots. Git, Neovim, and IDEs
+therefore see the same identity without shell switching. The script creates
+separate personal and work SSH keys with stable aliases:
 
 ```sh
 git@github.com-personal:OWNER/REPO.git
