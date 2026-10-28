@@ -24,7 +24,8 @@ cd ~/qiubix-settings && ./install.sh --personal   # or --work
 ```
 
 `install.sh` is idempotent (safe to re-run). It installs Homebrew if missing,
-runs `brew bundle`, seeds machine-local files, and symlinks configs into place.
+runs `brew bundle --no-upgrade` (installs missing packages only; a failed
+package is reported but does not stop the install), seeds machine-local files, and symlinks configs into place.
 A single manifest inside `install.sh` is the source of truth for every symlink.
 
 **Safety:** any pre-existing *real* file at a target path is moved to

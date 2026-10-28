@@ -49,7 +49,12 @@ elif [[ -x /usr/local/bin/brew ]]; then
 fi
 
 log "Installing packages from Brewfile..."
-brew bundle --file="$DOTFILES/Brewfile"
+# --no-upgrade: install what's missing only; upgrades are a deliberate
+# `brew upgrade` (and self-updating casks fight brew upgrades). A failed
+# package shouldn't block the dotfiles and git steps below.
+if ! brew bundle --file="$DOTFILES/Brewfile" --no-upgrade; then
+  echo "  brew bundle failed for some packages (see above); continuing." >&2
+fi
 
 # ── 2. Seed machine-local files (never overwrite existing) ────────
 # Git identity is configured explicitly by scripts/setup-git.sh. Keep the
