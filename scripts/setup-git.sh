@@ -20,7 +20,8 @@
 #
 # The machine type is remembered in ~/.gitconfig.local (qiubix.machine) and
 # offered as the default on re-runs. GIT_MACHINE overrides it, a flag
-# overrides both.
+# overrides both. Other prompts default to the currently configured values,
+# so a re-run only needs Enter to keep the existing setup.
 
 set -euo pipefail
 
@@ -65,9 +66,38 @@ resolve_root() {
   printf '%s' "$resolved"
 }
 
+read_config() {  # read_config <file> <key>
+  git config --file "$1" "$2" 2>/dev/null || true
+}
+
+# Repository root of an includeIf in ~/.gitconfig.local pointing at <file>.
+current_root() {  # current_root <include file name, e.g. .gitconfig.work>
+  git config --file "$local_config" --get-regexp '^includeif\.gitdir:.*\.path$' 2>/dev/null |
+    awk -v file="$1" '$2 ~ "/" file "$" {
+      key = $1; sub(/^includeif\.gitdir:/, "", key); sub(/\/\*\*\.path$/, "", key)
+      print key; exit
+    }' || true
+}
+
+# Current values, used as prompt defaults. A personal machine keeps its
+# identity directly in ~/.gitconfig.local.
+current_machine="$(read_config "$local_config" qiubix.machine)"
+current_personal_name="$(read_config "$personal_config" user.name)"
+current_personal_email="$(read_config "$personal_config" user.email)"
+: "${current_personal_name:=$(read_config "$local_config" user.name)}"
+: "${current_personal_email:=$(read_config "$local_config" user.email)}"
+current_work_name="$(read_config "$work_config" user.name)"
+current_work_email="$(read_config "$work_config" user.email)"
+current_work_root="$(current_root .gitconfig.work)"
+current_personal_root="$(current_root .gitconfig.personal)"
+# Configs from before qiubix.machine existed: a work includeIf means work.
+[[ -z "$current_machine" && -n "$current_work_root" ]] && current_machine=work
+current_default_identity="$(read_config "$local_config" include.path)"
+current_default_identity="${current_default_identity##*/.gitconfig.}"
+case "$current_default_identity" in personal|work) ;; *) current_default_identity="" ;; esac
+
 if [[ -z "$machine" ]]; then
-  stored_machine="$(git config --file "$local_config" qiubix.machine 2>/dev/null || true)"
-  prompt "Machine type (personal/work)" "${stored_machine:-personal}" machine GIT_MACHINE
+  prompt "Machine type (personal/work)" "${current_machine:-personal}" machine GIT_MACHINE
 fi
 case "$machine" in
   personal|work) ;;
@@ -77,19 +107,19 @@ case "$machine" in
     ;;
 esac
 
-prompt "Personal name" "${GIT_PERSONAL_NAME:-qiubix}" personal_name GIT_PERSONAL_NAME
-prompt "Personal email" "${GIT_PERSONAL_EMAIL:-qiubix@gmail.com}" personal_email GIT_PERSONAL_EMAIL
+prompt "Personal name" "${current_personal_name:-qiubix}" personal_name GIT_PERSONAL_NAME
+prompt "Personal email" "${current_personal_email:-qiubix@gmail.com}" personal_email GIT_PERSONAL_EMAIL
 if [[ -z "$personal_name" || -z "$personal_email" ]]; then
   echo "Personal name and email are required." >&2
   exit 1
 fi
 
 if [[ "$machine" == work ]]; then
-  prompt "Work name" "${GIT_WORK_NAME:-Your Work Name}" work_name GIT_WORK_NAME
-  prompt "Work email" "${GIT_WORK_EMAIL:-work@example.com}" work_email GIT_WORK_EMAIL
-  prompt "Work repository root" "${GIT_WORK_ROOT:-$HOME/work}" work_root GIT_WORK_ROOT
-  prompt "Personal repository root" "${GIT_PERSONAL_ROOT:-$HOME/code}" personal_root GIT_PERSONAL_ROOT
-  prompt "Default identity (personal/work)" "${GIT_DEFAULT_IDENTITY:-personal}" default_identity GIT_DEFAULT_IDENTITY
+  prompt "Work name" "${current_work_name:-Your Work Name}" work_name GIT_WORK_NAME
+  prompt "Work email" "${current_work_email:-work@example.com}" work_email GIT_WORK_EMAIL
+  prompt "Work repository root" "${current_work_root:-$HOME/work}" work_root GIT_WORK_ROOT
+  prompt "Personal repository root" "${current_personal_root:-$HOME/code}" personal_root GIT_PERSONAL_ROOT
+  prompt "Default identity (personal/work)" "${current_default_identity:-personal}" default_identity GIT_DEFAULT_IDENTITY
 
   case "$default_identity" in
     personal|work) ;;
@@ -212,7 +242,9 @@ if [[ -f "$ssh_config" ]]; then
   awk '
     /^# BEGIN qiubix( personal)? git hosts$/ { skip=1; next }
     /^# END qiubix( personal)? git hosts$/ { skip=0; next }
-    !skip { print }
+    # Hold back blank lines so trailing ones do not pile up on re-runs.
+    !skip && /^$/ { blank++; next }
+    !skip { while (blank) { print ""; blank-- } print }
   ' "$ssh_config" >"$tmp_ssh_config"
 fi
 {
