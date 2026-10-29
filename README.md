@@ -10,7 +10,7 @@ My personal macOS dotfiles: shell, editor, terminal and tooling configuration.
 | `vim/`            | Neovim is primary: `vim/nvim/` (Lua config). `vimrc-server.vim` is a minimal no-plugin fallback for plain `vim`. `idea.vim` for IdeaVim. `vim/legacy/` holds the old classic Vundle config, kept for reference but not deployed. |
 | `tmux/`           | `tmux.conf`, `tmuxp-configs/` session layouts, `start-tmux.sh`. |
 | `ghostty/`        | Ghostty terminal config. |
-| `scripts/`        | `setup-git.sh` — Git identities and SSH host aliases for a personal or work machine. |
+| `scripts/`        | `setup-git.sh` — Git identities and SSH host aliases for a personal or work machine. `setup-docker.sh` — Docker via Colima. |
 | `install.sh`      | The single entry point (see below). |
 | `Brewfile`        | Homebrew packages/casks, installed via `brew bundle`. |
 | `templates/`      | Seeds for machine-local files (`~/.gitconfig.local`). |
@@ -75,6 +75,21 @@ changed to the appropriate alias, for example:
 ```sh
 git remote set-url origin git@github.com-personal:OWNER/REPO.git
 ```
+
+**Docker:** Docker runs in a Colima VM (Apple Silicon only). On the first
+run `install.sh` calls `scripts/setup-docker.sh`, which starts the default
+profile with 6 CPUs, 8 GiB memory, a 60 GiB disk, the `vz` VM type, VirtioFS
+mounts and Rosetta, and activates the `colima` Docker context. It also merges
+`credsStore: osxkeychain` and Homebrew's CLI-plugin directory (Compose, Buildx)
+into `~/.docker/config.json`, keeping existing registry entries. Re-run the
+script to re-apply settings (it restarts the VM); override resources per
+machine:
+
+```sh
+COLIMA_CPU=8 COLIMA_MEMORY=12 COLIMA_DISK=100 scripts/setup-docker.sh
+```
+
+Registry logins are per machine: `docker login <registry>`.
 
 **Runtime versions:** `zsh/runtimes.zsh` uses mise exclusively. It enables
 idiomatic `.java-version` and `.python-version` files, so existing repositories

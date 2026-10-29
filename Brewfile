@@ -41,6 +41,8 @@ brew "python@3"
 brew "colima"
 brew "docker"
 brew "docker-compose"
+brew "docker-buildx"
+brew "docker-credential-helper"  # osxkeychain store for docker login
 
 # ── Casks: terminal, JVM, editors ────────────────────────────────
 cask "ghostty"

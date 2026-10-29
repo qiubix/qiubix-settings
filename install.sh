@@ -9,6 +9,7 @@
 #
 # With --personal or --work, Git identities and SSH keys are configured at the
 # end via scripts/setup-git.sh. Without a flag that step is skipped.
+# Docker (Colima) is set up via scripts/setup-docker.sh on the first run only.
 
 set -euo pipefail
 
@@ -133,6 +134,17 @@ if [[ -n "$machine" ]]; then
   "$DOTFILES/scripts/setup-git.sh" "--$machine"
 else
   echo "  Git identities not configured; run: scripts/setup-git.sh --personal|--work"
+fi
+
+# ── 6. Docker (Colima) ───────────────────────────────────────────
+# First run only: re-running setup-docker.sh restarts the VM, so do that
+# deliberately when settings change.
+if colima list --json 2>/dev/null | grep -q '"name":"default"'; then
+  echo "  Colima profile exists; to re-apply Docker settings run: scripts/setup-docker.sh"
+else
+  log "Setting up Docker (Colima)..."
+  "$DOTFILES/scripts/setup-docker.sh" ||
+    echo "  Docker setup failed (see above); re-run: scripts/setup-docker.sh" >&2
 fi
 
 log "Done. Start a new shell for full effect."
