@@ -12,7 +12,7 @@ windows:
   panes:
   - focus: 'true'
     shell_command:
-  start_directory: $WORK_DIR/xfor/ssc.extensible-forecasting-infra/live/dev/eu-west-1/karkat-tatum
+  start_directory: $WORK_DIR/xfor/extensible-forecasting-infra/live/dev/eu-west-1/karkat-tatum
 - window_name: feature engineering
   options: {}
   panes:
