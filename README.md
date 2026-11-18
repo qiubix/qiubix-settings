@@ -96,3 +96,19 @@ idiomatic `.java-version` and `.python-version` files, so existing repositories
 continue to select their declared versions without migration. From a repository
 directory, run `mise install` to install the declared versions and
 `mise ls --current` to inspect what mise selected.
+
+## Tmux sessions
+
+Run `start-tmux` to choose a mode interactively, or pass one explicitly:
+
+```sh
+start-tmux work       # config, xfor, gim, data-platform
+start-tmux personal   # config, side-hustle
+start-tmux all        # all sessions in the groups below
+```
+
+Edit `shared_sessions`, `work_sessions`, and `personal_sessions` at the top of
+`tmux/start-tmux.sh` to assign space-separated tmuxp config names to each group.
+Shared sessions start in every mode. Only listed configs are loaded; other
+layouts in `tmux/tmuxp-configs/` remain disabled. Sessions load detached, then
+the script lists running sessions. A failed load stops startup with an error.
